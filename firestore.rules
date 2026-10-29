@@ -2,52 +2,88 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function profile() { return get(/databases/$(database)/documents/users/$(request.auth.uid)); }
-    function memberOf(orgId, locationId) {
-      return signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && profile().data.organizationId == orgId
-        && profile().data.locationId == locationId;
+    function userPath() { return /databases/$(database)/documents/users/$(request.auth.uid); }
+    function hasProfile() { return signedIn() && exists(userPath()); }
+    function superAdmin() {
+      return hasProfile() && ('SuperAdmin' in get(userPath()).data.roles);
+    }
+    function orgMemberPath(orgId) {
+      return /databases/$(database)/documents/organizations/$(orgId)/memberships/$(request.auth.uid);
+    }
+    function locationMemberPath(orgId, locationId) {
+      return /databases/$(database)/documents/organizations/$(orgId)/locations/$(locationId)/memberships/$(request.auth.uid);
+    }
+    function orgMember(orgId) {
+      return signedIn() && exists(orgMemberPath(orgId));
+    }
+    function orgAdmin(orgId) {
+      return superAdmin() ||
+        (orgMember(orgId) && 'OrgAdmin' in get(orgMemberPath(orgId)).data.roles);
+    }
+    function locationMember(orgId, locationId) {
+      return signedIn() && exists(locationMemberPath(orgId, locationId));
+    }
+    function locationAccess(orgId, locationId) {
+      return orgAdmin(orgId) || locationMember(orgId, locationId);
     }
     function locationAdmin(orgId, locationId) {
-      return memberOf(orgId, locationId)
-        && profile().data.role in ['locationAdmin', 'organizationAdmin', 'platformAdmin'];
+      return orgAdmin(orgId) ||
+        (locationMember(orgId, locationId) &&
+          'LocationAdmin' in get(locationMemberPath(orgId, locationId)).data.roles);
     }
-    function instructor(orgId, locationId, classroomId) {
-      return memberOf(orgId, locationId)
-        && (locationAdmin(orgId, locationId)
-          || (profile().data.role == 'instructor'
-            && classroomId in profile().data.classroomIds));
+    function classroomInstructor(orgId, locationId, classroomId) {
+      return locationAdmin(orgId, locationId) ||
+        (locationMember(orgId, locationId) &&
+          'Instructor' in get(locationMemberPath(orgId, locationId)).data.roles &&
+          classroomId in get(locationMemberPath(orgId, locationId)).data.classroomIds);
     }
     match /users/{uid} {
-      allow read: if signedIn() && request.auth.uid == uid;
-      // Provision accounts and roles via trusted administration, not the browser.
-      allow write: if false;
+      allow get: if signedIn() && request.auth.uid == uid;
+      allow list, create, update, delete: if false; // trusted Admin SDK only
     }
-    match /organizations/{orgId}/locations/{locationId} {
-      allow read: if memberOf(orgId, locationId);
-      allow write: if false;
-      match /classrooms/{classroomId} {
-        allow read: if memberOf(orgId, locationId);
-        allow create: if locationAdmin(orgId, locationId)
-          && request.resource.data.keys().hasOnly(['name','instructorIds','createdAt'])
-          && request.resource.data.name is string
-          && request.resource.data.instructorIds is list;
-        allow update, delete: if locationAdmin(orgId, locationId);
-        match /teams/{teamId} {
-          allow read: if memberOf(orgId, locationId);
-          allow create: if instructor(orgId, locationId, classroomId)
-            && request.resource.data.keys().hasOnly(['name','classroomId','score','leadUid','memberUids'])
-            && request.resource.data.classroomId == classroomId
-            && request.resource.data.score == 0
-            && request.resource.data.memberUids is list;
-          allow update: if instructor(orgId, locationId, classroomId)
-            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name','memberUids','leadUid'])
-            && request.resource.data.classroomId == resource.data.classroomId;
-          allow delete: if instructor(orgId, locationId, classroomId);
+    match /organizations/{orgId} {
+      allow get, list: if superAdmin() || orgMember(orgId);
+      allow create, update, delete: if false; // trusted administrator only
+      match /memberships/{uid} {
+        allow get: if signedIn() && request.auth.uid == uid;
+        allow list, create, update, delete: if false;
+      }
+      match /locations/{locationId} {
+        allow get, list: if locationAccess(orgId, locationId);
+        allow create, update, delete: if false; // provision locations with trusted administration
+        match /memberships/{uid} {
+          allow get: if signedIn() && request.auth.uid == uid;
+          allow list, create, update, delete: if false;
         }
-        match /rounds/{roundId} {
-          allow read: if memberOf(orgId, locationId);
-          allow write: if false; // Server-authoritative game engine in next phase.
+        match /classrooms/{classroomId} {
+          allow get, list: if locationAccess(orgId, locationId);
+          allow create: if locationAdmin(orgId, locationId)
+            && request.resource.data.keys().hasOnly(['name','instructorIds','createdAt'])
+            && request.resource.data.name is string
+            && request.resource.data.name.size() > 0
+            && request.resource.data.instructorIds is list
+            && request.resource.data.instructorIds.size() == 0;
+          allow update, delete: if false;
+          match /teams/{teamId} {
+            allow get, list: if locationAccess(orgId, locationId);
+            allow create: if classroomInstructor(orgId, locationId, classroomId)
+              && request.resource.data.keys().hasOnly(['name','classroomId','score','leadUid','memberUids'])
+              && request.resource.data.name is string
+              && request.resource.data.name.size() > 0
+              && request.resource.data.classroomId == classroomId
+              && request.resource.data.score == 0
+              && request.resource.data.leadUid == null
+              && request.resource.data.memberUids == [];
+            allow update: if classroomInstructor(orgId, locationId, classroomId)
+              && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name'])
+              && request.resource.data.name is string
+              && request.resource.data.name.size() > 0;
+            allow delete: if classroomInstructor(orgId, locationId, classroomId);
+          }
+          match /rounds/{roundId} {
+            allow get, list: if locationAccess(orgId, locationId);
+            allow create, update, delete: if false;
+          }
         }
       }
     }

@@ -101,41 +101,41 @@
         {
           "id": "1ed3a33e-8d40-4b19-a54b-cb9e6b0d207f",
           "value": 100,
-          "clue": "This ordered, mutable Python collection allows duplicates.",
+          "clue": "This mutable Python sequence allows duplicate elements.",
           "response": "What is a list?",
-          "hint": "Square brackets.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "41e5fc8b-d461-435b-9545-4a4edfd49734",
           "value": 200,
-          "clue": "This ordered, immutable collection is commonly written with parentheses.",
+          "clue": "This immutable Python sequence is commonly written with parentheses.",
           "response": "What is a tuple?",
-          "hint": "Cannot reassign its elements.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "fad43fcd-bf8a-4545-81c2-e47cc7ffdc13",
           "value": 300,
-          "clue": "This structure retrieves values using named keys.",
+          "clue": "This Python mapping stores key-value pairs.",
           "response": "What is a dictionary?",
-          "hint": "Key-value pairs.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "a994b27b-d975-41af-9096-d7456fffbac6",
           "value": 400,
-          "clue": "This collection removes duplicates and tests membership.",
+          "clue": "This Python collection stores unique hashable elements.",
           "response": "What is a set?",
-          "hint": "Unique elements.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "78d41861-ead3-485b-ba81-6375c7db3cc5",
           "value": 500,
-          "clue": "This construct automatically closes a file on leaving its block, including when exceptions occur.",
-          "response": "What is a context manager, such as with open(...)?",
-          "hint": "Resource cleanup.",
+          "clue": "This protocol lets with open(...) clean up file resources automatically.",
+          "response": "What is a context manager?",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -147,41 +147,41 @@
         {
           "id": "ef86040a-23ae-4786-b5cd-5e09496d284a",
           "value": 100,
-          "clue": "This pandas object represents tabular rows and columns.",
+          "clue": "This pandas object holds tabular rows and columns.",
           "response": "What is a DataFrame?",
-          "hint": "Two-dimensional.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "caead2b2-e53e-4f80-a42f-1a972d65e7a1",
           "value": 200,
-          "clue": "This pandas object is a one-dimensional labeled array, which can also represent a DataFrame column.",
+          "clue": "This pandas object is a one-dimensional labeled array.",
           "response": "What is a Series?",
-          "hint": "One-dimensional.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "2a1409a5-0013-45c5-8ce1-b2a9db121ca8",
           "value": 300,
-          "clue": "This function reads CSV data into a DataFrame.",
+          "clue": "This pandas function reads CSV data.",
           "response": "What is pd.read_csv()?",
-          "hint": "Read a file.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "fa68d0b0-ac25-43eb-a766-0c84d064c467",
           "value": 400,
-          "clue": "This selector accesses rows by integer position.",
-          "response": "What is .iloc?",
-          "hint": "Unlike .loc.",
+          "clue": "This pandas indexer selects rows by integer position.",
+          "response": "What is iloc?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b3fe2440-f382-4525-9ddd-d4783c41345f",
           "value": 500,
-          "clue": "This pandas Boolean-indexing expression selects rows whose side column equals 'BUY'.",
+          "clue": "This expression selects BUY rows from a DataFrame with a side column.",
           "response": "What is df.loc[df['side'] == 'BUY']?",
-          "hint": "Boolean indexing.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

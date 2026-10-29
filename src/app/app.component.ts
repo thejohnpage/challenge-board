@@ -15,6 +15,9 @@ export class AppComponent {
   games=signal<Game[]>([]); selected=signal(0); edit=signal(false); modal=signal<Clue|null>(null); final=signal(false); revealed=signal(false); hinted=signal(false); seconds=signal(15); timerSeconds=signal(15); active=signal(false); used=signal<string[]>([]);
   teams=signal<Team[]>(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));
   pendingDeleteTeam=signal<Team|null>(null);
+  managingTeams=signal(false);
+  newTeamName=signal('');
+  teamError=signal('');
   categoryIndex=signal(0); clueIndex=signal(0); notice=signal(''); projector=signal(false); private timer:any=null; private channel?:BroadcastChannel;
   game=computed(()=>this.games()[this.selected()] ?? starter);
   boardRows=computed(()=>Array.from({length:Math.max(0,...this.game().categories.map(c=>c.clues.length))},(_,i)=>i));
@@ -43,11 +46,17 @@ export class AppComponent {
   beep(){try{const c=new AudioContext();const o=c.createOscillator();const g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=700;g.gain.value=.1;o.start();o.stop(c.currentTime+.25);o.onended=()=>void c.close()}catch{}}
   score(id:string,correct:boolean){const t=this.teams().find(x=>x.id===id);if(!t)return;const value=this.final()?Math.max(0,t.wager):this.displayValue();this.teams.update(ts=>ts.map(x=>x.id===id?{...x,score:x.score+(correct?value:-value)}:x))}
   changeTeam(id:string,key:'name'|'wager',value:string|number){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,[key]:key==='wager'?Number(value):value}:t))}
-  addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:`Team ${ts.length+1}`,score:0,wager:0}])}
+  addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:this.uniqueTeamName(),score:0,wager:0}])}
+  uniqueTeamName(){let n=1;while(this.teams().some(t=>t.name.trim().toLowerCase()===`team ${n}`))n++;return `Team ${n}`}
+  openTeamManager(){this.teamError.set('');this.newTeamName.set('');this.managingTeams.set(true)}
+  closeTeamManager(){this.managingTeams.set(false);this.teamError.set('')}
+  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,score:0,wager:0}]);this.newTeamName.set('');this.teamError.set('')}
+  updateTeamName(id:string,value:string){const name=value.trim();if(!name){this.teamError.set('Team names cannot be blank.');return}if(this.teams().some(t=>t.id!==id&&t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('Team names must be unique.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,name}:t));this.teamError.set('')}
+  updateTeamScore(id:string,value:number|string){const score=Number(value);if(!Number.isFinite(score)||!Number.isInteger(score)){this.teamError.set('Scores must be whole numbers.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,score}:t));this.teamError.set('')}
   removeTeam(id:string){if(this.teams().length<=1)return;const team=this.teams().find(t=>t.id===id);if(team)this.pendingDeleteTeam.set(team)}
   cancelTeamDelete(){this.pendingDeleteTeam.set(null)}
   confirmTeamDelete(){const team=this.pendingDeleteTeam();if(!team)return;this.pendingDeleteTeam.set(null);if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==team.id))}
-  @HostListener('document:keydown.escape') onEscape(){this.cancelTeamDelete()}
+  @HostListener('document:keydown.escape') onEscape(){if(this.pendingDeleteTeam())this.cancelTeamDelete();else if(this.managingTeams())this.closeTeamManager()}
   resetScores(){if(confirm('Reset all team scores?'))this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})))}
   restoreDefaultTeams(){if(!confirm('Restore default Teams 1–4? This will replace the current team list and reset all team scores and wagers to zero. The question board will not be changed.'))return;this.pendingDeleteTeam.set(null);this.teams.set(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));this.notice.set('Default Teams 1–4 restored.')}
   resetBoard(){if(!confirm('Reset this game? This will restore all played clues and clear all team scores and wagers.'))return;this.stop();this.modal.set(null);this.final.set(false);this.revealed.set(false);this.hinted.set(false);this.seconds.set(this.timerSeconds());this.used.set([]);this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})));this.notice.set('Board and scores reset.')}

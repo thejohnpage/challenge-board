@@ -49,6 +49,7 @@ export class AppComponent {
   confirmTeamDelete(){const team=this.pendingDeleteTeam();if(!team)return;this.pendingDeleteTeam.set(null);if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==team.id))}
   @HostListener('document:keydown.escape') onEscape(){this.cancelTeamDelete()}
   resetScores(){if(confirm('Reset all team scores?'))this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})))}
+  restoreDefaultTeams(){if(!confirm('Restore default Teams 1–4? This will replace the current team list and reset all team scores and wagers to zero. The question board will not be changed.'))return;this.pendingDeleteTeam.set(null);this.teams.set(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));this.notice.set('Default Teams 1–4 restored.')}
   resetBoard(){if(!confirm('Reset this game? This will restore all played clues and clear all team scores and wagers.'))return;this.stop();this.modal.set(null);this.final.set(false);this.revealed.set(false);this.hinted.set(false);this.seconds.set(this.timerSeconds());this.used.set([]);this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})));this.notice.set('Board and scores reset.')}
   openBuzz(){window.open('https://buzzin.live/','_blank','noopener,noreferrer')}
   openProjector(){window.open(location.pathname+'?projector=1','_blank')}

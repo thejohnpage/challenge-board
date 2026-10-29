@@ -133,8 +133,8 @@
         {
           "id": "8822898a-f5f9-4a7c-b89d-d7410ba7396a",
           "value": 500,
-          "clue": "The inject() function and constructor injection are two ways to use this Angular mechanism.",
-          "response": "What is dependency injection?",
+          "clue": "Angular uses this typed identifier to inject a value or dependency that has no class constructor, such as an application configuration object.",
+          "response": "What is an InjectionToken?",
           "hint": "",
           "dailyDouble": false
         }

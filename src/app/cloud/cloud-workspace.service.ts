@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { User, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { collection, doc, getDoc, onSnapshot, addDoc, updateDoc, serverTimestamp, type Unsubscribe } from 'firebase/firestore';
 import { cloudClient } from './cloud-config';
+import { getFunctions, httpsCallable } from 'firebase/functions';
 import type { Classroom, CloudTeam, Location, Organization, ScopedMembership, UserProfile } from './cloud-models';
 
 @Injectable({ providedIn: 'root' })
@@ -144,6 +145,36 @@ export class CloudWorkspaceService {
     if (this.listeners.length > 3) this.listeners.splice(3).forEach(stop => stop());
     this.teams.set([]);
     this.listen<CloudTeam>(`organizations/${orgId}/locations/${locId}/classrooms/${classroomId}/teams`, this.teams);
+  }
+
+  private async adminCall<T>(name: string, payload: Record<string, unknown>): Promise<T> {
+    if (!this.client || !this.user()) throw Error('Sign in to continue.');
+    const callable = httpsCallable<Record<string, unknown>, T>(
+      getFunctions(this.client.app, 'us-central1'), name
+    );
+    const result = await callable(payload);
+    return result.data;
+  }
+
+  async createOrganization(name: string, code: string) {
+    if (!this.isSuperAdmin) throw Error('Only a SuperAdmin can create organizations.');
+    return this.adminCall<{ id: string }>('createOrganization', { name, code });
+  }
+
+  async createLocation(name: string, city: string, state: string) {
+    const organizationId = this.selectedOrganizationId();
+    if (!organizationId || !this.isOrgAdmin) throw Error('Select an organization with administrator access.');
+    return this.adminCall<{ id: string }>('createLocation', { organizationId, name, city, state });
+  }
+
+  async assignInstructor(classroomId: string, email: string) {
+    const organizationId = this.selectedOrganizationId();
+    const locationId = this.selectedLocationId();
+    if (!organizationId || !locationId || !this.isLocationAdmin)
+      throw Error('Select a location with administrator access.');
+    return this.adminCall<{ uid: string; email: string; classroomId: string }>(
+      'assignInstructor', { organizationId, locationId, classroomId, email }
+    );
   }
 
   async createClassroom(name: string) {

@@ -9,7 +9,7 @@
         {
           "id": "0cb5a55e-3f8b-4f1c-a6a3-150e70fa1aa5",
           "value": 100,
-          "clue": "Java checks declared variable types during this stage.",
+          "clue": "This stage of Java development detects incompatible declared types before the program runs.",
           "response": "What is compilation?",
           "hint": "",
           "dailyDouble": false
@@ -17,7 +17,7 @@
         {
           "id": "befb6e2c-cd87-4311-8810-5f163b68a3ef",
           "value": 200,
-          "clue": "Java uses these symbols to enclose blocks.",
+          "clue": "These paired punctuation marks enclose the body of a Java class or method.",
           "response": "What are curly braces?",
           "hint": "",
           "dailyDouble": false
@@ -25,7 +25,7 @@
         {
           "id": "5184b9e7-2d85-4476-bd8b-fd8647331e8a",
           "value": 300,
-          "clue": "This ordered Java collection interface permits duplicates.",
+          "clue": "This Java collection interface maintains element order and permits duplicates.",
           "response": "What is List?",
           "hint": "",
           "dailyDouble": false
@@ -33,7 +33,7 @@
         {
           "id": "5ae7d986-678c-499c-91f9-602a56e533c3",
           "value": 400,
-          "clue": "This Java collection interface maps keys to values.",
+          "clue": "This collection interface associates each unique key with a value.",
           "response": "What is Map?",
           "hint": "",
           "dailyDouble": false
@@ -41,7 +41,7 @@
         {
           "id": "62216f39-56ee-4720-b9c2-98c5acc8400d",
           "value": 500,
-          "clue": "These exceptions must be caught or declared.",
+          "clue": "Java's compiler requires these exception types to be caught or declared.",
           "response": "What are checked exceptions?",
           "hint": "",
           "dailyDouble": false
@@ -55,7 +55,7 @@
         {
           "id": "9a2655a8-b216-4a74-a490-195b2ad4c22e",
           "value": 100,
-          "clue": "This definition describes the fields and methods of objects.",
+          "clue": "This Java construct defines the fields and behavior shared by its instances.",
           "response": "What is a class?",
           "hint": "",
           "dailyDouble": false
@@ -63,7 +63,7 @@
         {
           "id": "68708068-5821-4964-b9eb-c08ff7692241",
           "value": 200,
-          "clue": "This keyword invokes a constructor to create an object.",
+          "clue": "This Java keyword creates an instance using a constructor.",
           "response": "What is new?",
           "hint": "",
           "dailyDouble": false
@@ -71,7 +71,7 @@
         {
           "id": "af64a1d1-f510-4745-81f6-a22464401275",
           "value": 300,
-          "clue": "This OO principle protects internal object state.",
+          "clue": "This object-oriented principle hides internal state behind controlled operations.",
           "response": "What is encapsulation?",
           "hint": "",
           "dailyDouble": false
@@ -79,7 +79,7 @@
         {
           "id": "f92602f2-eb18-4865-b3af-a442cd044135",
           "value": 400,
-          "clue": "This OO feature lets a shared interface dispatch different implementations.",
+          "clue": "A superclass reference calling an overridden subclass method demonstrates this feature.",
           "response": "What is polymorphism?",
           "hint": "",
           "dailyDouble": false
@@ -87,7 +87,7 @@
         {
           "id": "1a234332-74c5-441d-8fb3-a1b31cb15917",
           "value": 500,
-          "clue": "This design preference combines objects instead of extending classes.",
+          "clue": "A Car containing an Engine object, rather than extending Engine, illustrates this design preference.",
           "response": "What is composition over inheritance?",
           "hint": "",
           "dailyDouble": false
@@ -101,7 +101,7 @@
         {
           "id": "37b5b636-4958-4974-a9c4-e354e9a9aa4d",
           "value": 100,
-          "clue": "Nouns in requirements can suggest these object-oriented definitions.",
+          "clue": "Candidate domain objects such as Customer and Invoice are commonly modeled as these.",
           "response": "What are classes?",
           "hint": "",
           "dailyDouble": false
@@ -109,7 +109,7 @@
         {
           "id": "f8bf75a8-06c9-4b0f-8dd4-05b648b9a716",
           "value": 200,
-          "clue": "Verbs in requirements can suggest these class behaviors.",
+          "clue": "Actions such as approve() and cancel() are commonly modeled as these class members.",
           "response": "What are methods?",
           "hint": "",
           "dailyDouble": false
@@ -117,7 +117,7 @@
         {
           "id": "2327c095-11bd-49fc-99df-c6f8f0ea1809",
           "value": 300,
-          "clue": "A due date on a Loan is usually this kind of member.",
+          "clue": "A Loan's dueDate is typically modeled as this kind of class member.",
           "response": "What is an attribute?",
           "hint": "",
           "dailyDouble": false
@@ -125,16 +125,16 @@
         {
           "id": "e3ff24dd-97c6-432b-8d89-be4aefa9ae3c",
           "value": 400,
-          "clue": "This class represents a particular book checkout.",
-          "response": "What is Loan?",
+          "clue": "A book checkout with its own borrower, due date and return status could be represented by this domain class.",
+          "response": "What is a Loan?",
           "hint": "",
           "dailyDouble": false
         },
         {
           "id": "679e97a3-6eba-434a-b6f5-f113075b65b1",
           "value": 500,
-          "clue": "A class with unrelated responsibilities violates this SOLID principle.",
-          "response": "What is Single Responsibility Principle?",
+          "clue": "A class handling unrelated invoicing, authentication and reporting responsibilities violates this SOLID principle.",
+          "response": "What is the Single Responsibility Principle?",
           "hint": "",
           "dailyDouble": false
         }
@@ -147,7 +147,7 @@
         {
           "id": "8aeb7b5b-9c15-493c-8812-d487b159b2ac",
           "value": 100,
-          "clue": "This SOLID principle says a class should have one reason to change.",
+          "clue": "The S in SOLID names this principle, which calls for one reason for a class to change.",
           "response": "What is the Single Responsibility Principle?",
           "hint": "",
           "dailyDouble": false
@@ -155,7 +155,7 @@
         {
           "id": "5896a939-ab2e-42dc-9dcd-963ae61459d7",
           "value": 200,
-          "clue": "This SOLID principle favors extension without modifying existing code.",
+          "clue": "The O in SOLID names this principle, which favors extension without altering stable code.",
           "response": "What is the Open/Closed Principle?",
           "hint": "",
           "dailyDouble": false
@@ -163,7 +163,7 @@
         {
           "id": "088ee76e-51d9-4ee6-b625-8d67a7fc6445",
           "value": 300,
-          "clue": "This SOLID principle requires high-level code to depend on abstractions.",
+          "clue": "The D in SOLID names this principle, which has high-level policy depend on abstractions.",
           "response": "What is the Dependency Inversion Principle?",
           "hint": "",
           "dailyDouble": false
@@ -171,7 +171,7 @@
         {
           "id": "b2ec0496-600e-40f2-91af-523e3db190ca",
           "value": 400,
-          "clue": "This SOLID principle requires subtypes to honor base-type contracts.",
+          "clue": "The L in SOLID names this principle, which requires substitutable subtypes.",
           "response": "What is the Liskov Substitution Principle?",
           "hint": "",
           "dailyDouble": false
@@ -179,7 +179,7 @@
         {
           "id": "5c9bd741-e125-4775-b5fe-25669d8c4415",
           "value": 500,
-          "clue": "This Java construct defines a contract for unrelated classes.",
+          "clue": "Java classes can implement this type of contract without inheriting a concrete implementation.",
           "response": "What is an interface?",
           "hint": "",
           "dailyDouble": false
@@ -193,7 +193,7 @@
         {
           "id": "8a99c23b-c8e1-4632-bfde-1f96afc5d158",
           "value": 100,
-          "clue": "This JUnit annotation marks a test method.",
+          "clue": "This JUnit annotation identifies a method as a test.",
           "response": "What is @Test?",
           "hint": "",
           "dailyDouble": false
@@ -201,7 +201,7 @@
         {
           "id": "6db50459-1995-4e94-8b4a-394c462608e4",
           "value": 200,
-          "clue": "This JUnit annotation runs setup before each test.",
+          "clue": "This JUnit lifecycle annotation runs before each test invocation.",
           "response": "What is @BeforeEach?",
           "hint": "",
           "dailyDouble": false
@@ -209,7 +209,7 @@
         {
           "id": "15035bcd-5e19-427f-919a-8f23373540ac",
           "value": 300,
-          "clue": "This JUnit assertion verifies an expected exception.",
+          "clue": "This JUnit assertion succeeds only when executable code throws the expected exception type.",
           "response": "What is assertThrows()?",
           "hint": "",
           "dailyDouble": false
@@ -217,7 +217,7 @@
         {
           "id": "b0c71b60-46b3-4a16-b53d-27ced53cae66",
           "value": 400,
-          "clue": "This JUnit annotation runs tests with multiple argument sets.",
+          "clue": "This JUnit annotation allows the same test method to run with multiple supplied arguments.",
           "response": "What is @ParameterizedTest?",
           "hint": "",
           "dailyDouble": false
@@ -225,7 +225,7 @@
         {
           "id": "6786cfb2-ec50-4168-8211-81da109c20b9",
           "value": 500,
-          "clue": "This Java library creates mock collaborators for tests.",
+          "clue": "This Java testing library provides mock objects and verification of collaborator calls.",
           "response": "What is Mockito?",
           "hint": "",
           "dailyDouble": false
@@ -239,7 +239,7 @@
         {
           "id": "9cb3a3bd-0f7f-4435-964e-a2e4a54674cc",
           "value": 100,
-          "clue": "Identifiers such as totalAmount instead of x demonstrate this practice.",
+          "clue": "Replacing a variable called x with outstandingBalance demonstrates this readability practice.",
           "response": "What is meaningful naming?",
           "hint": "",
           "dailyDouble": false
@@ -247,7 +247,7 @@
         {
           "id": "eb5f2b99-8f9a-4526-a5d0-50bd00512283",
           "value": 200,
-          "clue": "Replacing a magic number with MAX_VALUE introduces this construct.",
+          "clue": "Replacing the unexplained number 10000 with MAX_ORDER_VALUE creates this code element.",
           "response": "What is a named constant?",
           "hint": "",
           "dailyDouble": false
@@ -255,7 +255,7 @@
         {
           "id": "98d36851-a8eb-4a70-b1fc-af11844f33cc",
           "value": 300,
-          "clue": "A method performing unrelated tasks violates this design guideline.",
+          "clue": "Splitting a method that validates, persists and emails an order follows this design guideline.",
           "response": "What is single responsibility?",
           "hint": "",
           "dailyDouble": false
@@ -263,7 +263,7 @@
         {
           "id": "bbc60674-13bf-414e-ac66-645dee4b1a73",
           "value": 400,
-          "clue": "Improving structure without changing behavior is this activity.",
+          "clue": "Restructuring code while preserving its externally observable behavior is this activity.",
           "response": "What is refactoring?",
           "hint": "",
           "dailyDouble": false
@@ -271,7 +271,7 @@
         {
           "id": "3c984820-d134-44e9-a06a-bd6f22571afc",
           "value": 500,
-          "clue": "This practice verifies an AI-generated refactor still works correctly.",
+          "clue": "Running automated checks after an AI-assisted change is an example of this verification practice.",
           "response": "What is testing?",
           "hint": "",
           "dailyDouble": false
@@ -280,9 +280,9 @@
     }
   ],
   "finalJeopardy": {
-    "category": "Java Design",
-    "clue": "This OO principle keeps a Holding object's quantity rules inside the object.",
+    "category": "Object-Oriented Design",
+    "clue": "A Holding object prevents callers from setting a negative quantity by keeping its state private and validating changes through its methods. This principle is being applied.",
     "response": "What is encapsulation?",
-    "hint": "Protect state."
+    "hint": "Protecting an object's invariants."
   }
 }

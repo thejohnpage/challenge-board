@@ -193,41 +193,41 @@
         {
           "id": "52ef5e70-8370-4d2c-80c6-9f573d8d7e39",
           "value": 100,
-          "clue": "This pandas expression counts missing values per column.",
+          "clue": "This pandas expression counts missing values by column.",
           "response": "What is df.isna().sum()?",
-          "hint": "Missing values.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "7cc985a7-6b05-4884-ba39-7703418b761c",
           "value": 200,
-          "clue": "This expression counts duplicate rows.",
+          "clue": "This pandas expression counts duplicate rows.",
           "response": "What is df.duplicated().sum()?",
-          "hint": "Duplicate detection.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "1dde2f53-3208-43cc-a9d8-86123f28e516",
           "value": 300,
-          "clue": "A missing trade value can be recovered from verified quantity and price using this calculation.",
-          "response": "What is quantity multiplied by price?",
-          "hint": "Do not discard recoverable data.",
+          "clue": "This arithmetic operation calculates trade value from quantity and unit price.",
+          "response": "What is multiplication?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f8d0d54f-a7f3-4afc-be65-d121e91347ce",
           "value": 400,
-          "clue": "An ambiguous date such as 05/01/2026 should be resolved using this.",
-          "response": "What is source context or source-system confirmation?",
-          "hint": "Do not guess.",
+          "clue": "Before parsing an ambiguous date, an analyst must confirm this source setting.",
+          "response": "What is the date format?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "e24dd5a8-ebcb-4cdd-beac-b3b400dd283e",
           "value": 500,
-          "clue": "An extreme data value should undergo this process before removal because it might be valid.",
-          "response": "What is investigation or validation?",
-          "hint": "Unusual does not mean wrong.",
+          "clue": "Before deleting an extreme data value, an analyst should perform this check.",
+          "response": "What is validation?",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -239,17 +239,17 @@
         {
           "id": "6cc20cb0-c5a6-488f-a94e-328aa4a5c710",
           "value": 100,
-          "clue": "This method groups rows by a category for aggregation.",
+          "clue": "This pandas method groups rows before aggregation.",
           "response": "What is groupby()?",
-          "hint": "Summarize per category.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "21d390f2-5ab3-4010-9dc6-d9fe36b32cd8",
           "value": 200,
-          "clue": "This method computes several summary statistics in one call.",
-          "response": "What is .agg()?",
-          "hint": "count, sum, mean.",
+          "clue": "This pandas method applies aggregation functions such as sum and mean.",
+          "response": "What is agg()?",
+          "hint": "",
           "dailyDouble": false
         },
         {
@@ -257,32 +257,32 @@
           "value": 300,
           "clue": "This pandas method creates a cross-tabulated summary.",
           "response": "What is pivot_table()?",
-          "hint": "Rows and columns.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "827fdc5c-cca7-4eae-8519-ff517ac09c53",
           "value": 400,
-          "clue": "This pivot_table option replaces missing combinations with zero.",
-          "response": "What is fill_value=0?",
-          "hint": "Avoid NaN in empty cells.",
+          "clue": "This pivot_table argument substitutes a value for missing cells.",
+          "response": "What is fill_value?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "09276d02-a2b1-4890-afd5-28faa2777a49",
           "value": 500,
-          "clue": "To combine two tables using a common key, use this pandas operation.",
+          "clue": "This pandas method joins DataFrames on matching keys.",
           "response": "What is merge()?",
-          "hint": "Join-like operation.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
     }
   ],
   "finalJeopardy": {
-    "category": "Python Data Workflow",
-    "clue": "This pandas workflow selects BUY rows, aggregates trade values by instrument, and orders totals descending.",
-    "response": "What are Boolean filtering, groupby() with sum(), and sort_values(ascending=False)?",
-    "hint": "Filter, aggregate, sort."
+    "category": "Python Data Analysis",
+    "clue": "This pandas aggregation calculates a total within each group.",
+    "response": "What is sum()?",
+    "hint": "Addition."
   }
 }

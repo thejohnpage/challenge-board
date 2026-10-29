@@ -10,6 +10,9 @@ Husky installs the local Git `commit-msg` hook. GitHub web edits and API commits
 
 ## Automatic local Git commit versioning
 When you commit locally:
+- `[MAJOR] ...` increments **major** and resets minor/patch
+- `[MINOR] ...` increments **minor** and resets patch
+- `[PATCH] ...` increments **patch**
 - `feat: ...` increments **minor** (0.1.0 → 0.2.0)
 - `fix: ...`, `refactor: ...` and other messages increment **patch**
 - `feat!: ...` or a `BREAKING CHANGE:` footer increments **major**

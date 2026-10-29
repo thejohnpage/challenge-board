@@ -87,10 +87,12 @@ export const assignInstructor = onCall(settings, async request => {
   }
   const userRef = db.doc('users/' + user.uid);
   const membershipRef = db.doc(`${locationPath(organizationId, locationId)}/memberships/${user.uid}`);
+  const orgMembershipRef = db.doc(`organizations/${organizationId}/memberships/${user.uid}`);
   const classroomRef = db.doc(classroomPath);
   await db.runTransaction(async transaction => {
-    const [memberSnap, profileSnap, classroomSnap] = await Promise.all([
-      transaction.get(membershipRef), transaction.get(userRef), transaction.get(classroomRef)
+    const [memberSnap, profileSnap, classroomSnap, orgMemberSnap] = await Promise.all([
+      transaction.get(membershipRef), transaction.get(userRef),
+      transaction.get(classroomRef), transaction.get(orgMembershipRef)
     ]);
     if (!classroomSnap.exists) throw new HttpsError('not-found', 'Classroom not found.');
     const existing = memberSnap.exists ? memberSnap.data() : {};
@@ -102,9 +104,17 @@ export const assignInstructor = onCall(settings, async request => {
       classroomIds: [...new Set([...classroomIds, classroomId])],
       updatedAt: FieldValue.serverTimestamp()
     });
-    if (!profileSnap.exists) transaction.set(userRef, {
-      email: user.email || email, first_name: '', last_name: '', roles: []
+    const orgMembership = orgMemberSnap.exists ? orgMemberSnap.data() : {};
+    transaction.set(orgMembershipRef, {
+      ...orgMembership,
+      roles: Array.isArray(orgMembership.roles) ? orgMembership.roles : [],
+      locationIds: [...new Set([...(Array.isArray(orgMembership.locationIds) ? orgMembership.locationIds : []), locationId])]
     });
+    if (!profileSnap.exists) transaction.set(userRef, {
+      email: user.email || email, first_name: '', last_name: '',
+      roles: [], organizationIds: [organizationId]
+    });
+    else transaction.update(userRef, { organizationIds: FieldValue.arrayUnion(organizationId) });
     transaction.update(classroomRef, { instructorIds: FieldValue.arrayUnion(user.uid) });
   });
   return { uid: user.uid, email: user.email || email, classroomId };

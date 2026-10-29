@@ -15,7 +15,7 @@ Open the local URL shown by Angular CLI (normally http://localhost:4200).
 
 ## Features
 
-- Auto update of Version in Package.json
+- Auto update of Version in Package.json using Husky & Git extrension
 - Five original subject question banks imported from the supplied classroom quiz: Java, Python, TypeScript, Angular, Spring Boot.
 - CRUD question bank editor including category management, clue/response/hint editing, duplicate and delete.
 - Import/export portable JSON games; local browser persistence.

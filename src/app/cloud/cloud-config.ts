@@ -8,10 +8,13 @@ import { getFirestore, type Firestore } from 'firebase/firestore';
  * Leaving these values blank keeps the existing local-only game operational.
  */
 export const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  projectId: '',
-  appId: ''
+  apiKey: "AIzaSyAOys--4E1daX28SMKot2qKSVS_OEo9e40",
+  authDomain: "mmci-challenge-board.firebaseapp.com",
+  projectId: "mmci-challenge-board",
+  storageBucket: "mmci-challenge-board.firebasestorage.app",
+  messagingSenderId: "28809022149",
+  appId: "1:28809022149:web:bf82914137a52836cd3eac",
+  measurementId: "G-0D064M2JXF"
 };
 
 export function cloudEnabled(): boolean {

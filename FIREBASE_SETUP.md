@@ -1,41 +1,63 @@
-# Challenge Board — Firebase foundation
+# Challenge Board — Firebase authentication and authorization
 
-The existing browser-only game remains available without Firebase. This foundation adds
-Firebase Auth, Firestore models, classroom/team service operations, security rules, and Hosting configuration.
+Firebase project: `mmci-challenge-board`. The Angular app can run locally with `npm start`
+while Firebase Authentication and Firestore are hosted in Firebase.
 
-## Initial setup
-1. Create a Firebase project and register a **Web** app.
-2. Enable **Authentication > Email/Password** and create the initial administrator account.
-3. Create a **Cloud Firestore** database (production mode). Choose a region deliberately.
-4. Paste the web configuration into `src/app/cloud/cloud-config.ts`.
-5. Run `npm install`, `npm run build`, and `npx firebase-tools login`.
-6. Run `npx firebase-tools use --add` and select your Firebase project.
-7. Deploy rules with `npx firebase-tools deploy --only firestore:rules`.
-8. Deploy the Angular site with `npx firebase-tools deploy --only hosting`.
+## Identity and roles
 
-## Bootstrap (trusted administrator only)
-The browser cannot grant roles. Create the initial `users/{uid}` document from the Firebase
-Console or an Admin SDK script using:
+Firebase Authentication assigns the immutable UID. The Firestore profile document
+**must** use that UID as its document ID: `users/{authUid}`.
+
+Initial trusted SuperAdmin profile (create manually in Firebase Console):
 ```json
 {
-  "uid": "FIREBASE_AUTH_UID",
-  "organizationId": "fidelity",
-  "locationId": "westlake-tx",
-  "classroomIds": [],
-  "role": "locationAdmin"
+  "email": "johnpage@multimediacommunications.net",
+  "first_name": "John",
+  "last_name": "Page",
+  "roles": ["SuperAdmin"]
 }
 ```
-Create the parent documents `organizations/fidelity` and
-`organizations/fidelity/locations/westlake-tx` in the console.
-Do not allow untrusted users to write role assignments.
+Document ID for this initial account: `gJj1SlGiFjUzYh98sZaDZvX5Mdo2`.
+If the existing user profile has an auto-generated ID, **copy** it to a document
+with the correct UID, verify the new record, then remove the obsolete copy.
+Do not recreate the Firebase Authentication user.
 
-## Next milestone
-Build a dedicated instructor/admin workspace UI, organization onboarding,
-secure account invitations, classroom assignment, team sessions, and server-authoritative
-scoring and buzzing. The current local game is **not** yet synchronized with Firestore.
-No passwords or Firebase service-account credentials belong in this repository.
+`SuperAdmin` is a **global** role, not tied to any organization or location.
+Additional roles are assigned through **scoped membership documents**:
+- `organizations/{orgId}/memberships/{uid}` with `roles: ["OrgAdmin"]`
+- `organizations/{orgId}/locations/{locationId}/memberships/{uid}`
+  with `roles: ["LocationAdmin"]` or `roles: ["Instructor"]`,
+  plus `classroomIds: ["classroomDocumentId"]` for instructors.
 
-## Security boundaries
-Firestore rules deny client writes to user roles, round state, and team scores.
-A trusted server action is needed to administer accounts, award points, and accept buzzes.
-The web app Firebase configuration is not a secret; rules and server authorization are essential.
+Organizations, locations and classrooms use **generated Firestore document IDs**.
+Their editable `name` fields are not identifiers. Create the initial organization
+and location records manually in Firebase Console:
+- `organizations/{autoId}`: `name: "MultiMedia Communications"`, `code: "MMCI"`
+- `organizations/{autoId}/locations/{autoId}`: `name: "Fidelity Westlake"`,
+  `city: "Westlake"`, `state: "TX"`
+
+## Deploy rules
+
+```powershell
+npm install
+npm run build
+npx firebase-tools use mmci-challenge-board
+npx firebase-tools deploy --only firestore:rules
+```
+
+Then sign out and back in from **Cloud Workspace** at `http://localhost:4200`.
+The SuperAdmin should be able to select the organization and location and
+create classrooms and teams. Role assignments and parent organization/location
+records are provisioned through trusted administration, not the browser.
+
+## Security and current limitations
+
+- Client writes to user profiles, role assignments, organization/location records,
+  round state and scores are denied.
+- This is a **bootstrap SuperAdmin workflow**. Organization/location admins require
+  a scoped organization/location selection mechanism; the current organization
+  directory is designed for the SuperAdmin.
+- A future Cloud Function using the Firebase Admin SDK will provision users and
+  memberships and enforce role changes with audit logging.
+- The browser-only game is not yet synchronized with Firestore.
+- No service-account private keys or passwords belong in this repository.

@@ -19,6 +19,7 @@ export class AppComponent {
   newTeamName=signal('');
   newTeamClassroom=signal('');
   classroomName=signal('');
+  selectedTeamIds=signal<string[]>([]);
   teamError=signal('');
   categoryIndex=signal(0); clueIndex=signal(0); notice=signal(''); projector=signal(false); private timer:any=null; private channel?:BroadcastChannel;
   game=computed(()=>this.games()[this.selected()] ?? starter);
@@ -50,20 +51,23 @@ export class AppComponent {
   changeTeam(id:string,key:'name'|'wager',value:string|number){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,[key]:key==='wager'?Number(value):value}:t))}
   addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:this.uniqueTeamName(),score:0,wager:0}])}
   uniqueTeamName(){let n=1;while(this.teams().some(t=>t.name.trim().toLowerCase()===`team ${n}`))n++;return `Team ${n}`}
-  openTeamManager(){this.teamError.set('');this.newTeamName.set('');this.newTeamClassroom.set(this.classroomName());this.managingTeams.set(true)}
+  openTeamManager(){this.teamError.set('');this.selectedTeamIds.set([]);this.newTeamName.set('');this.newTeamClassroom.set('');this.managingTeams.set(true)}
   closeTeamManager(){this.managingTeams.set(false);this.teamError.set('')}
-  setClassroomName(value:string){this.classroomName.set(value.trim())}
-  applyClassroomToAll(){const classroom=this.classroomName().trim();if(!classroom){this.teamError.set('Enter a classroom name first.');return}this.teams.update(ts=>ts.map(t=>({...t,classroom})));this.newTeamClassroom.set(classroom);this.teamError.set('')}
-  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,classroom:this.newTeamClassroom().trim(),score:0,wager:0}]);this.newTeamName.set('');this.newTeamClassroom.set(this.classroomName());this.teamError.set('')}
+  setClassroomName(value:string){this.classroomName.set(value)}
+  toggleTeamSelection(id:string,checked:boolean){this.selectedTeamIds.update(ids=>checked?[...new Set([...ids,id])]:ids.filter(x=>x!==id))}
+  selectAllTeams(){this.selectedTeamIds.set(this.teams().map(t=>t.id))}
+  clearTeamSelection(){this.selectedTeamIds.set([])}
+  assignClassroomToSelected(){const classroom=this.classroomName().trim();const selected=new Set(this.selectedTeamIds());if(!classroom){this.teamError.set('Enter a classroom name first.');return}if(!selected.size){this.teamError.set('Select at least one team.');return}this.teams.update(ts=>ts.map(t=>selected.has(t.id)?{...t,classroom}:t));this.teamError.set('');this.selectedTeamIds.set([]);this.notice.set(`Assigned ${selected.size} team(s) to ${classroom}.`)}
+  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,classroom:this.newTeamClassroom().trim(),score:0,wager:0}]);this.newTeamName.set('');this.newTeamClassroom.set('');this.teamError.set('')}
   updateTeamName(id:string,value:string){const name=value.trim();if(!name){this.teamError.set('Team names cannot be blank.');return}if(this.teams().some(t=>t.id!==id&&t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('Team names must be unique.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,name}:t));this.teamError.set('')}
   updateTeamClassroom(id:string,value:string){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,classroom:value.trim()}:t))}
   updateTeamScore(id:string,value:number|string){const score=Number(value);if(!Number.isFinite(score)||!Number.isInteger(score)){this.teamError.set('Scores must be whole numbers.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,score}:t));this.teamError.set('')}
   removeTeam(id:string){if(this.teams().length<=1)return;const team=this.teams().find(t=>t.id===id);if(team)this.pendingDeleteTeam.set(team)}
   cancelTeamDelete(){this.pendingDeleteTeam.set(null)}
-  confirmTeamDelete(){const team=this.pendingDeleteTeam();if(!team)return;this.pendingDeleteTeam.set(null);if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==team.id))}
+  confirmTeamDelete(){const team=this.pendingDeleteTeam();if(!team)return;this.pendingDeleteTeam.set(null);this.selectedTeamIds.update(ids=>ids.filter(id=>id!==team.id));if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==team.id))}
   @HostListener('document:keydown.escape') onEscape(){if(this.pendingDeleteTeam())this.cancelTeamDelete();else if(this.managingTeams())this.closeTeamManager()}
   resetScores(){if(confirm('Reset all team scores?'))this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})))}
-  restoreDefaultTeams(){if(!confirm('Restore default Teams 1–4? This will replace the current team list and reset all team scores and wagers to zero. The question board will not be changed.'))return;this.pendingDeleteTeam.set(null);this.teams.set(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));this.notice.set('Default Teams 1–4 restored.')}
+  restoreDefaultTeams(){if(!confirm('Restore default Teams 1–4? This will replace the current team list and reset all team scores and wagers to zero. The question board will not be changed.'))return;this.pendingDeleteTeam.set(null);this.selectedTeamIds.set([]);this.teams.set(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));this.notice.set('Default Teams 1–4 restored.')}
   resetBoard(){if(!confirm('Reset this game? This will restore all played clues and clear all team scores and wagers.'))return;this.stop();this.modal.set(null);this.final.set(false);this.revealed.set(false);this.hinted.set(false);this.seconds.set(this.timerSeconds());this.used.set([]);this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})));this.notice.set('Board and scores reset.')}
   openBuzz(){window.open('https://buzzin.live/','_blank','noopener,noreferrer')}
   openProjector(){window.open(location.pathname+'?projector=1','_blank')}

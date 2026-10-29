@@ -54,6 +54,11 @@ import { cloudEnabled } from './cloud-config';
           <p><strong>{{profile.first_name}} {{profile.last_name}}</strong> · Roles: {{profile.roles.join(', ') || 'None assigned'}}</p>
           <p *ngIf="cloud.isSuperAdmin">Platform SuperAdmin access is enabled.</p>
           <h3>Organizations</h3>
+          <section *ngIf="cloud.isSuperAdmin" class="cloud-create">
+            <label>Organization name <input [(ngModel)]="organizationName" placeholder="MultiMedia Communications"></label>
+            <label>Code <input [(ngModel)]="organizationCode" placeholder="MMCI"></label>
+            <button type="button" (click)="createOrganization()" [disabled]="busy()">Create organization</button>
+          </section>
           <p *ngIf="!cloud.organizations().length">No organizations are available. Create the first organization in the Firebase Console.</p>
           <div class="cloud-classes">
             <button *ngFor="let org of cloud.organizations()"
@@ -63,6 +68,12 @@ import { cloudEnabled } from './cloud-config';
           <ng-container *ngIf="cloud.selectedOrganizationId()">
             <p>Organization role: {{cloud.isOrgAdmin ? 'Administrator' : (cloud.organizationMembership()?.roles?.join(', ') || 'No scoped role')}}</p>
             <h3>Locations</h3>
+            <section *ngIf="cloud.isOrgAdmin" class="cloud-create">
+              <label>Location name <input [(ngModel)]="locationName" placeholder="Fidelity Westlake"></label>
+              <label>City <input [(ngModel)]="locationCity" placeholder="Westlake"></label>
+              <label>State <input [(ngModel)]="locationState" placeholder="TX"></label>
+              <button type="button" (click)="createLocation()" [disabled]="busy()">Create location</button>
+            </section>
             <p *ngIf="!cloud.locations().length">No locations are available. Create the first location in Firestore.</p>
             <div class="cloud-classes">
               <button *ngFor="let loc of cloud.locations()"
@@ -85,6 +96,11 @@ import { cloudEnabled } from './cloud-config';
                 (click)="selectClassroom(room.id)">{{room.name}}</button>
             </div>
             <ng-container *ngIf="selectedClassroom() as roomId">
+              <h3>Instructor assignment</h3>
+              <section *ngIf="cloud.isLocationAdmin" class="cloud-create">
+                <label>Instructor email <input type="email" [(ngModel)]="instructorEmail" placeholder="instructor@example.com"></label>
+                <button type="button" (click)="assignInstructor(roomId)" [disabled]="busy()">Assign instructor to classroom</button>
+              </section>
               <h3>Teams</h3>
               <section *ngIf="cloud.canManageClassroom(roomId)" class="cloud-create">
                 <input [(ngModel)]="teamName" placeholder="New team name" aria-label="New team name">
@@ -137,6 +153,13 @@ export class CloudWorkspaceComponent implements OnDestroy {
   password = '';
   classroomName = '';
   teamName = '';
+  organizationName = '';
+  organizationCode = '';
+  locationName = '';
+  locationCity = '';
+  locationState = '';
+  instructorEmail = '';
+
 
   async chooseOrganization(id: string) {
     this.selectedClassroom.set(null);
@@ -156,6 +179,36 @@ export class CloudWorkspaceComponent implements OnDestroy {
   selectClassroom(id: string) {
     this.selectedClassroom.set(id);
     this.cloud.watchTeams(id);
+  }
+  private async perform(action: () => Promise<unknown>, success: string) {
+    this.busy.set(true);
+    this.message.set('');
+    try { await action(); this.message.set(success); }
+    catch (error) { this.message.set(error instanceof Error ? error.message : 'Operation failed.'); }
+    finally { this.busy.set(false); }
+  }
+  async createOrganization() {
+    if (!this.organizationName.trim() || !this.organizationCode.trim()) {
+      this.message.set('Enter an organization name and code.'); return;
+    }
+    await this.perform(async () => {
+      await this.cloud.createOrganization(this.organizationName, this.organizationCode);
+      this.organizationName = ''; this.organizationCode = '';
+    }, 'Organization created.');
+  }
+  async createLocation() {
+    if (!this.locationName.trim()) { this.message.set('Enter a location name.'); return; }
+    await this.perform(async () => {
+      await this.cloud.createLocation(this.locationName, this.locationCity, this.locationState);
+      this.locationName = ''; this.locationCity = ''; this.locationState = '';
+    }, 'Location created.');
+  }
+  async assignInstructor(classroomId: string) {
+    if (!this.instructorEmail.trim()) { this.message.set('Enter an instructor email.'); return; }
+    await this.perform(async () => {
+      await this.cloud.assignInstructor(classroomId, this.instructorEmail);
+      this.instructorEmail = '';
+    }, 'Instructor assigned to classroom.');
   }
   async createClassroom() {
     if (!this.cloud.isLocationAdmin || !this.classroomName.trim()) return;

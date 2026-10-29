@@ -20,7 +20,29 @@ import { cloudEnabled } from './cloud-config';
       <form *ngIf="!cloud.user()" (ngSubmit)="login()" class="cloud-panel">
         <h3>Instructor / Administrator sign in</h3>
         <label>Email <input type="email" name="email" [(ngModel)]="email" required autocomplete="username"></label>
-        <label>Password <input type="password" name="password" [(ngModel)]="password" required autocomplete="current-password"></label>
+        <label for="cloud-password">Password</label>
+        <div class="password-field">
+          <input id="cloud-password" [type]="showPassword() ? 'text' : 'password'" name="password"
+            [(ngModel)]="password" required autocomplete="current-password">
+          <button type="button" class="password-toggle" (click)="showPassword.set(!showPassword())"
+            [attr.aria-label]="showPassword() ? 'Hide password' : 'Show password'"
+            [attr.aria-pressed]="showPassword()" [title]="showPassword() ? 'Hide password' : 'Show password'">
+            <svg *ngIf="!showPassword()" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg *ngIf="showPassword()" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m3 3 18 18"/>
+              <path d="M10.6 5.1A10.7 10.7 0 0 1 12 5c6.5 0 10 7 10 7a15 15 0 0 1-3.1 3.9"/>
+              <path d="M6.4 6.4C3.5 8.3 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 4.1-.8"/>
+              <path d="M10 10a3 3 0 0 0 4 4"/>
+            </svg>
+          </button>
+        </div>
         <button type="submit" [disabled]="busy()">Sign in</button>
       </form>
       <div *ngIf="cloud.user()" class="cloud-panel">
@@ -71,6 +93,10 @@ import { cloudEnabled } from './cloud-config';
     .cloud-panel{background:#102a62;border-radius:12px;padding:20px;display:grid;gap:14px;margin:20px 0}
     .cloud-panel label{display:grid;gap:6px}
     .cloud-panel input{max-width:450px}
+    .password-field{display:flex;align-items:stretch;width:min(450px,100%)}
+    .password-field input{flex:1;min-width:0;max-width:none;border-radius:6px 0 0 6px}
+    .password-toggle{display:flex;align-items:center;justify-content:center;min-width:48px;border-radius:0 6px 6px 0;background:#204aa8;border:1px solid #6c8de5;color:#fff;cursor:pointer}
+    .password-toggle:focus-visible{outline:3px solid #ffda5d;outline-offset:2px}
     .cloud-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
     .cloud-create{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
     .cloud-classes{display:flex;flex-wrap:wrap;gap:8px}
@@ -82,6 +108,7 @@ export class CloudWorkspaceComponent implements OnDestroy {
   readonly cloud = inject(CloudWorkspaceService);
   readonly configured = cloudEnabled();
   readonly busy = signal(false);
+  readonly showPassword = signal(false);
   readonly message = signal('');
   readonly selectedClassroom = signal<string | null>(null);
   email = '';

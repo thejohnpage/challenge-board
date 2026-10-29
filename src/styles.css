@@ -48,3 +48,8 @@
 .team-selection-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .team-selection-actions button{padding:6px 10px}
 @media(max-width:750px){.team-manager-row{grid-template-columns:1fr 1fr}.team-manager-row .team-select{grid-column:1/-1}.team-manager-row .danger{grid-column:1/-1}}
+
+/* App metadata: copyright and version */
+.app-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 24px;border-top:1px solid #386bce;background:#04102d;color:#a9bbde;font-size:13px}
+.app-footer span:last-child{font-variant-numeric:tabular-nums}
+@media(max-width:650px){.app-footer{justify-content:center;text-align:center}}

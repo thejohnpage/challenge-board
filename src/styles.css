@@ -32,3 +32,11 @@
 .team-classroom{color:#c8d8fa;font-size:14px;font-weight:600;overflow-wrap:anywhere;margin-top:5px}
 .team-manager-row{grid-template-columns:minmax(150px,2fr) minmax(140px,1.5fr) minmax(90px,1fr) auto}
 @media(max-width:700px){.team-manager-row{grid-template-columns:1fr 1fr}.team-manager-row .danger{grid-column:1/-1}}
+
+/* Shared classroom assignment in Manage Teams */
+.classroom-assignment{background:#071a42;border:1px solid #386bce;border-radius:10px;padding:14px;margin:14px 0}
+.classroom-assignment label{display:block;font-weight:700;margin-bottom:8px}
+.classroom-assignment-row{display:flex;gap:10px;align-items:center}
+.classroom-assignment-row input{flex:1;min-width:0}
+.classroom-assignment small{display:block;margin-top:8px;color:#c8d8fa}
+@media(max-width:580px){.classroom-assignment-row{flex-direction:column;align-items:stretch}}

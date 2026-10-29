@@ -9,41 +9,41 @@
         {
           "id": "0cb5a55e-3f8b-4f1c-a6a3-150e70fa1aa5",
           "value": 100,
-          "clue": "Java checks declared variable types at this stage.",
-          "response": "What is compile time?",
-          "hint": "Before the program runs.",
+          "clue": "Java checks declared variable types during this stage.",
+          "response": "What is compilation?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "befb6e2c-cd87-4311-8810-5f163b68a3ef",
           "value": 200,
-          "clue": "Unlike Python indentation, Java uses these characters to delimit blocks.",
-          "response": "What are curly braces { }?",
-          "hint": "They come in pairs.",
+          "clue": "Java uses these symbols to enclose blocks.",
+          "response": "What are curly braces?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "5184b9e7-2d85-4476-bd8b-fd8647331e8a",
           "value": 300,
-          "clue": "This Java collection stores ordered elements and permits duplicates.",
-          "response": "What is a List (such as ArrayList)?",
-          "hint": "Think sequence.",
+          "clue": "This ordered Java collection interface permits duplicates.",
+          "response": "What is List?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "5ae7d986-678c-499c-91f9-602a56e533c3",
           "value": 400,
-          "clue": "This collection associates unique keys with values.",
-          "response": "What is a Map?",
-          "hint": "Lookups by key.",
+          "clue": "This Java collection interface maps keys to values.",
+          "response": "What is Map?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "62216f39-56ee-4720-b9c2-98c5acc8400d",
           "value": 500,
-          "clue": "These Java exceptions must be caught or declared.",
+          "clue": "These exceptions must be caught or declared.",
           "response": "What are checked exceptions?",
-          "hint": "Think compiler enforcement.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -55,41 +55,41 @@
         {
           "id": "9a2655a8-b216-4a74-a490-195b2ad4c22e",
           "value": 100,
-          "clue": "This is a blueprint defining an object's state and behavior.",
+          "clue": "This definition describes the fields and methods of objects.",
           "response": "What is a class?",
-          "hint": "A definition, not an instance.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "68708068-5821-4964-b9eb-c08ff7692241",
           "value": 200,
-          "clue": "This Java keyword creates a class instance by invoking a constructor.",
+          "clue": "This keyword invokes a constructor to create an object.",
           "response": "What is new?",
-          "hint": "Three letters.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "af64a1d1-f510-4745-81f6-a22464401275",
           "value": 300,
-          "clue": "This principle protects object state by controlling access and enforcing invariants.",
+          "clue": "This OO principle protects internal object state.",
           "response": "What is encapsulation?",
-          "hint": "Keep quantity from going negative.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f92602f2-eb18-4865-b3af-a442cd044135",
           "value": 400,
-          "clue": "This allows a reference of an interface or superclass type to invoke implementation-specific behavior.",
+          "clue": "This OO feature lets a shared interface dispatch different implementations.",
           "response": "What is polymorphism?",
-          "hint": "Many forms.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "1a234332-74c5-441d-8fb3-a1b31cb15917",
           "value": 500,
-          "clue": "This design approach assembles objects from collaborators instead of extending a class hierarchy.",
+          "clue": "This design preference combines objects instead of extending classes.",
           "response": "What is composition over inheritance?",
-          "hint": "Avoid forcing an is-a hierarchy.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

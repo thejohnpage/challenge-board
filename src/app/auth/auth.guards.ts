@@ -17,7 +17,7 @@ export const adminGuard: CanActivateFn = async (_route, state) => {
   await cloud.whenReady();
   if (!cloud.user()) return router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
   if (!cloud.profile()) return router.createUrlTree(['/access-denied']);
-  if (cloud.isSuperAdmin || cloud.profile()!.roles.some(role => ['OrgAdmin', 'LocationAdmin'].includes(role))) return true;
+  if (cloud.isSuperAdmin || (cloud.profile()?.organizationIds?.length ?? 0) > 0) return true;
   // Scoped memberships are resolved after organization/location selection.
   // Do not grant administrative routes based on an unverified global role.
   return router.createUrlTree(['/access-denied']);
@@ -29,6 +29,6 @@ export const instructorGuard: CanActivateFn = async (_route, state) => {
   await cloud.whenReady();
   if (!cloud.user()) return router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
   if (!cloud.profile()) return router.createUrlTree(['/access-denied']);
-  if (cloud.isSuperAdmin || cloud.profile()!.roles.includes('Instructor')) return true;
+  if (cloud.isSuperAdmin || (cloud.profile()?.organizationIds?.length ?? 0) > 0) return true;
   return router.createUrlTree(['/access-denied']);
 };

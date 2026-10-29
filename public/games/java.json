@@ -101,41 +101,41 @@
         {
           "id": "37b5b636-4958-4974-a9c4-e354e9a9aa4d",
           "value": 100,
-          "clue": "In a requirements document, nouns are candidates for these.",
-          "response": "What are classes or attributes?",
-          "hint": "Things.",
+          "clue": "Nouns in requirements can suggest these object-oriented definitions.",
+          "response": "What are classes?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f8bf75a8-06c9-4b0f-8dd4-05b648b9a716",
           "value": 200,
-          "clue": "In a requirements document, verbs suggest these.",
-          "response": "What are responsibilities or methods?",
-          "hint": "Actions.",
+          "clue": "Verbs in requirements can suggest these class behaviors.",
+          "response": "What are methods?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "2327c095-11bd-49fc-99df-c6f8f0ea1809",
           "value": 300,
-          "clue": "A loan's due date is usually this, rather than a separate class.",
-          "response": "What is an attribute (field)?",
-          "hint": "A value belonging to a Loan.",
+          "clue": "A due date on a Loan is usually this kind of member.",
+          "response": "What is an attribute?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "e3ff24dd-97c6-432b-8d89-be4aefa9ae3c",
           "value": 400,
-          "clue": "An object with identity, due date and overdue behavior in a library system might be modeled as this.",
-          "response": "What is a Loan class?",
-          "hint": "It has its own behavior.",
+          "clue": "This class represents a particular book checkout.",
+          "response": "What is Loan?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "679e97a3-6eba-434a-b6f5-f113075b65b1",
           "value": 500,
-          "clue": "A manager class containing unrelated business rules often suffers from these design problems.",
-          "response": "What are excessive coupling and poor separation of responsibilities?",
-          "hint": "One class doing everything.",
+          "clue": "A class with unrelated responsibilities violates this SOLID principle.",
+          "response": "What is Single Responsibility Principle?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

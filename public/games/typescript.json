@@ -9,7 +9,7 @@
         {
           "id": "f0fea4e7-e914-4946-ab09-aada5f722491",
           "value": 100,
-          "clue": "This keyword declares a reassignable block-scoped binding.",
+          "clue": "This JavaScript declaration creates a block-scoped variable whose binding can be reassigned.",
           "response": "What is let?",
           "hint": "",
           "dailyDouble": false
@@ -17,7 +17,7 @@
         {
           "id": "4f21b41c-b6bb-4a09-9e8e-246cc6e1a14a",
           "value": 200,
-          "clue": "This keyword declares a binding that cannot be reassigned.",
+          "clue": "This declaration creates a block-scoped binding that cannot be reassigned.",
           "response": "What is const?",
           "hint": "",
           "dailyDouble": false
@@ -25,7 +25,7 @@
         {
           "id": "5c61fb96-acc1-4b70-b920-32f2f180df8c",
           "value": 300,
-          "clue": "This operator checks equality without type coercion.",
+          "clue": "This JavaScript operator compares values without type coercion.",
           "response": "What is ===?",
           "hint": "",
           "dailyDouble": false
@@ -33,7 +33,7 @@
         {
           "id": "ca309938-bfc3-4633-8196-efd303d2e79e",
           "value": 400,
-          "clue": "This array method transforms each element into a new array.",
+          "clue": "This array method creates a new array by transforming each original element.",
           "response": "What is map()?",
           "hint": "",
           "dailyDouble": false
@@ -41,7 +41,7 @@
         {
           "id": "46c5362d-d85b-41c9-8fae-6d0fc2f83dac",
           "value": 500,
-          "clue": "This feature lets a function retain access to its lexical environment.",
+          "clue": "A function retaining access to its original lexical environment demonstrates this feature.",
           "response": "What is a closure?",
           "hint": "",
           "dailyDouble": false
@@ -55,7 +55,7 @@
         {
           "id": "be130128-554b-4c28-9730-8bd11fed1ec7",
           "value": 100,
-          "clue": "This TypeScript primitive type represents text.",
+          "clue": "This TypeScript primitive type represents textual values.",
           "response": "What is string?",
           "hint": "",
           "dailyDouble": false
@@ -63,7 +63,7 @@
         {
           "id": "cad88641-f713-4ef1-b448-441ddca3dc8d",
           "value": 200,
-          "clue": "The type string | number is this kind of type.",
+          "clue": "A declaration allowing either text or numbers uses this type construct.",
           "response": "What is a union type?",
           "hint": "",
           "dailyDouble": false
@@ -71,7 +71,7 @@
         {
           "id": "a907e232-c52e-4dcc-8b6d-e11f178d0e41",
           "value": 300,
-          "clue": "This TypeScript declaration describes an object's structural contract.",
+          "clue": "This TypeScript declaration specifies an object contract without an implementation.",
           "response": "What is an interface?",
           "hint": "",
           "dailyDouble": false
@@ -79,7 +79,7 @@
         {
           "id": "bc5bea51-2a23-4cc9-8318-c9aef1f01795",
           "value": 400,
-          "clue": "This safer alternative to any requires narrowing before use.",
+          "clue": "This TypeScript type accepts values of any kind but requires narrowing before use.",
           "response": "What is unknown?",
           "hint": "",
           "dailyDouble": false
@@ -87,7 +87,7 @@
         {
           "id": "f171bf06-a283-464d-82da-db418166965e",
           "value": 500,
-          "clue": "This process removes TypeScript-only type annotations from emitted JavaScript.",
+          "clue": "Removing TypeScript-only annotations during compilation is this process.",
           "response": "What is type erasure?",
           "hint": "",
           "dailyDouble": false
@@ -101,7 +101,7 @@
         {
           "id": "c2bd9c2a-82c4-426a-b569-17651f319778",
           "value": 100,
-          "clue": "In function f(): number, the : number portion is this annotation.",
+          "clue": "The explicit : number after a function's parameter list is this kind of annotation.",
           "response": "What is a return-type annotation?",
           "hint": "",
           "dailyDouble": false
@@ -109,15 +109,15 @@
         {
           "id": "c653e383-eeba-45ff-8d82-ce15654145b6",
           "value": 200,
-          "clue": "This symbol marks an optional property in a TypeScript interface.",
-          "response": "What is ?",
+          "clue": "This punctuation mark makes a TypeScript property optional.",
+          "response": "What is the question mark (?)?",
           "hint": "",
           "dailyDouble": false
         },
         {
           "id": "fbdfadc8-7b9d-4008-8074-f421ddec252b",
           "value": 300,
-          "clue": "This generic syntax denotes an array of strings.",
+          "clue": "This TypeScript generic expression represents an array containing strings.",
           "response": "What is Array<string>?",
           "hint": "",
           "dailyDouble": false
@@ -125,7 +125,7 @@
         {
           "id": "ecbdaaca-7f77-45d4-a35d-27123c93e009",
           "value": 400,
-          "clue": "This TypeScript feature preserves relationships between parameter and return types.",
+          "clue": "A reusable function parameterized by <T> demonstrates this language feature.",
           "response": "What are generics?",
           "hint": "",
           "dailyDouble": false
@@ -133,7 +133,7 @@
         {
           "id": "c2cd53c7-b9d1-4cd9-8750-b337b404c849",
           "value": 500,
-          "clue": "A typeof check can perform this operation on a union type.",
+          "clue": "After a typeof check, TypeScript refines a union to a more specific type using this process.",
           "response": "What is type narrowing?",
           "hint": "",
           "dailyDouble": false
@@ -147,7 +147,7 @@
         {
           "id": "f536d14b-5cb4-45f4-a0bb-763ae861c21d",
           "value": 100,
-          "clue": "This JavaScript object represents a future result or failure.",
+          "clue": "This object represents an asynchronous result that may succeed or fail.",
           "response": "What is a Promise?",
           "hint": "",
           "dailyDouble": false
@@ -155,7 +155,7 @@
         {
           "id": "c5cc6f61-3325-4578-bc32-7a22f9fb2c7c",
           "value": 200,
-          "clue": "This Promise method handles a rejection.",
+          "clue": "This Promise method attaches a rejection handler.",
           "response": "What is catch()?",
           "hint": "",
           "dailyDouble": false
@@ -163,7 +163,7 @@
         {
           "id": "57cb3d5e-d182-4fe4-b8f9-96ef441d2c17",
           "value": 300,
-          "clue": "This keyword suspends an async function until an awaited value is resolved.",
+          "clue": "This keyword suspends the remainder of an async function until the awaited value is ready.",
           "response": "What is await?",
           "hint": "",
           "dailyDouble": false
@@ -171,7 +171,7 @@
         {
           "id": "0b47c19b-dea3-4406-b24d-0afac6ffca28",
           "value": 400,
-          "clue": "This method rejects if any of its input Promises rejects.",
+          "clue": "This Promise combinator rejects if any supplied Promise rejects.",
           "response": "What is Promise.all()?",
           "hint": "",
           "dailyDouble": false
@@ -179,7 +179,7 @@
         {
           "id": "1e409283-00a8-4049-beee-0351faec60da",
           "value": 500,
-          "clue": "This scheduling mechanism runs timer callbacks after synchronous code completes.",
+          "clue": "This mechanism schedules queued JavaScript callbacks after the current synchronous work.",
           "response": "What is the event loop?",
           "hint": "",
           "dailyDouble": false
@@ -193,7 +193,7 @@
         {
           "id": "4b7e483a-13f7-4b58-9994-a32e66cc693c",
           "value": 100,
-          "clue": "This JavaScript engine executes Node.js code.",
+          "clue": "This JavaScript engine powers Node.js and the Chrome browser.",
           "response": "What is V8?",
           "hint": "",
           "dailyDouble": false
@@ -201,7 +201,7 @@
         {
           "id": "f514d952-36b7-4bf8-9d78-679ed3bb8f34",
           "value": 200,
-          "clue": "This C library underpins Node.js asynchronous I/O and its event loop.",
+          "clue": "This C library supports Node.js asynchronous I/O and event-loop operations.",
           "response": "What is libuv?",
           "hint": "",
           "dailyDouble": false
@@ -209,7 +209,7 @@
         {
           "id": "ecb1f207-c644-40fc-85de-2c3ac6923a44",
           "value": 300,
-          "clue": "This npm manifest declares scripts and dependencies.",
+          "clue": "This npm manifest records package metadata, scripts and dependencies.",
           "response": "What is package.json?",
           "hint": "",
           "dailyDouble": false
@@ -217,7 +217,7 @@
         {
           "id": "b5f895e4-7af6-461e-9e8f-a2b9e39652ae",
           "value": 400,
-          "clue": "Promise reactions are queued in this task category.",
+          "clue": "Promise reaction callbacks belong to this JavaScript task category.",
           "response": "What are microtasks?",
           "hint": "",
           "dailyDouble": false
@@ -225,7 +225,7 @@
         {
           "id": "ea30bc1f-3110-4658-b0e6-fc797d78f40c",
           "value": 500,
-          "clue": "ES modules use this keyword instead of CommonJS require().",
+          "clue": "ES modules use this keyword to load exported bindings.",
           "response": "What is import?",
           "hint": "",
           "dailyDouble": false
@@ -239,7 +239,7 @@
         {
           "id": "21766212-6737-4d8a-8446-dae39c0bc326",
           "value": 100,
-          "clue": "This NestJS decorator marks an injectable provider.",
+          "clue": "This NestJS decorator marks a class as injectable.",
           "response": "What is @Injectable()?",
           "hint": "",
           "dailyDouble": false
@@ -247,7 +247,7 @@
         {
           "id": "f60ca4ca-74d5-49de-ab3c-05e2477b1e63",
           "value": 200,
-          "clue": "This NestJS class receives incoming HTTP requests.",
+          "clue": "This NestJS class maps HTTP requests to handlers.",
           "response": "What is a controller?",
           "hint": "",
           "dailyDouble": false
@@ -255,7 +255,7 @@
         {
           "id": "0782c226-215f-41f3-b1bc-9138f304b2cb",
           "value": 300,
-          "clue": "This NestJS provider typically implements business logic.",
+          "clue": "This NestJS provider type commonly holds business logic.",
           "response": "What is a service?",
           "hint": "",
           "dailyDouble": false
@@ -263,7 +263,7 @@
         {
           "id": "098df7c0-374a-4897-80e8-9267d35cb714",
           "value": 400,
-          "clue": "This NestJS decorator groups controllers and providers.",
+          "clue": "This NestJS decorator groups controllers, providers and imported modules.",
           "response": "What is @Module()?",
           "hint": "",
           "dailyDouble": false
@@ -271,7 +271,7 @@
         {
           "id": "f6f9e14a-b9fd-4a9e-848f-031afe7faa62",
           "value": 500,
-          "clue": "NestJS can use this runtime information to discover constructor dependency types.",
+          "clue": "NestJS may inspect this emitted runtime information to infer constructor dependencies.",
           "response": "What is decorator metadata?",
           "hint": "",
           "dailyDouble": false
@@ -280,9 +280,9 @@
     }
   ],
   "finalJeopardy": {
-    "category": "JavaScript Scheduling",
-    "clue": "Promise .then() callbacks use this queue, which generally runs before timer callbacks.",
+    "category": "Asynchronous JavaScript",
+    "clue": "Promise callbacks normally enter this queue before eligible timer callbacks execute.",
     "response": "What is the microtask queue?",
-    "hint": "Promises."
+    "hint": "Promise scheduling."
   }
 }

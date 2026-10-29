@@ -4,10 +4,11 @@ export interface UserProfile {
   first_name: string;
   last_name: string;
   roles: WorkspaceRole[];
+  organizationIds?: string[];
 }
 export interface Organization { id: string; name: string; code?: string }
 export interface Location { id: string; name: string; city?: string; state?: string }
-export interface ScopedMembership { roles: WorkspaceRole[]; classroomIds?: string[] }
+export interface ScopedMembership { roles: WorkspaceRole[]; classroomIds?: string[]; locationIds?: string[] }
 export interface Classroom { id: string; name: string; instructorIds: string[]; createdAt?: unknown }
 export interface CloudTeam {
   id: string;

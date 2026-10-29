@@ -24,6 +24,9 @@ export class CloudWorkspaceService {
   private resolveReady!: () => void;
   private listeners: Unsubscribe[] = [];
   private organizationsListening = false;
+  private locationListener?: Unsubscribe;
+  private classroomListener?: Unsubscribe;
+  private teamListener?: Unsubscribe;
   private authGeneration = 0;
 
   constructor() {
@@ -45,7 +48,8 @@ export class CloudWorkspaceService {
             email: data.email || user.email || '',
             first_name: data.first_name || '',
             last_name: data.last_name || '',
-            roles: Array.isArray(data.roles) ? data.roles : []
+            roles: Array.isArray(data.roles) ? data.roles : [],
+            organizationIds: Array.isArray(data.organizationIds) ? data.organizationIds : []
           });
           this.watchOrganizations();
         }
@@ -86,7 +90,8 @@ export class CloudWorkspaceService {
       email: data.email || user.email || '',
       first_name: data.first_name || '',
       last_name: data.last_name || '',
-      roles: Array.isArray(data.roles) ? data.roles : []
+      roles: Array.isArray(data.roles) ? data.roles : [],
+            organizationIds: Array.isArray(data.organizationIds) ? data.organizationIds : []
     });
     this.watchOrganizations();
   }
@@ -104,12 +109,21 @@ export class CloudWorkspaceService {
       snap => target.set(snap.docs.map(d => ({ ...d.data(), id: d.id } as T))),
       () => this.error.set('Permission denied or unable to read ' + path));
     this.listeners.push(unsubscribe);
+    return unsubscribe;
   }
 
   watchOrganizations() {
-    if (this.organizationsListening) return;
+    if (this.organizationsListening || !this.client) return;
     this.organizationsListening = true;
-    this.listen<Organization>('organizations', this.organizations);
+    if (this.isSuperAdmin) {
+      this.listen<Organization>('organizations', this.organizations);
+      return;
+    }
+    // Scoped users fetch only documents explicitly granted to them.
+    const ids = this.profile()?.organizationIds || [];
+    Promise.all(ids.map(id => getDoc(doc(this.client!.db, 'organizations', id))))
+      .then(docs => this.organizations.set(docs.filter(d => d.exists()).map(d => ({ ...d.data(), id: d.id } as Organization))))
+      .catch(() => this.error.set('Unable to load your assigned organizations.'));
   }
 
   async selectOrganization(orgId: string) {
@@ -120,7 +134,14 @@ export class CloudWorkspaceService {
       const membership = await getDoc(doc(this.client.db, 'organizations', orgId, 'memberships', this.user()!.uid));
       if (this.selectedOrganizationId() !== orgId) return;
       this.organizationMembership.set(membership.exists() ? membership.data() as ScopedMembership : null);
-      this.listen<Location>(`organizations/${orgId}/locations`, this.locations);
+      if (this.isOrgAdmin) {
+        this.locationListener = this.listen<Location>(`organizations/${orgId}/locations`, this.locations);
+      } else {
+        const ids = this.organizationMembership()?.locationIds || [];
+        const docs = await Promise.all(ids.map(id => getDoc(doc(this.client!.db, 'organizations', orgId, 'locations', id))));
+        if (this.selectedOrganizationId() === orgId)
+          this.locations.set(docs.filter(d => d.exists()).map(d => ({ ...d.data(), id: d.id } as Location)));
+      }
     } catch { this.error.set('Unable to access this organization.'); }
   }
 
@@ -134,7 +155,7 @@ export class CloudWorkspaceService {
       const membership = await getDoc(doc(this.client.db, 'organizations', orgId, 'locations', locationId, 'memberships', this.user()!.uid));
       if (this.selectedOrganizationId() !== orgId || this.selectedLocationId() !== locationId) return;
       this.locationMembership.set(membership.exists() ? membership.data() as ScopedMembership : null);
-      this.listen<Classroom>(`organizations/${orgId}/locations/${locationId}/classrooms`, this.classrooms);
+      this.classroomListener = this.listen<Classroom>(`organizations/${orgId}/locations/${locationId}/classrooms`, this.classrooms);
     } catch { this.error.set('Unable to access this location.'); }
   }
 
@@ -142,9 +163,9 @@ export class CloudWorkspaceService {
     const orgId = this.selectedOrganizationId(), locId = this.selectedLocationId();
     if (!orgId || !locId) return;
     // Keep one active team listener when switching classrooms.
-    if (this.listeners.length > 3) this.listeners.splice(3).forEach(stop => stop());
+    this.teamListener?.();
     this.teams.set([]);
-    this.listen<CloudTeam>(`organizations/${orgId}/locations/${locId}/classrooms/${classroomId}/teams`, this.teams);
+    this.teamListener = this.listen<CloudTeam>(`organizations/${orgId}/locations/${locId}/classrooms/${classroomId}/teams`, this.teams);
   }
 
   private async adminCall<T>(name: string, payload: Record<string, unknown>): Promise<T> {
@@ -202,14 +223,15 @@ export class CloudWorkspaceService {
   }
 
   private clearLocation() {
-    this.listeners.splice(2).forEach(stop => stop());
+    this.teamListener?.(); this.teamListener = undefined;
+    this.classroomListener?.(); this.classroomListener = undefined;
     this.selectedLocationId.set(null);
     this.locationMembership.set(null);
     this.classrooms.set([]);
     this.teams.set([]);
   }
   private disconnectSelections() {
-    this.listeners.splice(1).forEach(stop => stop());
+    this.locationListener?.(); this.locationListener = undefined;
     this.selectedOrganizationId.set(null);
     this.organizationMembership.set(null);
     this.locations.set([]);
@@ -217,6 +239,7 @@ export class CloudWorkspaceService {
   }
   disconnect() {
     this.listeners.splice(0).forEach(stop => stop());
+    this.locationListener = undefined; this.classroomListener = undefined; this.teamListener = undefined;
     this.organizationsListening = false;
     this.selectedOrganizationId.set(null);
     this.selectedLocationId.set(null);

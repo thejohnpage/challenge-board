@@ -108,6 +108,8 @@ export class CloudWorkspaceService {
   watchTeams(classroomId: string) {
     const orgId = this.selectedOrganizationId(), locId = this.selectedLocationId();
     if (!orgId || !locId) return;
+    // Keep one active team listener when switching classrooms.
+    if (this.listeners.length > 3) this.listeners.splice(3).forEach(stop => stop());
     this.teams.set([]);
     this.listen<CloudTeam>(`organizations/${orgId}/locations/${locId}/classrooms/${classroomId}/teams`, this.teams);
   }

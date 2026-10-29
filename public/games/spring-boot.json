@@ -9,7 +9,7 @@
         {
           "id": "40007ce1-5092-4a3b-8ac5-9d693e079651",
           "value": 100,
-          "clue": "This annotation identifies a Spring Boot application.",
+          "clue": "This annotation combines Spring Boot configuration, component scanning and auto-configuration.",
           "response": "What is @SpringBootApplication?",
           "hint": "",
           "dailyDouble": false
@@ -17,7 +17,7 @@
         {
           "id": "d3166490-3915-4a6c-9efe-5863640c1f1b",
           "value": 200,
-          "clue": "This Maven file declares dependencies and build configuration.",
+          "clue": "This Maven project descriptor declares dependencies and build plugins.",
           "response": "What is pom.xml?",
           "hint": "",
           "dailyDouble": false
@@ -25,7 +25,7 @@
         {
           "id": "889b049d-68d1-47f7-b275-a330d1662948",
           "value": 300,
-          "clue": "This starter adds Spring MVC and an embedded server.",
+          "clue": "This Spring Boot starter includes Spring MVC and a default embedded servlet container.",
           "response": "What is spring-boot-starter-web?",
           "hint": "",
           "dailyDouble": false
@@ -33,7 +33,7 @@
         {
           "id": "2c03b902-026b-48f7-9c90-26931affe0c0",
           "value": 400,
-          "clue": "This annotation marks a REST controller class.",
+          "clue": "This annotation combines @Controller behavior with automatic response-body serialization.",
           "response": "What is @RestController?",
           "hint": "",
           "dailyDouble": false
@@ -41,7 +41,7 @@
         {
           "id": "95243be7-59e1-486e-b44e-e90c15bea25c",
           "value": 500,
-          "clue": "This annotation activates Spring Boot's automatic configuration.",
+          "clue": "This annotation tells Spring Boot to configure beans based on the classpath and application settings.",
           "response": "What is @EnableAutoConfiguration?",
           "hint": "",
           "dailyDouble": false
@@ -55,7 +55,7 @@
         {
           "id": "614efef3-232d-46c2-921b-2e9b05214652",
           "value": 100,
-          "clue": "This HTTP method retrieves resources.",
+          "clue": "This HTTP method requests a resource representation without intending to change server state.",
           "response": "What is GET?",
           "hint": "",
           "dailyDouble": false
@@ -63,7 +63,7 @@
         {
           "id": "a4f6634a-1e11-4bc9-a02d-628f84b76cf8",
           "value": 200,
-          "clue": "This HTTP status reports a created resource.",
+          "clue": "A successful POST that creates a new resource commonly returns this HTTP status.",
           "response": "What is 201 Created?",
           "hint": "",
           "dailyDouble": false
@@ -71,7 +71,7 @@
         {
           "id": "de6f3cfd-41e3-4f39-b529-3b1062a3befa",
           "value": 300,
-          "clue": "This HTTP method applies partial updates.",
+          "clue": "This HTTP method is used for partial modifications to an existing resource.",
           "response": "What is PATCH?",
           "hint": "",
           "dailyDouble": false
@@ -79,7 +79,7 @@
         {
           "id": "b23ef181-c467-4e2a-84ff-a3414a3e8f73",
           "value": 400,
-          "clue": "This HTTP status reports success with no response body.",
+          "clue": "A successful DELETE that returns no response body commonly uses this HTTP status.",
           "response": "What is 204 No Content?",
           "hint": "",
           "dailyDouble": false
@@ -87,7 +87,7 @@
         {
           "id": "e14aa2fc-12d2-4ab9-a5ff-7f503cf146bb",
           "value": 500,
-          "clue": "REST resource URLs normally use these parts of speech.",
+          "clue": "REST paths such as /orders and /customers typically use this grammatical form rather than verbs.",
           "response": "What are nouns?",
           "hint": "",
           "dailyDouble": false
@@ -101,7 +101,7 @@
         {
           "id": "d95d6caf-6256-41be-9026-f7e83dadafee",
           "value": 100,
-          "clue": "This acronym stands for Data Transfer Object.",
+          "clue": "This three-letter abbreviation names an object designed to carry data across an API boundary.",
           "response": "What is DTO?",
           "hint": "",
           "dailyDouble": false
@@ -109,7 +109,7 @@
         {
           "id": "898197f8-998e-49bf-a1a6-387e2da8adf5",
           "value": 200,
-          "clue": "This Jakarta Validation annotation rejects blank text.",
+          "clue": "This Jakarta Bean Validation annotation rejects null, empty and whitespace-only strings.",
           "response": "What is @NotBlank?",
           "hint": "",
           "dailyDouble": false
@@ -117,7 +117,7 @@
         {
           "id": "a2fa55fe-2553-4f29-be60-1f0401e38341",
           "value": 300,
-          "clue": "This Jakarta Validation annotation requires a number above zero.",
+          "clue": "This Bean Validation annotation requires a numeric value greater than zero.",
           "response": "What is @Positive?",
           "hint": "",
           "dailyDouble": false
@@ -125,7 +125,7 @@
         {
           "id": "6c4a9cc3-01b1-422e-a338-0534a555d79c",
           "value": 400,
-          "clue": "This annotation triggers request-body Bean Validation.",
+          "clue": "This annotation asks Spring MVC to apply Bean Validation to a request body parameter.",
           "response": "What is @Valid?",
           "hint": "",
           "dailyDouble": false
@@ -133,7 +133,7 @@
         {
           "id": "bc77ea1f-4d1d-48ad-9120-d70afdc30105",
           "value": 500,
-          "clue": "These objects define API request and response contracts separately from domain models.",
+          "clue": "These boundary objects prevent internal entity fields from automatically becoming public API fields.",
           "response": "What are DTOs?",
           "hint": "",
           "dailyDouble": false
@@ -147,7 +147,7 @@
         {
           "id": "29071fc9-3e0d-492a-b1fb-8d33ee537ba7",
           "value": 100,
-          "clue": "This Java SQL mapper framework supports explicitly written SQL.",
+          "clue": "This Java SQL mapping framework supports mapper interfaces with explicit SQL statements.",
           "response": "What is MyBatis?",
           "hint": "",
           "dailyDouble": false
@@ -155,7 +155,7 @@
         {
           "id": "be4d2fe1-ee80-4cc9-919f-9bb17e657c74",
           "value": 200,
-          "clue": "This MyBatis annotation declares a SELECT query.",
+          "clue": "This MyBatis annotation places a SQL SELECT statement on a mapper method.",
           "response": "What is @Select?",
           "hint": "",
           "dailyDouble": false
@@ -163,7 +163,7 @@
         {
           "id": "38429829-f8d6-43dd-a4c9-4420222a31c3",
           "value": 300,
-          "clue": "This Spring Data JPA interface provides CRUD methods.",
+          "clue": "This Spring Data JPA interface supplies common persistence methods such as save and findById.",
           "response": "What is JpaRepository?",
           "hint": "",
           "dailyDouble": false
@@ -171,7 +171,7 @@
         {
           "id": "15543623-9092-4800-a474-0b711f97cdeb",
           "value": 400,
-          "clue": "This Spring Data feature creates queries from repository method names.",
+          "clue": "Repository methods such as findByTicker can be implemented from their names using this Spring Data feature.",
           "response": "What are derived query methods?",
           "hint": "",
           "dailyDouble": false
@@ -179,7 +179,7 @@
         {
           "id": "f21c820f-73b7-4870-acae-63306f02bf6e",
           "value": 500,
-          "clue": "MyBatis emphasizes this direct database query language.",
+          "clue": "MyBatis mappers let developers write statements directly in this database language.",
           "response": "What is SQL?",
           "hint": "",
           "dailyDouble": false
@@ -193,7 +193,7 @@
         {
           "id": "b1d678cb-e745-48e6-8801-a4dc8e008c27",
           "value": 100,
-          "clue": "This Spring annotation centralizes REST exception handlers.",
+          "clue": "This Spring annotation applies REST exception handling across multiple controllers.",
           "response": "What is @RestControllerAdvice?",
           "hint": "",
           "dailyDouble": false
@@ -201,7 +201,7 @@
         {
           "id": "bd862eb6-3459-45aa-8905-9a933fa2b4ba",
           "value": 200,
-          "clue": "This annotation maps an exception type to a handler method.",
+          "clue": "This annotation marks a method that handles a specified exception type.",
           "response": "What is @ExceptionHandler?",
           "hint": "",
           "dailyDouble": false
@@ -209,7 +209,7 @@
         {
           "id": "504931a9-2154-43de-9aae-1f3dde724d8e",
           "value": 300,
-          "clue": "This HTTP status indicates an invalid client request.",
+          "clue": "An invalid request body that fails required field validation commonly receives this HTTP status.",
           "response": "What is 400 Bad Request?",
           "hint": "",
           "dailyDouble": false
@@ -217,7 +217,7 @@
         {
           "id": "b02b4e03-e945-48b5-91d9-26144a5bf953",
           "value": 400,
-          "clue": "This HTTP status indicates semantically unprocessable request content.",
+          "clue": "A request with valid syntax but semantically unprocessable instructions may receive this HTTP status.",
           "response": "What is 422 Unprocessable Content?",
           "hint": "",
           "dailyDouble": false
@@ -225,7 +225,7 @@
         {
           "id": "372ab245-78a5-459c-8119-a29ee41af870",
           "value": 500,
-          "clue": "This response object provides a predictable error format to API clients.",
+          "clue": "This standardized application-specific response object can carry error code, message and timestamp.",
           "response": "What is an ErrorResponse DTO?",
           "hint": "",
           "dailyDouble": false
@@ -239,50 +239,50 @@
         {
           "id": "5ba3dafa-d33f-4142-9464-333b4af0343b",
           "value": 100,
-          "clue": "This layer handles incoming HTTP requests and response mapping.",
+          "clue": "This Spring application layer maps incoming HTTP requests to operations and responses.",
           "response": "What is the controller layer?",
-          "hint": "API boundary.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "2e886fdf-7c2c-4bb2-8a2d-b43806116908",
           "value": 200,
-          "clue": "This layer holds business rules and use-case logic.",
+          "clue": "This application layer implements use cases and business rules.",
           "response": "What is the service layer?",
-          "hint": "Business work.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "fdf3a775-5b7e-47ec-bd7a-50fd8c123f97",
           "value": 300,
-          "clue": "This layer interacts with persistent data.",
+          "clue": "This application layer executes persistence operations through repositories or SQL mappers.",
           "response": "What is the repository/mapper layer?",
-          "hint": "Database access.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "4dd0d1ab-a52b-4fd0-98eb-bd4e86f4da25",
           "value": 400,
-          "clue": "This Spring mechanism supplies collaborators to classes automatically.",
+          "clue": "Constructor-injected Spring services receive collaborators through this framework mechanism.",
           "response": "What is dependency injection?",
-          "hint": "Constructor injection.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "e36f7dc2-0624-446f-a509-90ea62e4083d",
           "value": 500,
-          "clue": "This design separates request-format checks at the DTO boundary from business invariants in domain logic.",
-          "response": "What is separating input validation from domain validation?",
-          "hint": "Two boundaries.",
+          "clue": "A rule that an account balance must never become negative is an example of this kind of invariant, enforced beyond request DTO validation.",
+          "response": "What is a domain invariant?",
+          "hint": "",
           "dailyDouble": false
         }
       ]
     }
   ],
   "finalJeopardy": {
-    "category": "Spring Boot API Review",
-    "clue": "A POST request with a blank required ticker normally fails Bean Validation with this HTTP status.",
+    "category": "Spring Boot REST",
+    "clue": "A POST request fails because a required ticker field contains only spaces. This HTTP status is commonly returned after @NotBlank validation.",
     "response": "What is 400 Bad Request?",
-    "hint": "Validation versus business rejection."
+    "hint": "Client validation."
   }
 }

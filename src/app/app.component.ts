@@ -6,7 +6,7 @@ interface Clue { id:string; value:number; clue:string; response:string; hint:str
 interface Category { id:string; name:string; clues:Clue[] }
 interface Final {category:string;clue:string;response:string;hint?:string}
 interface Game {schemaVersion:number;title:string;categories:Category[];finalJeopardy:Final}
-interface Team {id:string;name:string;score:number;wager:number}
+interface Team {id:string;name:string;classroom?:string;score:number;wager:number}
 interface Session {used:string[];teams:Team[];gameKey:string}
 const uid=()=>crypto.randomUUID();
 const starter:Game={schemaVersion:1,title:'New Challenge',categories:Array.from({length:6},(_,i)=>({id:uid(),name:`Category ${i+1}`,clues:[100,200,300,400,500].map(value=>({id:uid(),value,clue:'',response:'',hint:''}))})),finalJeopardy:{category:'Final Challenge',clue:'',response:'',hint:''}};
@@ -17,6 +17,7 @@ export class AppComponent {
   pendingDeleteTeam=signal<Team|null>(null);
   managingTeams=signal(false);
   newTeamName=signal('');
+  newTeamClassroom=signal('');
   teamError=signal('');
   categoryIndex=signal(0); clueIndex=signal(0); notice=signal(''); projector=signal(false); private timer:any=null; private channel?:BroadcastChannel;
   game=computed(()=>this.games()[this.selected()] ?? starter);
@@ -48,10 +49,11 @@ export class AppComponent {
   changeTeam(id:string,key:'name'|'wager',value:string|number){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,[key]:key==='wager'?Number(value):value}:t))}
   addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:this.uniqueTeamName(),score:0,wager:0}])}
   uniqueTeamName(){let n=1;while(this.teams().some(t=>t.name.trim().toLowerCase()===`team ${n}`))n++;return `Team ${n}`}
-  openTeamManager(){this.teamError.set('');this.newTeamName.set('');this.managingTeams.set(true)}
+  openTeamManager(){this.teamError.set('');this.newTeamName.set('');this.newTeamClassroom.set('');this.managingTeams.set(true)}
   closeTeamManager(){this.managingTeams.set(false);this.teamError.set('')}
-  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,score:0,wager:0}]);this.newTeamName.set('');this.teamError.set('')}
+  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,classroom:this.newTeamClassroom().trim(),score:0,wager:0}]);this.newTeamName.set('');this.newTeamClassroom.set('');this.teamError.set('')}
   updateTeamName(id:string,value:string){const name=value.trim();if(!name){this.teamError.set('Team names cannot be blank.');return}if(this.teams().some(t=>t.id!==id&&t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('Team names must be unique.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,name}:t));this.teamError.set('')}
+  updateTeamClassroom(id:string,value:string){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,classroom:value.trim()}:t))}
   updateTeamScore(id:string,value:number|string){const score=Number(value);if(!Number.isFinite(score)||!Number.isInteger(score)){this.teamError.set('Scores must be whole numbers.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,score}:t));this.teamError.set('')}
   removeTeam(id:string){if(this.teams().length<=1)return;const team=this.teams().find(t=>t.id===id);if(team)this.pendingDeleteTeam.set(team)}
   cancelTeamDelete(){this.pendingDeleteTeam.set(null)}

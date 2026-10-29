@@ -147,41 +147,41 @@
         {
           "id": "8aeb7b5b-9c15-493c-8812-d487b159b2ac",
           "value": 100,
-          "clue": "The S in SOLID stands for this principle.",
-          "response": "What is Single Responsibility Principle?",
-          "hint": "One reason to change.",
+          "clue": "This SOLID principle says a class should have one reason to change.",
+          "response": "What is the Single Responsibility Principle?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "5896a939-ab2e-42dc-9dcd-963ae61459d7",
           "value": 200,
-          "clue": "The O in SOLID stands for this principle.",
-          "response": "What is Open/Closed Principle?",
-          "hint": "Extend rather than modify.",
+          "clue": "This SOLID principle favors extension without modifying existing code.",
+          "response": "What is the Open/Closed Principle?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "088ee76e-51d9-4ee6-b625-8d67a7fc6445",
           "value": 300,
-          "clue": "Depending on an abstraction rather than a concrete implementation supports this principle.",
-          "response": "What is Dependency Inversion Principle?",
-          "hint": "The D in SOLID.",
+          "clue": "This SOLID principle requires high-level code to depend on abstractions.",
+          "response": "What is the Dependency Inversion Principle?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b2ec0496-600e-40f2-91af-523e3db190ca",
           "value": 400,
-          "clue": "A subclass that violates the expectations of its superclass breaks this principle.",
-          "response": "What is Liskov Substitution Principle?",
-          "hint": "The L in SOLID.",
+          "clue": "This SOLID principle requires subtypes to honor base-type contracts.",
+          "response": "What is the Liskov Substitution Principle?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "5c9bd741-e125-4775-b5fe-25669d8c4415",
           "value": 500,
-          "clue": "This Java construct defines a common behavior contract for unrelated classes without requiring a shared implementation.",
+          "clue": "This Java construct defines a contract for unrelated classes.",
           "response": "What is an interface?",
-          "hint": "A contract, not a base implementation.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

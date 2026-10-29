@@ -60,7 +60,8 @@ export class CloudWorkspaceService {
   async loginWithGoogle() {
     if (!this.client) throw Error('Firebase is not configured.');
     this.error.set('');
-    await signInWithPopup(this.client.auth, new GoogleAuthProvider());
+    const credential = await signInWithPopup(this.client.auth, new GoogleAuthProvider());
+    await this.loadSignedInProfile(credential.user);
   }
 
   get isSuperAdmin() { return this.profile()?.roles.includes('SuperAdmin') ?? false; }
@@ -74,10 +75,24 @@ export class CloudWorkspaceService {
         (this.locationMembership()?.classroomIds || []).includes(classroomId));
   }
 
+  private async loadSignedInProfile(user: User) {
+    if (!this.client) return;
+    const snapshot = await getDoc(doc(this.client.db, 'users', user.uid));
+    if (!snapshot.exists()) { this.profile.set(null); return; }
+    const data = snapshot.data() as Partial<UserProfile>;
+    this.profile.set({
+      email: data.email || user.email || '',
+      first_name: data.first_name || '',
+      last_name: data.last_name || '',
+      roles: Array.isArray(data.roles) ? data.roles : []
+    });
+    this.watchOrganizations();
+  }
   async login(email: string, password: string) {
     if (!this.client) throw Error('Firebase is not configured.');
     this.error.set('');
-    await signInWithEmailAndPassword(this.client.auth, email, password);
+    const credential = await signInWithEmailAndPassword(this.client.auth, email, password);
+    await this.loadSignedInProfile(credential.user);
   }
   async logout() { if (this.client) await signOut(this.client.auth); }
 

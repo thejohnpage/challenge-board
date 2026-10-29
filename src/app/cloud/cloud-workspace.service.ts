@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { User, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { User, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { collection, doc, getDoc, onSnapshot, addDoc, updateDoc, serverTimestamp, type Unsubscribe } from 'firebase/firestore';
 import { cloudClient } from './cloud-config';
 import type { Classroom, CloudTeam, Location, Organization, ScopedMembership, UserProfile } from './cloud-models';
@@ -18,18 +18,22 @@ export class CloudWorkspaceService {
   readonly selectedOrganizationId = signal<string | null>(null);
   readonly selectedLocationId = signal<string | null>(null);
   readonly error = signal('');
+  readonly ready = signal(false);
+  private readonly readyPromise: Promise<void>;
+  private resolveReady!: () => void;
   private listeners: Unsubscribe[] = [];
   private authGeneration = 0;
 
   constructor() {
-    if (!this.client) return;
+    this.readyPromise = new Promise<void>(resolve => { this.resolveReady = resolve; });
+    if (!this.client) { this.finishInitialization(); return; }
     onAuthStateChanged(this.client.auth, async user => {
       const generation = ++this.authGeneration;
       this.disconnect();
       this.user.set(user);
       this.profile.set(null);
       this.error.set('');
-      if (!user) return;
+      if (!user) { this.finishInitialization(); return; }
       try {
         const snapshot = await getDoc(doc(this.client!.db, 'users', user.uid));
         if (generation !== this.authGeneration) return;
@@ -45,8 +49,18 @@ export class CloudWorkspaceService {
         }
       } catch {
         if (generation === this.authGeneration) this.error.set('Unable to load your user profile. Check Firestore rules.');
+      } finally {
+        if (generation === this.authGeneration) this.finishInitialization();
       }
     });
+  }
+
+  private finishInitialization() { if (!this.ready()) { this.ready.set(true); this.resolveReady(); } }
+  whenReady(): Promise<void> { return this.readyPromise; }
+  async loginWithGoogle() {
+    if (!this.client) throw Error('Firebase is not configured.');
+    this.error.set('');
+    await signInWithPopup(this.client.auth, new GoogleAuthProvider());
   }
 
   get isSuperAdmin() { return this.profile()?.roles.includes('SuperAdmin') ?? false; }

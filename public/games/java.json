@@ -41,7 +41,7 @@
         {
           "id": "62216f39-56ee-4720-b9c2-98c5acc8400d",
           "value": 500,
-          "clue": "These exceptions must be handled or declared, unlike unchecked exceptions.",
+          "clue": "These Java exceptions must be caught or declared.",
           "response": "What are checked exceptions?",
           "hint": "Think compiler enforcement.",
           "dailyDouble": false

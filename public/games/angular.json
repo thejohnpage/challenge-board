@@ -55,41 +55,41 @@
         {
           "id": "d96f4b00-0ad1-49ea-9282-5da33166e444",
           "value": 100,
-          "clue": "This template syntax displays an expression: {{ value }}.",
+          "clue": "Double curly braces in a template use this binding syntax.",
           "response": "What is interpolation?",
-          "hint": "Double curly braces.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "94937df1-b977-4515-a3ab-047d6f55d4ca",
           "value": 200,
-          "clue": "This syntax binds a DOM property to a component expression.",
-          "response": "What is [property] binding?",
-          "hint": "Square brackets.",
+          "clue": "Square brackets in an Angular template denote this binding type.",
+          "response": "What is property binding?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "7b5f43c8-7bbe-42d9-bdb4-82d5ba8aaa07",
           "value": 300,
-          "clue": "This syntax listens for a DOM event.",
-          "response": "What is (event) binding?",
-          "hint": "Parentheses.",
+          "clue": "Parentheses around click in an Angular template denote this binding type.",
+          "response": "What is event binding?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "59afc208-3057-4da5-a469-205330e41994",
           "value": 400,
-          "clue": "This Angular decorator traditionally declares a child component value supplied by a parent.",
+          "clue": "This traditional decorator declares a component input supplied by a parent.",
           "response": "What is @Input()?",
-          "hint": "Parent to child.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "2d6d40d4-17d0-4549-851a-0acd1eba6be8",
           "value": 500,
-          "clue": "This Angular decorator traditionally declares an event emitted by a child component.",
+          "clue": "This traditional decorator declares a component event sent to a parent.",
           "response": "What is @Output()?",
-          "hint": "Child to parent.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

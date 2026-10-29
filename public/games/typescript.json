@@ -9,25 +9,25 @@
         {
           "id": "f0fea4e7-e914-4946-ab09-aada5f722491",
           "value": 100,
-          "clue": "This declaration keyword creates a block-scoped binding that can be reassigned.",
+          "clue": "This keyword declares a reassignable block-scoped binding.",
           "response": "What is let?",
-          "hint": "Unlike const.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "4f21b41c-b6bb-4a09-9e8e-246cc6e1a14a",
           "value": 200,
-          "clue": "This declaration keyword prevents reassignment of a binding.",
+          "clue": "This keyword declares a binding that cannot be reassigned.",
           "response": "What is const?",
-          "hint": "Block-scoped.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "5c61fb96-acc1-4b70-b920-32f2f180df8c",
           "value": 300,
-          "clue": "This operator tests strict equality without type coercion.",
+          "clue": "This operator checks equality without type coercion.",
           "response": "What is ===?",
-          "hint": "Three symbols.",
+          "hint": "",
           "dailyDouble": false
         },
         {
@@ -35,15 +35,15 @@
           "value": 400,
           "clue": "This array method transforms each element into a new array.",
           "response": "What is map()?",
-          "hint": "One output per input.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "46c5362d-d85b-41c9-8fae-6d0fc2f83dac",
           "value": 500,
-          "clue": "This feature lets a function capture variables from its surrounding lexical scope.",
+          "clue": "This feature lets a function retain access to its lexical environment.",
           "response": "What is a closure?",
-          "hint": "Remembers outer bindings.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -55,41 +55,41 @@
         {
           "id": "be130128-554b-4c28-9730-8bd11fed1ec7",
           "value": 100,
-          "clue": "This annotation declares a variable as a string: name: ___.",
+          "clue": "This TypeScript primitive type represents text.",
           "response": "What is string?",
-          "hint": "Primitive text type.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "cad88641-f713-4ef1-b448-441ddca3dc8d",
           "value": 200,
-          "clue": "This type represents either string or number.",
-          "response": "What is string | number?",
-          "hint": "Union.",
+          "clue": "The type string | number is this kind of type.",
+          "response": "What is a union type?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "a907e232-c52e-4dcc-8b6d-e11f178d0e41",
           "value": 300,
-          "clue": "This declaration describes the shape of an object.",
-          "response": "What is an interface (or type alias)?",
-          "hint": "Object contract.",
+          "clue": "This TypeScript declaration describes an object's structural contract.",
+          "response": "What is an interface?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "bc5bea51-2a23-4cc9-8318-c9aef1f01795",
           "value": 400,
-          "clue": "This type means a value could be of any type but must be narrowed before use.",
+          "clue": "This safer alternative to any requires narrowing before use.",
           "response": "What is unknown?",
-          "hint": "Safer than any.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f171bf06-a283-464d-82da-db418166965e",
           "value": 500,
-          "clue": "This TypeScript compilation process checks static types and removes type-only annotations from emitted JavaScript.",
-          "response": "What are type checking and type erasure?",
-          "hint": "TypeScript compiles to JS.",
+          "clue": "This process removes TypeScript-only type annotations from emitted JavaScript.",
+          "response": "What is type erasure?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

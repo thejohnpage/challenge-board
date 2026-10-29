@@ -133,8 +133,8 @@
         {
           "id": "679e97a3-6eba-434a-b6f5-f113075b65b1",
           "value": 500,
-          "clue": "A class handling unrelated invoicing, authentication and reporting responsibilities violates this SOLID principle.",
-          "response": "What is the Single Responsibility Principle?",
+          "clue": "A single object that accumulates nearly every unrelated business responsibility is commonly called this design anti-pattern.",
+          "response": "What is a God object?",
           "hint": "",
           "dailyDouble": false
         }

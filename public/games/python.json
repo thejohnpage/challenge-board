@@ -41,8 +41,8 @@
         {
           "id": "9f34047f-60e4-4184-b246-ed81e648af2a",
           "value": 500,
-          "clue": "What is meant by Python being dynamically typed?",
-          "response": "What is variables do not need declared types, while values have types checked at runtime?",
+          "clue": "In this typing model, Python names can be rebound to values of different types without a fixed declared variable type.",
+          "response": "What is dynamic typing?",
           "hint": "Compare with Java.",
           "dailyDouble": false
         }
@@ -79,16 +79,16 @@
         {
           "id": "8ab6e661-1d47-47eb-8a7a-2ef3dce909a9",
           "value": 400,
-          "clue": "This guard prevents a module's script-only code running on import.",
-          "response": "What is if __name__ == '__main__': ?",
+          "clue": "This Python idiom runs a guarded block when executed as the main program but not on ordinary import.",
+          "response": "What is if __name__ == '__main__':?",
           "hint": "Direct execution only.",
           "dailyDouble": false
         },
         {
           "id": "13ad9cf5-bac3-4587-b171-1687e51342fa",
           "value": 500,
-          "clue": "Do Python type hints such as -> float enforce types automatically at runtime?",
-          "response": "What is no; they document intent but are not enforced automatically?",
+          "clue": "These Python annotations document intended types without enforcing them automatically at runtime.",
+          "response": "What are type hints?",
           "hint": "Hints, not runtime validation.",
           "dailyDouble": false
         }
@@ -133,8 +133,8 @@
         {
           "id": "78d41861-ead3-485b-ba81-6375c7db3cc5",
           "value": 500,
-          "clue": "Why use a context manager such as with open(...) for file operations?",
-          "response": "What is to ensure the file is closed when leaving the block, including on errors?",
+          "clue": "This construct automatically closes a file on leaving its block, including when exceptions occur.",
+          "response": "What is a context manager, such as with open(...)?",
           "hint": "Resource cleanup.",
           "dailyDouble": false
         }
@@ -155,7 +155,7 @@
         {
           "id": "caead2b2-e53e-4f80-a42f-1a972d65e7a1",
           "value": 200,
-          "clue": "This pandas object represents one labeled column.",
+          "clue": "This pandas object is a one-dimensional labeled array, which can also represent a DataFrame column.",
           "response": "What is a Series?",
           "hint": "One-dimensional.",
           "dailyDouble": false
@@ -179,7 +179,7 @@
         {
           "id": "b3fe2440-f382-4525-9ddd-d4783c41345f",
           "value": 500,
-          "clue": "How do you select BUY trades using a Boolean condition?",
+          "clue": "This pandas Boolean-indexing expression selects rows whose side column equals 'BUY'.",
           "response": "What is df.loc[df['side'] == 'BUY']?",
           "hint": "Boolean indexing.",
           "dailyDouble": false
@@ -209,8 +209,8 @@
         {
           "id": "1dde2f53-3208-43cc-a9d8-86123f28e516",
           "value": 300,
-          "clue": "If a missing value can be derived from quantity times price, do this.",
-          "response": "What is recompute it?",
+          "clue": "A missing trade value can be recovered from verified quantity and price using this calculation.",
+          "response": "What is quantity multiplied by price?",
           "hint": "Do not discard recoverable data.",
           "dailyDouble": false
         },
@@ -225,8 +225,8 @@
         {
           "id": "e24dd5a8-ebcb-4cdd-beac-b3b400dd283e",
           "value": 500,
-          "clue": "Why should an outlier not automatically be deleted?",
-          "response": "What is it may be valid, so it should be investigated and justified before removal?",
+          "clue": "An extreme data value should undergo this process before removal because it might be valid.",
+          "response": "What is investigation or validation?",
           "hint": "Unusual does not mean wrong.",
           "dailyDouble": false
         }
@@ -281,8 +281,8 @@
   ],
   "finalJeopardy": {
     "category": "Python Data Workflow",
-    "clue": "Starting from a DataFrame of trades, how would you select BUY trades, sum trade values per instrument, and rank totals descending?",
-    "response": "What are Boolean filtering, groupby(), sum(), then sort_values(ascending=False)?",
+    "clue": "This pandas workflow selects BUY rows, aggregates trade values by instrument, and orders totals descending.",
+    "response": "What are Boolean filtering, groupby() with sum(), and sort_values(ascending=False)?",
     "hint": "Filter, aggregate, sort."
   }
 }

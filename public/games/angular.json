@@ -101,41 +101,41 @@
         {
           "id": "73cd2d19-f877-436d-a729-22e3843fa406",
           "value": 100,
-          "clue": "This decorator marks a class available to Angular dependency injection.",
+          "clue": "This decorator marks an Angular injectable class.",
           "response": "What is @Injectable()?",
-          "hint": "A service.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "a8e9640e-5712-46fa-a03c-4bd3979273f7",
           "value": 200,
-          "clue": "This mechanism supplies a component's dependencies without manual construction.",
+          "clue": "This mechanism supplies services to components.",
           "response": "What is dependency injection?",
-          "hint": "Framework provides instances.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b4c69336-23db-465b-99a1-b7dfd375ed47",
           "value": 300,
-          "clue": "This option commonly makes a service available app-wide.",
+          "clue": "This configuration registers a service with Angular's root injector.",
           "response": "What is providedIn: 'root'?",
-          "hint": "Root injector.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "7124169f-edd3-4775-b8fe-78f6c3ee915f",
           "value": 400,
-          "clue": "Reusable Angular HTTP and data-access logic belongs in this injectable building block.",
+          "clue": "Reusable HTTP logic usually belongs in this Angular building block.",
           "response": "What is a service?",
-          "hint": "Separation of concerns.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "8822898a-f5f9-4a7c-b89d-d7410ba7396a",
           "value": 500,
-          "clue": "This Angular pattern offers loose coupling and easier testing compared with constructing dependencies manually.",
+          "clue": "This pattern separates components from dependency construction.",
           "response": "What is dependency injection?",
-          "hint": "DI benefits.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

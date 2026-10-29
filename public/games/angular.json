@@ -193,41 +193,41 @@
         {
           "id": "e886eb9a-c68b-4ee6-a4dd-b9f57a7fbb6a",
           "value": 100,
-          "clue": "This Angular approach models forms explicitly in TypeScript.",
+          "clue": "This Angular forms approach defines controls in TypeScript.",
           "response": "What are reactive forms?",
-          "hint": "FormControl/FormGroup.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "c52f4aee-495e-4dcd-9451-907a081320c4",
           "value": 200,
-          "clue": "This class groups related reactive form controls.",
+          "clue": "This Angular class groups related reactive form controls.",
           "response": "What is FormGroup?",
-          "hint": "Multiple controls.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "3cfc0afd-eea6-4644-8ffb-965ef4d0e9db",
           "value": 300,
-          "clue": "This directive displays the view for the active route.",
-          "response": "What is router-outlet?",
-          "hint": "Routing placeholder.",
+          "clue": "This Angular directive displays the currently activated route.",
+          "response": "What is RouterOutlet?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "a5954ebc-4ff3-407a-90ee-29fe7ff94d00",
           "value": 400,
-          "clue": "This Angular service supports navigation between routes.",
+          "clue": "This Angular service navigates between application routes.",
           "response": "What is Router?",
-          "hint": "Navigate programmatically.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "fa5cde61-d6e7-4d11-b548-d79a8fecee0e",
           "value": 500,
-          "clue": "This Angular feature conditionally permits navigation but does not replace backend authorization.",
+          "clue": "This Angular routing feature can permit or block navigation.",
           "response": "What is a route guard?",
-          "hint": "Navigation protection.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

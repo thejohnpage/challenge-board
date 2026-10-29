@@ -41,8 +41,8 @@
         {
           "id": "95243be7-59e1-486e-b44e-e90c15bea25c",
           "value": 500,
-          "clue": "What three annotations are combined in @SpringBootApplication?",
-          "response": "What are @Configuration, @EnableAutoConfiguration and @ComponentScan?",
+          "clue": "@SpringBootApplication combines these three Spring annotations.",
+          "response": "What are @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan?",
           "hint": "Configuration, automatic setup, scanning.",
           "dailyDouble": false
         }
@@ -87,8 +87,8 @@
         {
           "id": "e14aa2fc-12d2-4ab9-a5ff-7f503cf146bb",
           "value": 500,
-          "clue": "Why is GET /orders preferable to GET /getOrders in REST design?",
-          "response": "What is resource URLs name nouns while HTTP methods express actions?",
+          "clue": "REST URLs such as GET /orders follow this convention instead of using /getOrders.",
+          "response": "What is naming resources with nouns and expressing actions through HTTP methods?",
           "hint": "Resources, not verbs.",
           "dailyDouble": false
         }
@@ -133,8 +133,8 @@
         {
           "id": "bc77ea1f-4d1d-48ad-9120-d70afdc30105",
           "value": 500,
-          "clue": "Why use separate request/response DTOs instead of exposing internal domain objects?",
-          "response": "What is to decouple API contracts, control exposed fields and validate boundary data?",
+          "clue": "These API boundary objects separate request and response contracts from internal domain models.",
+          "response": "What are request and response DTOs?",
           "hint": "Different reasons to change.",
           "dailyDouble": false
         }
@@ -147,7 +147,7 @@
         {
           "id": "29071fc9-3e0d-492a-b1fb-8d33ee537ba7",
           "value": 100,
-          "clue": "This Java persistence framework lets developers write SQL explicitly in mapper methods.",
+          "clue": "This Java SQL mapping framework provides explicit control over mapper SQL.",
           "response": "What is MyBatis?",
           "hint": "Mapper SQL.",
           "dailyDouble": false
@@ -171,16 +171,16 @@
         {
           "id": "15543623-9092-4800-a474-0b711f97cdeb",
           "value": 400,
-          "clue": "This JPA method name can be used to derive a query without writing SQL.",
-          "response": "What is findByTicker(String ticker)?",
+          "clue": "Spring Data JPA generates queries from method names such as findByTicker using this feature.",
+          "response": "What are derived query methods?",
           "hint": "Derived query.",
           "dailyDouble": false
         },
         {
           "id": "f21c820f-73b7-4870-acae-63306f02bf6e",
           "value": 500,
-          "clue": "What is the main trade-off between MyBatis and Spring Data JPA?",
-          "response": "What is explicit SQL control versus less boilerplate and more framework-managed behavior?",
+          "clue": "Compared with Spring Data JPA, MyBatis favors this persistence style with direct SQL control.",
+          "response": "What is explicit SQL mapping?",
           "hint": "Control vs convenience.",
           "dailyDouble": false
         }
@@ -217,7 +217,7 @@
         {
           "id": "b02b4e03-e945-48b5-91d9-26144a5bf953",
           "value": 400,
-          "clue": "This status can represent a well-formed request rejected by business rules.",
+          "clue": "This HTTP status can represent semantically invalid request content; state conflicts may instead use 409.",
           "response": "What is 422 Unprocessable Content?",
           "hint": "Business rejection.",
           "dailyDouble": false
@@ -225,8 +225,8 @@
         {
           "id": "372ab245-78a5-459c-8119-a29ee41af870",
           "value": 500,
-          "clue": "Why return a consistent ErrorResponse DTO from every handler?",
-          "response": "What is to give clients one predictable error structure to parse?",
+          "clue": "A consistent ErrorResponse DTO provides API clients with this benefit.",
+          "response": "What is a predictable error contract?",
           "hint": "Uniform API errors.",
           "dailyDouble": false
         }
@@ -271,8 +271,8 @@
         {
           "id": "e36f7dc2-0624-446f-a509-90ea62e4083d",
           "value": 500,
-          "clue": "Why keep validation at the DTO boundary and domain invariants in the domain/service logic?",
-          "response": "What is they protect different concerns: request contract versus business correctness?",
+          "clue": "This design separates request-format checks at the DTO boundary from business invariants in domain logic.",
+          "response": "What is separating input validation from domain validation?",
           "hint": "Two boundaries.",
           "dailyDouble": false
         }
@@ -281,8 +281,8 @@
   ],
   "finalJeopardy": {
     "category": "Spring Boot API Review",
-    "clue": "A client POSTs an order with a blank ticker; a different well-formed order violates a business rule. What status should each receive, and what mechanisms handle them?",
-    "response": "What are 400 via DTO Bean Validation/@Valid and 422 via a domain exception handled by @RestControllerAdvice?",
+    "clue": "A POST request with a blank required ticker normally fails Bean Validation with this HTTP status.",
+    "response": "What is 400 Bad Request?",
     "hint": "Validation versus business rejection."
   }
 }

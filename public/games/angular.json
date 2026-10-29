@@ -9,41 +9,41 @@
         {
           "id": "01a45a3d-441e-447e-b291-125f7f33d09a",
           "value": 100,
-          "clue": "This TypeScript decorator defines an Angular component.",
+          "clue": "This decorator identifies an Angular component.",
           "response": "What is @Component?",
-          "hint": "Component metadata.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "3dfd2e0f-d909-45ed-b1c6-a6a12bc5ed13",
           "value": 200,
-          "clue": "This file typically declares project dependencies and npm scripts.",
+          "clue": "This npm manifest lists project dependencies and scripts.",
           "response": "What is package.json?",
-          "hint": "Project manifest.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "ca5ac7e9-16e9-4244-9c76-7c3777c12f7e",
           "value": 300,
-          "clue": "This Angular feature combines HTML with component data and expressions.",
+          "clue": "This Angular view definition combines HTML with component expressions.",
           "response": "What is a template?",
-          "hint": "The view.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b9024aa1-1507-4d9b-ad1e-e490b635b3d0",
           "value": 400,
-          "clue": "This Angular CLI command creates a new project.",
+          "clue": "This Angular CLI command creates a project.",
           "response": "What is ng new?",
-          "hint": "Angular CLI.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "d092e360-8381-4d23-9691-6d356d41e4af",
           "value": 500,
-          "clue": "This TypeScript-based framework builds client-side interfaces that communicate with backend services.",
+          "clue": "This TypeScript-based framework builds client-side web interfaces.",
           "response": "What is Angular?",
-          "hint": "Frontend vs backend.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

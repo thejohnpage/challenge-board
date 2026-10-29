@@ -1,4 +1,4 @@
-import { Component, OnDestroy, effect, signal, inject } from '@angular/core';
+import { Component, OnDestroy, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CloudWorkspaceService } from './cloud-workspace.service';
@@ -50,38 +50,60 @@ import { cloudEnabled } from './cloud-config';
           <span>Signed in as <strong>{{cloud.user()?.email}}</strong></span>
           <button (click)="logout()">Sign out</button>
         </div>
-        <ng-container *ngIf="cloud.membership() as member; else pendingProfile">
-          <p><strong>Role:</strong> {{member.role}} · <strong>Organization:</strong> {{member.organizationId}} · <strong>Location:</strong> {{member.locationId}}</p>
-          <section *ngIf="canAdmin(member.role)" class="cloud-create">
-            <h3>Create classroom</h3>
-            <input [(ngModel)]="classroomName" placeholder="Classroom name" aria-label="New classroom name">
-            <button (click)="createClassroom()" [disabled]="busy()">Create classroom</button>
-          </section>
-          <h3>Classrooms</h3>
-          <p *ngIf="!cloud.classrooms().length">No classrooms available yet.</p>
+        <ng-container *ngIf="cloud.profile() as profile; else pendingProfile">
+          <p><strong>{{profile.first_name}} {{profile.last_name}}</strong> · Roles: {{profile.roles.join(', ') || 'None assigned'}}</p>
+          <p *ngIf="cloud.isSuperAdmin">Platform SuperAdmin access is enabled.</p>
+          <h3>Organizations</h3>
+          <p *ngIf="!cloud.organizations().length">No organizations are available. Create the first organization in the Firebase Console.</p>
           <div class="cloud-classes">
-            <button *ngFor="let room of cloud.classrooms()"
-              [class.gold]="selectedClassroom()===room.id"
-              (click)="selectClassroom(room.id)">{{room.name}}</button>
+            <button *ngFor="let org of cloud.organizations()"
+              [class.gold]="cloud.selectedOrganizationId()===org.id"
+              (click)="chooseOrganization(org.id)">{{org.name}}</button>
           </div>
-          <ng-container *ngIf="selectedClassroom() as roomId">
-            <h3>Teams</h3>
-            <section *ngIf="canManageRoom(member.role,member.classroomIds,roomId)" class="cloud-create">
-              <input [(ngModel)]="teamName" placeholder="New team name" aria-label="New team name">
-              <button (click)="createTeam()" [disabled]="busy()">Add team</button>
-            </section>
-            <div class="cloud-team" *ngFor="let team of cloud.teams()">
-              <strong>{{team.name}}</strong>
-              <span>Score: {{team.score}}</span>
-              <button *ngIf="canManageRoom(member.role,member.classroomIds,roomId)"
-                (click)="renameTeam(team.id,team.name)">Rename</button>
+          <ng-container *ngIf="cloud.selectedOrganizationId()">
+            <p>Organization role: {{cloud.isOrgAdmin ? 'Administrator' : (cloud.organizationMembership()?.roles?.join(', ') || 'No scoped role')}}</p>
+            <h3>Locations</h3>
+            <p *ngIf="!cloud.locations().length">No locations are available. Create the first location in Firestore.</p>
+            <div class="cloud-classes">
+              <button *ngFor="let loc of cloud.locations()"
+                [class.gold]="cloud.selectedLocationId()===loc.id"
+                (click)="chooseLocation(loc.id)">{{loc.name}}</button>
             </div>
-            <p *ngIf="!cloud.teams().length">No teams in this classroom yet.</p>
+          </ng-container>
+          <ng-container *ngIf="cloud.selectedLocationId()">
+            <p>Location role: {{cloud.isLocationAdmin ? 'Administrator' : (cloud.locationMembership()?.roles?.join(', ') || 'No scoped role')}}</p>
+            <section *ngIf="cloud.isLocationAdmin" class="cloud-create">
+              <h3>Create classroom</h3>
+              <input [(ngModel)]="classroomName" placeholder="Classroom name" aria-label="New classroom name">
+              <button (click)="createClassroom()" [disabled]="busy()">Create classroom</button>
+            </section>
+            <h3>Classrooms</h3>
+            <p *ngIf="!cloud.classrooms().length">No classrooms available yet.</p>
+            <div class="cloud-classes">
+              <button *ngFor="let room of cloud.classrooms()"
+                [class.gold]="selectedClassroom()===room.id"
+                (click)="selectClassroom(room.id)">{{room.name}}</button>
+            </div>
+            <ng-container *ngIf="selectedClassroom() as roomId">
+              <h3>Teams</h3>
+              <section *ngIf="cloud.canManageClassroom(roomId)" class="cloud-create">
+                <input [(ngModel)]="teamName" placeholder="New team name" aria-label="New team name">
+                <button (click)="createTeam()" [disabled]="busy()">Add team</button>
+              </section>
+              <div class="cloud-team" *ngFor="let team of cloud.teams()">
+                <strong>{{team.name}}</strong>
+                <span>Score: {{team.score}}</span>
+                <button *ngIf="cloud.canManageClassroom(roomId)"
+                  (click)="renameTeam(team.id,team.name)">Rename</button>
+              </div>
+              <p *ngIf="!cloud.teams().length">No teams in this classroom yet.</p>
+            </ng-container>
           </ng-container>
         </ng-container>
         <ng-template #pendingProfile>
-          <p>No role assignment found. A trusted administrator must provision
-          <code>users/{{cloud.user()?.uid}}</code> before this account can manage classrooms.</p>
+          <p>No profile found at <code>users/{{cloud.user()?.uid}}</code>.
+          Create a user document with the Firebase Authentication UID as its document ID
+          and a <code>roles</code> array.</p>
         </ng-template>
       </div>
       <p class="validation" *ngIf="cloud.error()">{{cloud.error()}}</p>
@@ -116,17 +138,13 @@ export class CloudWorkspaceComponent implements OnDestroy {
   classroomName = '';
   teamName = '';
 
-  constructor() {
-    effect(() => {
-      const member = this.cloud.membership();
-      if (member) this.cloud.watchClassrooms(member.organizationId, member.locationId);
-    });
+  async chooseOrganization(id: string) {
+    this.selectedClassroom.set(null);
+    await this.cloud.selectOrganization(id);
   }
-  canAdmin(role: string) {
-    return ['platformAdmin','organizationAdmin','locationAdmin'].includes(role);
-  }
-  canManageRoom(role: string, assigned: string[], id: string) {
-    return this.canAdmin(role) || (role === 'instructor' && assigned.includes(id));
+  async chooseLocation(id: string) {
+    this.selectedClassroom.set(null);
+    await this.cloud.selectLocation(id);
   }
   async login() {
     this.busy.set(true);
@@ -137,30 +155,28 @@ export class CloudWorkspaceComponent implements OnDestroy {
   async logout() { await this.cloud.logout(); this.selectedClassroom.set(null); }
   selectClassroom(id: string) {
     this.selectedClassroom.set(id);
-    const member = this.cloud.membership();
-    if (member) this.cloud.watchTeams(member.organizationId, member.locationId, id);
+    this.cloud.watchTeams(id);
   }
   async createClassroom() {
-    const member=this.cloud.membership();
-    if (!member || !this.classroomName.trim()) return;
+    if (!this.cloud.isLocationAdmin || !this.classroomName.trim()) return;
     this.busy.set(true);
-    try { await this.cloud.createClassroom(member.organizationId,member.locationId,this.classroomName);this.classroomName=''; }
+    try { await this.cloud.createClassroom(this.classroomName);this.classroomName=''; }
     catch { this.message.set('Classroom creation failed. Check permissions.'); }
     finally { this.busy.set(false); }
   }
   async createTeam() {
-    const member=this.cloud.membership(), room=this.selectedClassroom();
-    if (!member || !room || !this.teamName.trim()) return;
+    const room=this.selectedClassroom();
+    if (!room || !this.teamName.trim()) return;
     this.busy.set(true);
-    try { await this.cloud.createTeam(member.organizationId,member.locationId,room,this.teamName);this.teamName=''; }
+    try { await this.cloud.createTeam(room,this.teamName);this.teamName=''; }
     catch { this.message.set('Team creation failed. Check permissions.'); }
     finally { this.busy.set(false); }
   }
   async renameTeam(id: string, oldName: string) {
     const name=prompt('Team name',oldName)?.trim();
-    const member=this.cloud.membership(),room=this.selectedClassroom();
-    if (!name || !member || !room || name===oldName) return;
-    try { await this.cloud.renameTeam(member.organizationId,member.locationId,room,id,name); }
+    const room=this.selectedClassroom();
+    if (!name || !room || name===oldName) return;
+    try { await this.cloud.renameTeam(room,id,name); }
     catch { this.message.set('Unable to rename team.'); }
   }
   ngOnDestroy() { this.cloud.disconnect(); }

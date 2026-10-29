@@ -7,7 +7,7 @@ interface Category { id:string; name:string; clues:Clue[] }
 interface Final {category:string;clue:string;response:string;hint?:string}
 interface Game {schemaVersion:number;title:string;categories:Category[];finalJeopardy:Final}
 interface Team {id:string;name:string;classroom?:string;score:number;wager:number}
-interface Session {used:string[];teams:Team[];gameKey:string}
+interface Session {used:string[];teams:Team[];gameKey:string;classroomName?:string}
 const uid=()=>crypto.randomUUID();
 const starter:Game={schemaVersion:1,title:'New Challenge',categories:Array.from({length:6},(_,i)=>({id:uid(),name:`Category ${i+1}`,clues:[100,200,300,400,500].map(value=>({id:uid(),value,clue:'',response:'',hint:''}))})),finalJeopardy:{category:'Final Challenge',clue:'',response:'',hint:''}};
 @Component({selector:'app-root',standalone:true,imports:[CommonModule,FormsModule],templateUrl:'./app.component.html'})
@@ -18,6 +18,7 @@ export class AppComponent {
   managingTeams=signal(false);
   newTeamName=signal('');
   newTeamClassroom=signal('');
+  classroomName=signal('');
   teamError=signal('');
   categoryIndex=signal(0); clueIndex=signal(0); notice=signal(''); projector=signal(false); private timer:any=null; private channel?:BroadcastChannel;
   game=computed(()=>this.games()[this.selected()] ?? starter);
@@ -28,9 +29,9 @@ export class AppComponent {
     const saved=localStorage.getItem('cb-games-v1');
     if(saved){try{const arr=JSON.parse(saved);if(Array.isArray(arr)&&arr.length)this.games.set(arr)}catch{}}
     const sess=localStorage.getItem('cb-session-v1');
-    if(sess){try{const x=JSON.parse(sess) as Session;this.used.set(x.used||[]);this.teams.set(x.teams||[])}catch{}}
+    if(sess){try{const x=JSON.parse(sess) as Session;this.used.set(x.used||[]);this.teams.set(x.teams||[]);this.classroomName.set(x.classroomName||'')}catch{}}
     effect(()=>{const gs=this.games();if(gs.length)localStorage.setItem('cb-games-v1',JSON.stringify(gs))});
-    effect(()=>{localStorage.setItem('cb-session-v1',JSON.stringify({used:this.used(),teams:this.teams(),gameKey:this.game().title}))});
+    effect(()=>{localStorage.setItem('cb-session-v1',JSON.stringify({used:this.used(),teams:this.teams(),gameKey:this.game().title,classroomName:this.classroomName()}))});
     try { this.channel=new BroadcastChannel('challenge-board'); this.channel.onmessage=e=>{if(e.data?.type==='sync'&&this.projector()){this.games.set(e.data.games);this.selected.set(e.data.selected);this.used.set(e.data.used);this.teams.set(e.data.teams);this.modal.set(e.data.modal);this.final.set(e.data.final);this.revealed.set(e.data.revealed);this.hinted.set(e.data.hinted);this.seconds.set(e.data.seconds)}} }catch{}
     effect(()=>{if(!this.projector())this.channel?.postMessage({type:'sync',games:this.games(),selected:this.selected(),used:this.used(),teams:this.teams(),modal:this.modal(),final:this.final(),revealed:this.revealed(),hinted:this.hinted(),seconds:this.seconds()})});
     if(!saved)void this.loadSamples();
@@ -49,9 +50,11 @@ export class AppComponent {
   changeTeam(id:string,key:'name'|'wager',value:string|number){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,[key]:key==='wager'?Number(value):value}:t))}
   addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:this.uniqueTeamName(),score:0,wager:0}])}
   uniqueTeamName(){let n=1;while(this.teams().some(t=>t.name.trim().toLowerCase()===`team ${n}`))n++;return `Team ${n}`}
-  openTeamManager(){this.teamError.set('');this.newTeamName.set('');this.newTeamClassroom.set('');this.managingTeams.set(true)}
+  openTeamManager(){this.teamError.set('');this.newTeamName.set('');this.newTeamClassroom.set(this.classroomName());this.managingTeams.set(true)}
   closeTeamManager(){this.managingTeams.set(false);this.teamError.set('')}
-  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,classroom:this.newTeamClassroom().trim(),score:0,wager:0}]);this.newTeamName.set('');this.newTeamClassroom.set('');this.teamError.set('')}
+  setClassroomName(value:string){this.classroomName.set(value.trim())}
+  applyClassroomToAll(){const classroom=this.classroomName().trim();if(!classroom){this.teamError.set('Enter a classroom name first.');return}this.teams.update(ts=>ts.map(t=>({...t,classroom})));this.newTeamClassroom.set(classroom);this.teamError.set('')}
+  createTeam(){const name=this.newTeamName().trim();if(!name){this.teamError.set('Enter a team name.');return}if(this.teams().some(t=>t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('A team with that name already exists.');return}this.teams.update(ts=>[...ts,{id:uid(),name,classroom:this.newTeamClassroom().trim(),score:0,wager:0}]);this.newTeamName.set('');this.newTeamClassroom.set(this.classroomName());this.teamError.set('')}
   updateTeamName(id:string,value:string){const name=value.trim();if(!name){this.teamError.set('Team names cannot be blank.');return}if(this.teams().some(t=>t.id!==id&&t.name.trim().toLowerCase()===name.toLowerCase())){this.teamError.set('Team names must be unique.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,name}:t));this.teamError.set('')}
   updateTeamClassroom(id:string,value:string){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,classroom:value.trim()}:t))}
   updateTeamScore(id:string,value:number|string){const score=Number(value);if(!Number.isFinite(score)||!Number.isInteger(score)){this.teamError.set('Scores must be whole numbers.');return}this.teams.update(ts=>ts.map(t=>t.id===id?{...t,score}:t));this.teamError.set('')}

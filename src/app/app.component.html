@@ -28,6 +28,14 @@
   <section class="team-manager-dialog" role="dialog" aria-modal="true" aria-labelledby="team-manager-title" (click)="$event.stopPropagation()">
     <div class="team-manager-heading"><h2 id="team-manager-title">Manage Teams</h2><button type="button" (click)="closeTeamManager()" aria-label="Close team manager">✕</button></div>
     <p>Create, rename, adjust scores, or delete teams. Changes are saved automatically in this browser.</p>
+    <div class="classroom-assignment">
+      <label for="classroom-name">Classroom name</label>
+      <div class="classroom-assignment-row">
+        <input id="classroom-name" [ngModel]="classroomName()" (ngModelChange)="setClassroomName($event)" placeholder="e.g. Classroom 1" aria-label="Classroom name for this competition">
+        <button type="button" (click)="applyClassroomToAll()">Assign to All Teams</button>
+      </div>
+      <small>Enter the classroom once and assign it to every team. Individual classroom assignments can still be edited below.</small>
+    </div>
     <form class="team-create" (submit)="$event.preventDefault();createTeam()">
       <label for="new-team-name">New team name</label>
       <div class="team-create-row"><input id="new-team-name" name="newTeamName" [ngModel]="newTeamName()" (ngModelChange)="newTeamName.set($event)" placeholder="Enter team name"><input name="newTeamClassroom" [ngModel]="newTeamClassroom()" (ngModelChange)="newTeamClassroom.set($event)" placeholder="Classroom name (optional)" aria-label="Classroom name"><button type="submit">Add Team</button></div>

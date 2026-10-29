@@ -27,3 +27,8 @@
 .team-manager-footer{justify-content:flex-end}
 .team-manager-dialog button:focus-visible,.team-manager-dialog input:focus-visible{outline:3px solid #ffda5d;outline-offset:2px}
 @media(max-width:580px){.team-manager-row{grid-template-columns:1fr 1fr}.team-manager-row .danger{grid-column:1/-1}.team-create-row{flex-direction:column}}
+
+/* Classroom labels on team cards and in team management */
+.team-classroom{color:#c8d8fa;font-size:14px;font-weight:600;overflow-wrap:anywhere;margin-top:5px}
+.team-manager-row{grid-template-columns:minmax(150px,2fr) minmax(140px,1.5fr) minmax(90px,1fr) auto}
+@media(max-width:700px){.team-manager-row{grid-template-columns:1fr 1fr}.team-manager-row .danger{grid-column:1/-1}}

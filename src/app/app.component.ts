@@ -38,6 +38,30 @@ export class AppComponent {
     if(!saved)void this.loadSamples();
   }
   async loadSamples(){try{const names=await (await fetch('games/index.json')).json() as string[];const arr=await Promise.all(names.map(async n=>await (await fetch('games/'+n)).json() as Game));if(!this.games().length)this.games.set(arr)}catch{this.games.set([structuredClone(starter)])}}
+  async refreshBundledQuestions(){
+    if(!confirm('Replace the five bundled subject question banks with the latest versions? Custom games are preserved. Export any edits to bundled banks first.'))return;
+    try{
+      const names=await (await fetch('games/index.json',{cache:'no-store'})).json() as string[];
+      const updated=await Promise.all(names.map(async name=>{
+        const response=await fetch('games/'+name,{cache:'no-store'});
+        if(!response.ok)throw Error('Unable to load '+name);
+        const game=await response.json() as Game;
+        this.validate(game);
+        return game;
+      }));
+      const titles=new Set(updated.map(g=>g.title));
+      const currentTitle=this.game().title;
+      this.games.update(gs=>{
+        const remaining=gs.filter(g=>!titles.has(g.title));
+        return [...updated,...remaining];
+      });
+      const index=this.games().findIndex(g=>g.title===currentTitle);
+      this.selected.set(index>=0?index:0);
+      this.stop();this.modal.set(null);this.final.set(false);this.used.set([]);
+      this.notice.set('Bundled question banks refreshed. Scores and teams preserved.');
+      alert('Question banks refreshed. Teams and scores are unchanged; played clues on this board have been reset.');
+    }catch(err){alert('Unable to refresh questions: '+(err instanceof Error?err.message:String(err)))}
+  }
   pick(i:number){this.stop();this.selected.set(i);this.used.set([]);this.modal.set(null);this.final.set(false);this.notice.set('New board selected; used clues reset.');}
   open(clue:Clue){if(this.used().includes(clue.id))return;this.modal.set(clue);this.final.set(false);this.revealed.set(false);this.hinted.set(false);this.start(15)}
   openFinal(){this.modal.set(null);this.final.set(true);this.revealed.set(false);this.hinted.set(false);this.start(30)}

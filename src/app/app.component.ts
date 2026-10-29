@@ -2,6 +2,7 @@ import { Component, HostListener, computed, effect, signal } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CloudWorkspaceComponent } from './cloud/cloud-workspace.component';
+import { APP_VERSION } from './generated/app-version';
 
 interface Clue { id:string; value:number; clue:string; response:string; hint:string; dailyDouble?:boolean }
 interface Category { id:string; name:string; clues:Clue[] }
@@ -13,6 +14,8 @@ const uid=()=>crypto.randomUUID();
 const starter:Game={schemaVersion:1,title:'New Challenge',categories:Array.from({length:6},(_,i)=>({id:uid(),name:`Category ${i+1}`,clues:[100,200,300,400,500].map(value=>({id:uid(),value,clue:'',response:'',hint:''}))})),finalJeopardy:{category:'Final Challenge',clue:'',response:'',hint:''}};
 @Component({selector:'app-root',standalone:true,imports:[CommonModule,FormsModule,CloudWorkspaceComponent],templateUrl:'./app.component.html'})
 export class AppComponent {
+  readonly appVersion = APP_VERSION;
+  readonly copyrightYear = new Date().getFullYear();
   cloudView=signal(false);
   games=signal<Game[]>([]); selected=signal(0); edit=signal(false); modal=signal<Clue|null>(null); final=signal(false); revealed=signal(false); hinted=signal(false); seconds=signal(15); timerSeconds=signal(15); active=signal(false); used=signal<string[]>([]);
   teams=signal<Team[]>(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));

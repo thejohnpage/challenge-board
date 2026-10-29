@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, HostListener, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,6 +14,7 @@ const starter:Game={schemaVersion:1,title:'New Challenge',categories:Array.from(
 export class AppComponent {
   games=signal<Game[]>([]); selected=signal(0); edit=signal(false); modal=signal<Clue|null>(null); final=signal(false); revealed=signal(false); hinted=signal(false); seconds=signal(15); timerSeconds=signal(15); active=signal(false); used=signal<string[]>([]);
   teams=signal<Team[]>(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));
+  pendingDeleteTeam=signal<Team|null>(null);
   categoryIndex=signal(0); clueIndex=signal(0); notice=signal(''); projector=signal(false); private timer:any=null; private channel?:BroadcastChannel;
   game=computed(()=>this.games()[this.selected()] ?? starter);
   boardRows=computed(()=>Array.from({length:Math.max(0,...this.game().categories.map(c=>c.clues.length))},(_,i)=>i));
@@ -43,7 +44,10 @@ export class AppComponent {
   score(id:string,correct:boolean){const t=this.teams().find(x=>x.id===id);if(!t)return;const value=this.final()?Math.max(0,t.wager):this.displayValue();this.teams.update(ts=>ts.map(x=>x.id===id?{...x,score:x.score+(correct?value:-value)}:x))}
   changeTeam(id:string,key:'name'|'wager',value:string|number){this.teams.update(ts=>ts.map(t=>t.id===id?{...t,[key]:key==='wager'?Number(value):value}:t))}
   addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:`Team ${ts.length+1}`,score:0,wager:0}])}
-  removeTeam(id:string){if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==id))}
+  removeTeam(id:string){if(this.teams().length<=1)return;const team=this.teams().find(t=>t.id===id);if(team)this.pendingDeleteTeam.set(team)}
+  cancelTeamDelete(){this.pendingDeleteTeam.set(null)}
+  confirmTeamDelete(){const team=this.pendingDeleteTeam();if(!team)return;this.pendingDeleteTeam.set(null);if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==team.id))}
+  @HostListener('document:keydown.escape') onEscape(){this.cancelTeamDelete()}
   resetScores(){if(confirm('Reset all team scores?'))this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})))}
   resetBoard(){if(!confirm('Reset this game? This will restore all played clues and clear all team scores and wagers.'))return;this.stop();this.modal.set(null);this.final.set(false);this.revealed.set(false);this.hinted.set(false);this.seconds.set(this.timerSeconds());this.used.set([]);this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})));this.notice.set('Board and scores reset.')}
   openBuzz(){window.open('https://buzzin.live/','_blank','noopener,noreferrer')}

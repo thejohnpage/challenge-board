@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "title": "Java Challenge",
+  "categories": [
+    {
+      "id": "be8af740-7e4e-43f2-a57a-e42723df4180",
+      "name": "Core Java",
+      "clues": [
+        {
+          "id": "0cb5a55e-3f8b-4f1c-a6a3-150e70fa1aa5",
+          "value": 100,
+          "clue": "Java checks declared variable types at this stage.",
+          "response": "What is compile time?",
+          "hint": "Before the program runs.",
+          "dailyDouble": false
+        },
+        {
+          "id": "befb6e2c-cd87-4311-8810-5f163b68a3ef",
+          "value": 200,
+          "clue": "Unlike Python indentation, Java uses these characters to delimit blocks.",
+          "response": "What are curly braces { }?",
+          "hint": "They come in pairs.",
+          "dailyDouble": false
+        },
+        {
+          "id": "5184b9e7-2d85-4476-bd8b-fd8647331e8a",
+          "value": 300,
+          "clue": "This Java collection stores ordered elements and permits duplicates.",
+          "response": "What is a List (such as ArrayList)?",
+          "hint": "Think sequence.",
+          "dailyDouble": false
+        },
+        {
+          "id": "5ae7d986-678c-499c-91f9-602a56e533c3",
+          "value": 400,
+          "clue": "This collection associates unique keys with values.",
+          "response": "What is a Map?",
+          "hint": "Lookups by key.",
+          "dailyDouble": false
+        },
+        {
+          "id": "62216f39-56ee-4720-b9c2-98c5acc8400d",
+          "value": 500,
+          "clue": "Explain the difference between checked and unchecked exceptions.",
+          "response": "What is: checked exceptions must be handled or declared; unchecked exceptions need not be?",
+          "hint": "Think compiler enforcement.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "2486c2e5-3372-4bcc-855f-259fc92126b9",
+      "name": "Objects & Classes",
+      "clues": [
+        {
+          "id": "9a2655a8-b216-4a74-a490-195b2ad4c22e",
+          "value": 100,
+          "clue": "This is a blueprint defining an object's state and behavior.",
+          "response": "What is a class?",
+          "hint": "A definition, not an instance.",
+          "dailyDouble": false
+        },
+        {
+          "id": "68708068-5821-4964-b9eb-c08ff7692241",
+          "value": 200,
+          "clue": "This keyword constructs a Java object.",
+          "response": "What is new?",
+          "hint": "Three letters.",
+          "dailyDouble": false
+        },
+        {
+          "id": "af64a1d1-f510-4745-81f6-a22464401275",
+          "value": 300,
+          "clue": "This principle protects object state by controlling access and enforcing invariants.",
+          "response": "What is encapsulation?",
+          "hint": "Keep quantity from going negative.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f92602f2-eb18-4865-b3af-a442cd044135",
+          "value": 400,
+          "clue": "This allows a reference of an interface or superclass type to invoke implementation-specific behavior.",
+          "response": "What is polymorphism?",
+          "hint": "Many forms.",
+          "dailyDouble": false
+        },
+        {
+          "id": "1a234332-74c5-441d-8fb3-a1b31cb15917",
+          "value": 500,
+          "clue": "When should composition generally be preferred over inheritance?",
+          "response": "What is when the relationship is has-a rather than a genuine is-a relationship?",
+          "hint": "Avoid forcing an is-a hierarchy.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "52b6d39e-080e-4aaa-9dc1-a4ed5731a338",
+      "name": "OOAD",
+      "clues": [
+        {
+          "id": "37b5b636-4958-4974-a9c4-e354e9a9aa4d",
+          "value": 100,
+          "clue": "In a requirements document, nouns are candidates for these.",
+          "response": "What are classes or attributes?",
+          "hint": "Things.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f8bf75a8-06c9-4b0f-8dd4-05b648b9a716",
+          "value": 200,
+          "clue": "In a requirements document, verbs suggest these.",
+          "response": "What are responsibilities or methods?",
+          "hint": "Actions.",
+          "dailyDouble": false
+        },
+        {
+          "id": "2327c095-11bd-49fc-99df-c6f8f0ea1809",
+          "value": 300,
+          "clue": "A loan's due date is usually this, rather than a separate class.",
+          "response": "What is an attribute (field)?",
+          "hint": "A value belonging to a Loan.",
+          "dailyDouble": false
+        },
+        {
+          "id": "e3ff24dd-97c6-432b-8d89-be4aefa9ae3c",
+          "value": 400,
+          "clue": "An object with identity, due date and overdue behavior in a library system might be modeled as this.",
+          "response": "What is a Loan class?",
+          "hint": "It has its own behavior.",
+          "dailyDouble": false
+        },
+        {
+          "id": "679e97a3-6eba-434a-b6f5-f113075b65b1",
+          "value": 500,
+          "clue": "Why is putting every business responsibility in one manager class a design smell?",
+          "response": "What is poor separation of responsibilities and excessive coupling?",
+          "hint": "One class doing everything.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "3b88e3b7-02c4-4533-8588-007a41157fce",
+      "name": "Design Principles",
+      "clues": [
+        {
+          "id": "8aeb7b5b-9c15-493c-8812-d487b159b2ac",
+          "value": 100,
+          "clue": "The S in SOLID stands for this principle.",
+          "response": "What is Single Responsibility Principle?",
+          "hint": "One reason to change.",
+          "dailyDouble": false
+        },
+        {
+          "id": "5896a939-ab2e-42dc-9dcd-963ae61459d7",
+          "value": 200,
+          "clue": "The O in SOLID stands for this principle.",
+          "response": "What is Open/Closed Principle?",
+          "hint": "Extend rather than modify.",
+          "dailyDouble": false
+        },
+        {
+          "id": "088ee76e-51d9-4ee6-b625-8d67a7fc6445",
+          "value": 300,
+          "clue": "Depending on an abstraction rather than a concrete implementation supports this principle.",
+          "response": "What is Dependency Inversion Principle?",
+          "hint": "The D in SOLID.",
+          "dailyDouble": false
+        },
+        {
+          "id": "b2ec0496-600e-40f2-91af-523e3db190ca",
+          "value": 400,
+          "clue": "A subclass that violates the expectations of its superclass breaks this principle.",
+          "response": "What is Liskov Substitution Principle?",
+          "hint": "The L in SOLID.",
+          "dailyDouble": false
+        },
+        {
+          "id": "5c9bd741-e125-4775-b5fe-25669d8c4415",
+          "value": 500,
+          "clue": "Why is an interface useful when multiple unrelated classes provide the same behavior?",
+          "response": "What is defining a common contract without requiring shared implementation or inheritance?",
+          "hint": "A contract, not a base implementation.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "85b29640-59d9-46c9-b1ab-37d8a8d05b33",
+      "name": "JUnit Testing",
+      "clues": [
+        {
+          "id": "8a99c23b-c8e1-4632-bfde-1f96afc5d158",
+          "value": 100,
+          "clue": "This JUnit annotation marks a test method.",
+          "response": "What is @Test?",
+          "hint": "An annotation.",
+          "dailyDouble": false
+        },
+        {
+          "id": "6db50459-1995-4e94-8b4a-394c462608e4",
+          "value": 200,
+          "clue": "This JUnit annotation runs setup before each test.",
+          "response": "What is @BeforeEach?",
+          "hint": "Fresh state.",
+          "dailyDouble": false
+        },
+        {
+          "id": "15035bcd-5e19-427f-919a-8f23373540ac",
+          "value": 300,
+          "clue": "This assertion checks that code throws a specified exception.",
+          "response": "What is assertThrows()?",
+          "hint": "It fails if nothing is thrown.",
+          "dailyDouble": false
+        },
+        {
+          "id": "b0c71b60-46b3-4a16-b53d-27ced53cae66",
+          "value": 400,
+          "clue": "This JUnit feature runs the same test with multiple input values.",
+          "response": "What is @ParameterizedTest?",
+          "hint": "Avoid copied tests.",
+          "dailyDouble": false
+        },
+        {
+          "id": "6786cfb2-ec50-4168-8211-81da109c20b9",
+          "value": 500,
+          "clue": "This mocking library can isolate a class from its collaborators.",
+          "response": "What is Mockito?",
+          "hint": "Mock dependencies.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "ee4d2944-4e8b-45ce-a64d-26c13ff96d6f",
+      "name": "Clean Code",
+      "clues": [
+        {
+          "id": "9cb3a3bd-0f7f-4435-964e-a2e4a54674cc",
+          "value": 100,
+          "clue": "Replace cryptic names such as x and n1 with these.",
+          "response": "What are meaningful names?",
+          "hint": "Readability.",
+          "dailyDouble": false
+        },
+        {
+          "id": "eb5f2b99-8f9a-4526-a5d0-50bd00512283",
+          "value": 200,
+          "clue": "Replace an unexplained threshold of 10000 with this.",
+          "response": "What is a named constant?",
+          "hint": "No magic numbers.",
+          "dailyDouble": false
+        },
+        {
+          "id": "98d36851-a8eb-4a70-b1fc-af11844f33cc",
+          "value": 300,
+          "clue": "A method that counts, categorizes and formats violates this design preference.",
+          "response": "What is one clear responsibility per method?",
+          "hint": "One job.",
+          "dailyDouble": false
+        },
+        {
+          "id": "bbc60674-13bf-414e-ac66-645dee4b1a73",
+          "value": 400,
+          "clue": "Refactoring should improve structure while preserving this.",
+          "response": "What is observable behavior?",
+          "hint": "Same output.",
+          "dailyDouble": false
+        },
+        {
+          "id": "3c984820-d134-44e9-a06a-bd6f22571afc",
+          "value": 500,
+          "clue": "Why should a developer review a Copilot-generated refactor before accepting it?",
+          "response": "What is to verify behavior, correctness and readability rather than trusting generated changes?",
+          "hint": "AI suggestions require review.",
+          "dailyDouble": false
+        }
+      ]
+    }
+  ],
+  "finalJeopardy": {
+    "category": "Java Design Review",
+    "clue": "A Holding must never have negative quantity, and multiple callers may adjust it. Where should the invariant be enforced, and why?",
+    "response": "What is inside Holding's encapsulated adjustment method, so every mutation is validated in one place?",
+    "hint": "Protect the invariant where state changes."
+  }
+}

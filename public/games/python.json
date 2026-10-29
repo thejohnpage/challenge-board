@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "title": "Python Challenge",
+  "categories": [
+    {
+      "id": "752abb52-46c6-49dc-af64-859b17d15c60",
+      "name": "Syntax & Types",
+      "clues": [
+        {
+          "id": "ca85acb2-78ad-4060-bb8d-6efefdf9f57b",
+          "value": 100,
+          "clue": "This Python built-in reports a value's type.",
+          "response": "What is type()?",
+          "hint": "A built-in function.",
+          "dailyDouble": false
+        },
+        {
+          "id": "04f81772-e356-4a81-a462-9d860d512b10",
+          "value": 200,
+          "clue": "This type stores True or False.",
+          "response": "What is bool?",
+          "hint": "Boolean.",
+          "dailyDouble": false
+        },
+        {
+          "id": "c4e8037a-d11d-4e00-98ea-a2a355215927",
+          "value": 300,
+          "clue": "This keyword handles a second conditional branch.",
+          "response": "What is elif?",
+          "hint": "Between if and else.",
+          "dailyDouble": false
+        },
+        {
+          "id": "72be706d-ea56-41c2-a801-b7ba8259f1ec",
+          "value": 400,
+          "clue": "This loop is ideal for visiting every trade in a collection.",
+          "response": "What is a for loop?",
+          "hint": "Iterate through a sequence.",
+          "dailyDouble": false
+        },
+        {
+          "id": "9f34047f-60e4-4184-b246-ed81e648af2a",
+          "value": 500,
+          "clue": "What is meant by Python being dynamically typed?",
+          "response": "What is variables do not need declared types, while values have types checked at runtime?",
+          "hint": "Compare with Java.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "6fe56952-743a-49e9-a56c-e3fd4cdd2b94",
+      "name": "Functions & Modules",
+      "clues": [
+        {
+          "id": "6a3d960e-877c-48d7-98fb-cbb5a4a7f20b",
+          "value": 100,
+          "clue": "This keyword defines a Python function.",
+          "response": "What is def?",
+          "hint": "Three letters.",
+          "dailyDouble": false
+        },
+        {
+          "id": "02bd39e3-354a-4bab-900b-e0e01d4232a8",
+          "value": 200,
+          "clue": "A function parameter with a value such as threshold=20000 is this.",
+          "response": "What is a default argument?",
+          "hint": "Optional to callers.",
+          "dailyDouble": false
+        },
+        {
+          "id": "162e9bea-38ea-4cfd-b4e6-5c56399dcfc0",
+          "value": 300,
+          "clue": "Arguments passed by parameter name are called these.",
+          "response": "What are keyword arguments?",
+          "hint": "name=value.",
+          "dailyDouble": false
+        },
+        {
+          "id": "8ab6e661-1d47-47eb-8a7a-2ef3dce909a9",
+          "value": 400,
+          "clue": "This guard prevents a module's script-only code running on import.",
+          "response": "What is if __name__ == '__main__': ?",
+          "hint": "Direct execution only.",
+          "dailyDouble": false
+        },
+        {
+          "id": "13ad9cf5-bac3-4587-b171-1687e51342fa",
+          "value": 500,
+          "clue": "Do Python type hints such as -> float enforce types automatically at runtime?",
+          "response": "What is no; they document intent but are not enforced automatically?",
+          "hint": "Hints, not runtime validation.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "30159689-dd28-499c-aa25-e7876130d71e",
+      "name": "Collections & Files",
+      "clues": [
+        {
+          "id": "1ed3a33e-8d40-4b19-a54b-cb9e6b0d207f",
+          "value": 100,
+          "clue": "This ordered, mutable Python collection allows duplicates.",
+          "response": "What is a list?",
+          "hint": "Square brackets.",
+          "dailyDouble": false
+        },
+        {
+          "id": "41e5fc8b-d461-435b-9545-4a4edfd49734",
+          "value": 200,
+          "clue": "This ordered, immutable collection is commonly written with parentheses.",
+          "response": "What is a tuple?",
+          "hint": "Cannot reassign its elements.",
+          "dailyDouble": false
+        },
+        {
+          "id": "fad43fcd-bf8a-4545-81c2-e47cc7ffdc13",
+          "value": 300,
+          "clue": "This structure retrieves values using named keys.",
+          "response": "What is a dictionary?",
+          "hint": "Key-value pairs.",
+          "dailyDouble": false
+        },
+        {
+          "id": "a994b27b-d975-41af-9096-d7456fffbac6",
+          "value": 400,
+          "clue": "This collection removes duplicates and tests membership.",
+          "response": "What is a set?",
+          "hint": "Unique elements.",
+          "dailyDouble": false
+        },
+        {
+          "id": "78d41861-ead3-485b-ba81-6375c7db3cc5",
+          "value": 500,
+          "clue": "Why use a context manager such as with open(...) for file operations?",
+          "response": "What is to ensure the file is closed when leaving the block, including on errors?",
+          "hint": "Resource cleanup.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "5df27ad8-5d6c-4651-8b58-61184b68ddf4",
+      "name": "Pandas Basics",
+      "clues": [
+        {
+          "id": "ef86040a-23ae-4786-b5cd-5e09496d284a",
+          "value": 100,
+          "clue": "This pandas object represents tabular rows and columns.",
+          "response": "What is a DataFrame?",
+          "hint": "Two-dimensional.",
+          "dailyDouble": false
+        },
+        {
+          "id": "caead2b2-e53e-4f80-a42f-1a972d65e7a1",
+          "value": 200,
+          "clue": "This pandas object represents one labeled column.",
+          "response": "What is a Series?",
+          "hint": "One-dimensional.",
+          "dailyDouble": false
+        },
+        {
+          "id": "2a1409a5-0013-45c5-8ce1-b2a9db121ca8",
+          "value": 300,
+          "clue": "This function reads CSV data into a DataFrame.",
+          "response": "What is pd.read_csv()?",
+          "hint": "Read a file.",
+          "dailyDouble": false
+        },
+        {
+          "id": "fa68d0b0-ac25-43eb-a766-0c84d064c467",
+          "value": 400,
+          "clue": "This selector accesses rows by integer position.",
+          "response": "What is .iloc?",
+          "hint": "Unlike .loc.",
+          "dailyDouble": false
+        },
+        {
+          "id": "b3fe2440-f382-4525-9ddd-d4783c41345f",
+          "value": 500,
+          "clue": "How do you select BUY trades using a Boolean condition?",
+          "response": "What is df.loc[df['side'] == 'BUY']?",
+          "hint": "Boolean indexing.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "4aae77bf-9156-43f5-ab11-61408050460a",
+      "name": "Cleaning Data",
+      "clues": [
+        {
+          "id": "52ef5e70-8370-4d2c-80c6-9f573d8d7e39",
+          "value": 100,
+          "clue": "This pandas expression counts missing values per column.",
+          "response": "What is df.isna().sum()?",
+          "hint": "Missing values.",
+          "dailyDouble": false
+        },
+        {
+          "id": "7cc985a7-6b05-4884-ba39-7703418b761c",
+          "value": 200,
+          "clue": "This expression counts duplicate rows.",
+          "response": "What is df.duplicated().sum()?",
+          "hint": "Duplicate detection.",
+          "dailyDouble": false
+        },
+        {
+          "id": "1dde2f53-3208-43cc-a9d8-86123f28e516",
+          "value": 300,
+          "clue": "If a missing value can be derived from quantity times price, do this.",
+          "response": "What is recompute it?",
+          "hint": "Do not discard recoverable data.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f8d0d54f-a7f3-4afc-be65-d121e91347ce",
+          "value": 400,
+          "clue": "An ambiguous date such as 05/01/2026 should be resolved using this.",
+          "response": "What is source context or source-system confirmation?",
+          "hint": "Do not guess.",
+          "dailyDouble": false
+        },
+        {
+          "id": "e24dd5a8-ebcb-4cdd-beac-b3b400dd283e",
+          "value": 500,
+          "clue": "Why should an outlier not automatically be deleted?",
+          "response": "What is it may be valid, so it should be investigated and justified before removal?",
+          "hint": "Unusual does not mean wrong.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "d2a241fb-e9e0-4dbe-8787-50fe8123f472",
+      "name": "Advanced Pandas",
+      "clues": [
+        {
+          "id": "6cc20cb0-c5a6-488f-a94e-328aa4a5c710",
+          "value": 100,
+          "clue": "This method groups rows by a category for aggregation.",
+          "response": "What is groupby()?",
+          "hint": "Summarize per category.",
+          "dailyDouble": false
+        },
+        {
+          "id": "21d390f2-5ab3-4010-9dc6-d9fe36b32cd8",
+          "value": 200,
+          "clue": "This method computes several summary statistics in one call.",
+          "response": "What is .agg()?",
+          "hint": "count, sum, mean.",
+          "dailyDouble": false
+        },
+        {
+          "id": "8fddcb96-a014-44dc-9540-df0d1eca66c0",
+          "value": 300,
+          "clue": "This pandas method creates a cross-tabulated summary.",
+          "response": "What is pivot_table()?",
+          "hint": "Rows and columns.",
+          "dailyDouble": false
+        },
+        {
+          "id": "827fdc5c-cca7-4eae-8519-ff517ac09c53",
+          "value": 400,
+          "clue": "This pivot_table option replaces missing combinations with zero.",
+          "response": "What is fill_value=0?",
+          "hint": "Avoid NaN in empty cells.",
+          "dailyDouble": false
+        },
+        {
+          "id": "09276d02-a2b1-4890-afd5-28faa2777a49",
+          "value": 500,
+          "clue": "To combine two tables using a common key, use this pandas operation.",
+          "response": "What is merge()?",
+          "hint": "Join-like operation.",
+          "dailyDouble": false
+        }
+      ]
+    }
+  ],
+  "finalJeopardy": {
+    "category": "Python Data Workflow",
+    "clue": "Starting from a DataFrame of trades, how would you select BUY trades, sum trade values per instrument, and rank totals descending?",
+    "response": "What are Boolean filtering, groupby(), sum(), then sort_values(ascending=False)?",
+    "hint": "Filter, aggregate, sort."
+  }
+}

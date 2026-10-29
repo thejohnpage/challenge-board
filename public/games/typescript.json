@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "title": "TypeScript Challenge",
+  "categories": [
+    {
+      "id": "b4836c2f-3358-4d38-9791-373e02a1c4ec",
+      "name": "JS Foundations",
+      "clues": [
+        {
+          "id": "f0fea4e7-e914-4946-ab09-aada5f722491",
+          "value": 100,
+          "clue": "This declaration keyword creates a block-scoped binding that can be reassigned.",
+          "response": "What is let?",
+          "hint": "Unlike const.",
+          "dailyDouble": false
+        },
+        {
+          "id": "4f21b41c-b6bb-4a09-9e8e-246cc6e1a14a",
+          "value": 200,
+          "clue": "This declaration keyword prevents reassignment of a binding.",
+          "response": "What is const?",
+          "hint": "Block-scoped.",
+          "dailyDouble": false
+        },
+        {
+          "id": "5c61fb96-acc1-4b70-b920-32f2f180df8c",
+          "value": 300,
+          "clue": "This operator tests strict equality without type coercion.",
+          "response": "What is ===?",
+          "hint": "Three symbols.",
+          "dailyDouble": false
+        },
+        {
+          "id": "ca309938-bfc3-4633-8196-efd303d2e79e",
+          "value": 400,
+          "clue": "This array method transforms each element into a new array.",
+          "response": "What is map()?",
+          "hint": "One output per input.",
+          "dailyDouble": false
+        },
+        {
+          "id": "46c5362d-d85b-41c9-8fae-6d0fc2f83dac",
+          "value": 500,
+          "clue": "This feature lets a function capture variables from its surrounding lexical scope.",
+          "response": "What is a closure?",
+          "hint": "Remembers outer bindings.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "2ea3106b-6011-41a5-95fd-8a62c22c08e6",
+      "name": "TypeScript Types",
+      "clues": [
+        {
+          "id": "be130128-554b-4c28-9730-8bd11fed1ec7",
+          "value": 100,
+          "clue": "This annotation declares a variable as a string: name: ___.",
+          "response": "What is string?",
+          "hint": "Primitive text type.",
+          "dailyDouble": false
+        },
+        {
+          "id": "cad88641-f713-4ef1-b448-441ddca3dc8d",
+          "value": 200,
+          "clue": "This type represents either string or number.",
+          "response": "What is string | number?",
+          "hint": "Union.",
+          "dailyDouble": false
+        },
+        {
+          "id": "a907e232-c52e-4dcc-8b6d-e11f178d0e41",
+          "value": 300,
+          "clue": "This declaration describes the shape of an object.",
+          "response": "What is an interface (or type alias)?",
+          "hint": "Object contract.",
+          "dailyDouble": false
+        },
+        {
+          "id": "bc5bea51-2a23-4cc9-8318-c9aef1f01795",
+          "value": 400,
+          "clue": "This type means a value could be of any type but must be narrowed before use.",
+          "response": "What is unknown?",
+          "hint": "Safer than any.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f171bf06-a283-464d-82da-db418166965e",
+          "value": 500,
+          "clue": "What does TypeScript's type system generally do at compilation rather than runtime?",
+          "response": "What is check static types and erase type annotations from emitted JavaScript?",
+          "hint": "TypeScript compiles to JS.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "54893f74-0fc1-4a49-bb38-00e21dff3d8e",
+      "name": "Functions & Generics",
+      "clues": [
+        {
+          "id": "c2bd9c2a-82c4-426a-b569-17651f319778",
+          "value": 100,
+          "clue": "This syntax annotates a function's return type: function f(): ___.",
+          "response": "What is a type annotation?",
+          "hint": "After the parentheses.",
+          "dailyDouble": false
+        },
+        {
+          "id": "c653e383-eeba-45ff-8d82-ce15654145b6",
+          "value": 200,
+          "clue": "This marker makes an object property optional in a type declaration.",
+          "response": "What is ?",
+          "hint": "After the property name.",
+          "dailyDouble": false
+        },
+        {
+          "id": "fbdfadc8-7b9d-4008-8074-f421ddec252b",
+          "value": 300,
+          "clue": "This generic syntax represents an array of strings.",
+          "response": "What is Array<string>?",
+          "hint": "Angle brackets.",
+          "dailyDouble": false
+        },
+        {
+          "id": "ecbdaaca-7f77-45d4-a35d-27123c93e009",
+          "value": 400,
+          "clue": "This construct allows reusable functions to preserve relationships between input and output types.",
+          "response": "What are generics?",
+          "hint": "Think <T>.",
+          "dailyDouble": false
+        },
+        {
+          "id": "c2cd53c7-b9d1-4cd9-8750-b337b404c849",
+          "value": 500,
+          "clue": "What is the purpose of a type guard such as typeof x === 'string'?",
+          "response": "What is narrowing a union type so string operations can be used safely?",
+          "hint": "Refine a broad type.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "df80138a-8c45-41a6-828a-1a88d3345e90",
+      "name": "Async JavaScript",
+      "clues": [
+        {
+          "id": "f536d14b-5cb4-45f4-a0bb-763ae861c21d",
+          "value": 100,
+          "clue": "This object represents an eventual success or failure.",
+          "response": "What is a Promise?",
+          "hint": "Pending, fulfilled or rejected.",
+          "dailyDouble": false
+        },
+        {
+          "id": "c5cc6f61-3325-4578-bc32-7a22f9fb2c7c",
+          "value": 200,
+          "clue": "This method handles a rejected Promise.",
+          "response": "What is .catch()?",
+          "hint": "Error path.",
+          "dailyDouble": false
+        },
+        {
+          "id": "57cb3d5e-d182-4fe4-b8f9-96ef441d2c17",
+          "value": 300,
+          "clue": "This keyword pauses execution within an async function until a Promise settles.",
+          "response": "What is await?",
+          "hint": "Pauses the function, not the thread.",
+          "dailyDouble": false
+        },
+        {
+          "id": "0b47c19b-dea3-4406-b24d-0afac6ffca28",
+          "value": 400,
+          "clue": "This method waits for multiple Promises and rejects if one rejects.",
+          "response": "What is Promise.all()?",
+          "hint": "Concurrent operations.",
+          "dailyDouble": false
+        },
+        {
+          "id": "1e409283-00a8-4049-beee-0351faec60da",
+          "value": 500,
+          "clue": "Why does setTimeout(fn, 0) not execute fn before subsequent synchronous code?",
+          "response": "What is the callback waits for the call stack and event-loop scheduling?",
+          "hint": "Synchronous work runs first.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "fba37bf8-9788-49bd-ba85-6d06d178ed86",
+      "name": "Node.js",
+      "clues": [
+        {
+          "id": "4b7e483a-13f7-4b58-9994-a32e66cc693c",
+          "value": 100,
+          "clue": "This JavaScript engine powers Node.js.",
+          "response": "What is V8?",
+          "hint": "Chrome also uses it.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f514d952-36b7-4bf8-9d78-679ed3bb8f34",
+          "value": 200,
+          "clue": "This library supports Node's event loop and asynchronous I/O.",
+          "response": "What is libuv?",
+          "hint": "A C library.",
+          "dailyDouble": false
+        },
+        {
+          "id": "ecb1f207-c644-40fc-85de-2c3ac6923a44",
+          "value": 300,
+          "clue": "This file describes npm dependencies and scripts.",
+          "response": "What is package.json?",
+          "hint": "Project manifest.",
+          "dailyDouble": false
+        },
+        {
+          "id": "b5f895e4-7af6-461e-9e8f-a2b9e39652ae",
+          "value": 400,
+          "clue": "These callbacks generally run before timer macrotasks after synchronous code completes.",
+          "response": "What are microtasks (such as Promise callbacks)?",
+          "hint": "Queue priority.",
+          "dailyDouble": false
+        },
+        {
+          "id": "ea30bc1f-3110-4658-b0e6-fc797d78f40c",
+          "value": 500,
+          "clue": "Contrast CommonJS import syntax with ES module import syntax.",
+          "response": "What are require() for CommonJS and import for ES modules?",
+          "hint": "Two module systems.",
+          "dailyDouble": false
+        }
+      ]
+    },
+    {
+      "id": "20ea8f42-e464-4c3b-a78e-d26298152484",
+      "name": "NestJS",
+      "clues": [
+        {
+          "id": "21766212-6737-4d8a-8446-dae39c0bc326",
+          "value": 100,
+          "clue": "This decorator marks a NestJS provider for dependency injection.",
+          "response": "What is @Injectable()?",
+          "hint": "Similar to Spring @Service.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f60ca4ca-74d5-49de-ab3c-05e2477b1e63",
+          "value": 200,
+          "clue": "This NestJS class handles incoming HTTP requests.",
+          "response": "What is a controller?",
+          "hint": "Front door.",
+          "dailyDouble": false
+        },
+        {
+          "id": "0782c226-215f-41f3-b1bc-9138f304b2cb",
+          "value": 300,
+          "clue": "This NestJS class usually contains business work injected into controllers.",
+          "response": "What is a provider/service?",
+          "hint": "Delegated work.",
+          "dailyDouble": false
+        },
+        {
+          "id": "098df7c0-374a-4897-80e8-9267d35cb714",
+          "value": 400,
+          "clue": "This NestJS decorator groups controllers and providers.",
+          "response": "What is @Module()?",
+          "hint": "Wiring.",
+          "dailyDouble": false
+        },
+        {
+          "id": "f6f9e14a-b9fd-4a9e-848f-031afe7faa62",
+          "value": 500,
+          "clue": "Why can incorrect TypeScript decorator metadata configuration break NestJS constructor injection?",
+          "response": "What is Nest relies on runtime decorator metadata to resolve dependencies?",
+          "hint": "Compiler/runtime configuration matters.",
+          "dailyDouble": false
+        }
+      ]
+    }
+  ],
+  "finalJeopardy": {
+    "category": "TypeScript & Node",
+    "clue": "Explain the order of synchronous statements, Promise callbacks and setTimeout callbacks in the event loop.",
+    "response": "What is synchronous code first, then Promise microtasks, then eligible timer macrotasks?",
+    "hint": "Think call stack and queues."
+  }
+}

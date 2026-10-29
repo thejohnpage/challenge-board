@@ -193,41 +193,41 @@
         {
           "id": "4b7e483a-13f7-4b58-9994-a32e66cc693c",
           "value": 100,
-          "clue": "This JavaScript engine powers Node.js.",
+          "clue": "This JavaScript engine executes Node.js code.",
           "response": "What is V8?",
-          "hint": "Chrome also uses it.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f514d952-36b7-4bf8-9d78-679ed3bb8f34",
           "value": 200,
-          "clue": "This library supports Node's event loop and asynchronous I/O.",
+          "clue": "This C library underpins Node.js asynchronous I/O and its event loop.",
           "response": "What is libuv?",
-          "hint": "A C library.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "ecb1f207-c644-40fc-85de-2c3ac6923a44",
           "value": 300,
-          "clue": "This file describes npm dependencies and scripts.",
+          "clue": "This npm manifest declares scripts and dependencies.",
           "response": "What is package.json?",
-          "hint": "Project manifest.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b5f895e4-7af6-461e-9e8f-a2b9e39652ae",
           "value": 400,
-          "clue": "In ordinary JavaScript scheduling, these callbacks are microtasks and generally execute before timer callbacks.",
-          "response": "What are Promise reaction callbacks?",
-          "hint": "Queue priority.",
+          "clue": "Promise reactions are queued in this task category.",
+          "response": "What are microtasks?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "ea30bc1f-3110-4658-b0e6-fc797d78f40c",
           "value": 500,
-          "clue": "CommonJS uses require(), while ECMAScript modules use this declaration for loading exports.",
+          "clue": "ES modules use this keyword instead of CommonJS require().",
           "response": "What is import?",
-          "hint": "Two module systems.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -239,25 +239,25 @@
         {
           "id": "21766212-6737-4d8a-8446-dae39c0bc326",
           "value": 100,
-          "clue": "This decorator marks a NestJS provider for dependency injection.",
+          "clue": "This NestJS decorator marks an injectable provider.",
           "response": "What is @Injectable()?",
-          "hint": "Similar to Spring @Service.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f60ca4ca-74d5-49de-ab3c-05e2477b1e63",
           "value": 200,
-          "clue": "This NestJS class handles incoming HTTP requests.",
+          "clue": "This NestJS class receives incoming HTTP requests.",
           "response": "What is a controller?",
-          "hint": "Front door.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "0782c226-215f-41f3-b1bc-9138f304b2cb",
           "value": 300,
-          "clue": "This NestJS class usually contains business work injected into controllers.",
-          "response": "What is a provider/service?",
-          "hint": "Delegated work.",
+          "clue": "This NestJS provider typically implements business logic.",
+          "response": "What is a service?",
+          "hint": "",
           "dailyDouble": false
         },
         {
@@ -265,24 +265,24 @@
           "value": 400,
           "clue": "This NestJS decorator groups controllers and providers.",
           "response": "What is @Module()?",
-          "hint": "Wiring.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "f6f9e14a-b9fd-4a9e-848f-031afe7faa62",
           "value": 500,
-          "clue": "NestJS constructor injection may fail when this runtime type-discovery feature is missing or misconfigured.",
+          "clue": "NestJS can use this runtime information to discover constructor dependency types.",
           "response": "What is decorator metadata?",
-          "hint": "Compiler/runtime configuration matters.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
     }
   ],
   "finalJeopardy": {
-    "category": "TypeScript & Node",
-    "clue": "In a typical JavaScript event-loop turn, these execute in order: current statements, Promise reactions, and eligible timer callbacks.",
-    "response": "What are synchronous code, Promise microtasks, and timer callbacks?",
-    "hint": "Think call stack and queues."
+    "category": "JavaScript Scheduling",
+    "clue": "Promise .then() callbacks use this queue, which generally runs before timer callbacks.",
+    "response": "What is the microtask queue?",
+    "hint": "Promises."
   }
 }

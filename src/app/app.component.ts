@@ -44,7 +44,7 @@ export class AppComponent {
   addTeam(){this.teams.update(ts=>[...ts,{id:uid(),name:`Team ${ts.length+1}`,score:0,wager:0}])}
   removeTeam(id:string){if(this.teams().length>1)this.teams.update(ts=>ts.filter(t=>t.id!==id))}
   resetScores(){if(confirm('Reset all team scores?'))this.teams.update(ts=>ts.map(t=>({...t,score:0,wager:0})))}
-  resetBoard(){if(confirm('Clear all played clues on this board?'))this.used.set([])}
+  resetBoard(){if(!confirm('Clear all played clues on this board? Team scores will be preserved.'))return;this.stopTimer();this.modal.set(null);this.final.set(false);this.revealed.set(false);this.hinted.set(false);this.used.set([])}
   openBuzz(){window.open('https://buzzin.live/','_blank','noopener,noreferrer')}
   openProjector(){window.open(location.pathname+'?projector=1','_blank')}
   setupProjector(){this.projector.set(new URLSearchParams(location.search).has('projector'))}

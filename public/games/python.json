@@ -9,7 +9,7 @@
         {
           "id": "ca85acb2-78ad-4060-bb8d-6efefdf9f57b",
           "value": 100,
-          "clue": "This Python built-in returns a value's type.",
+          "clue": "Passing a value to this built-in function reveals its runtime class.",
           "response": "What is type()?",
           "hint": "",
           "dailyDouble": false
@@ -17,7 +17,7 @@
         {
           "id": "04f81772-e356-4a81-a462-9d860d512b10",
           "value": 200,
-          "clue": "This Python type represents True or False.",
+          "clue": "This Python built-in type has only the logical values True and False.",
           "response": "What is bool?",
           "hint": "",
           "dailyDouble": false
@@ -25,7 +25,7 @@
         {
           "id": "c4e8037a-d11d-4e00-98ea-a2a355215927",
           "value": 300,
-          "clue": "This keyword introduces an additional conditional branch.",
+          "clue": "This Python keyword adds another condition between if and else.",
           "response": "What is elif?",
           "hint": "",
           "dailyDouble": false
@@ -33,7 +33,7 @@
         {
           "id": "72be706d-ea56-41c2-a801-b7ba8259f1ec",
           "value": 400,
-          "clue": "This loop iterates over an iterable.",
+          "clue": "This loop iterates directly over the elements of a sequence or other iterable.",
           "response": "What is a for loop?",
           "hint": "",
           "dailyDouble": false
@@ -41,7 +41,7 @@
         {
           "id": "9f34047f-60e4-4184-b246-ed81e648af2a",
           "value": 500,
-          "clue": "This typing characteristic allows a name to reference values of different types.",
+          "clue": "A Python name may first reference an integer and later a string without declaring a new variable type. This characteristic explains why.",
           "response": "What is dynamic typing?",
           "hint": "",
           "dailyDouble": false
@@ -55,7 +55,7 @@
         {
           "id": "6a3d960e-877c-48d7-98fb-cbb5a4a7f20b",
           "value": 100,
-          "clue": "This keyword begins a Python function definition.",
+          "clue": "This keyword begins a named Python function definition.",
           "response": "What is def?",
           "hint": "",
           "dailyDouble": false
@@ -63,15 +63,15 @@
         {
           "id": "02bd39e3-354a-4bab-900b-e0e01d4232a8",
           "value": 200,
-          "clue": "In def f(limit=10), 10 is this kind of argument value.",
-          "response": "What is a default argument?",
+          "clue": "The value 10 in def total(limit=10) is this kind of parameter value.",
+          "response": "What is a default parameter value?",
           "hint": "",
           "dailyDouble": false
         },
         {
           "id": "162e9bea-38ea-4cfd-b4e6-5c56399dcfc0",
           "value": 300,
-          "clue": "Calling f(limit=10) uses this argument-passing style.",
+          "clue": "Passing limit=10 in a function call uses this argument style.",
           "response": "What is a keyword argument?",
           "hint": "",
           "dailyDouble": false
@@ -79,7 +79,7 @@
         {
           "id": "8ab6e661-1d47-47eb-8a7a-2ef3dce909a9",
           "value": 400,
-          "clue": "This condition is true when a Python module runs as the main program.",
+          "clue": "This Python expression is true when the module is executed as the entry-point script.",
           "response": "What is __name__ == '__main__'?",
           "hint": "",
           "dailyDouble": false
@@ -87,7 +87,7 @@
         {
           "id": "13ad9cf5-bac3-4587-b171-1687e51342fa",
           "value": 500,
-          "clue": "These Python annotations are not automatically enforced at runtime.",
+          "clue": "Annotations such as price: float help tools and readers but do not enforce runtime types automatically. They are called these.",
           "response": "What are type hints?",
           "hint": "",
           "dailyDouble": false
@@ -101,7 +101,7 @@
         {
           "id": "1ed3a33e-8d40-4b19-a54b-cb9e6b0d207f",
           "value": 100,
-          "clue": "This mutable Python sequence allows duplicate elements.",
+          "clue": "This built-in mutable sequence type preserves order and allows duplicates.",
           "response": "What is a list?",
           "hint": "",
           "dailyDouble": false
@@ -109,7 +109,7 @@
         {
           "id": "41e5fc8b-d461-435b-9545-4a4edfd49734",
           "value": 200,
-          "clue": "This immutable Python sequence is commonly written with parentheses.",
+          "clue": "This built-in immutable sequence type can be written as (1, 2, 3).",
           "response": "What is a tuple?",
           "hint": "",
           "dailyDouble": false
@@ -117,7 +117,7 @@
         {
           "id": "fad43fcd-bf8a-4545-81c2-e47cc7ffdc13",
           "value": 300,
-          "clue": "This Python mapping stores key-value pairs.",
+          "clue": "This mapping type retrieves values by keys rather than integer positions.",
           "response": "What is a dictionary?",
           "hint": "",
           "dailyDouble": false
@@ -125,7 +125,7 @@
         {
           "id": "a994b27b-d975-41af-9096-d7456fffbac6",
           "value": 400,
-          "clue": "This Python collection stores unique hashable elements.",
+          "clue": "This collection type keeps only distinct hashable members.",
           "response": "What is a set?",
           "hint": "",
           "dailyDouble": false
@@ -133,8 +133,8 @@
         {
           "id": "78d41861-ead3-485b-ba81-6375c7db3cc5",
           "value": 500,
-          "clue": "This protocol lets with open(...) clean up file resources automatically.",
-          "response": "What is a context manager?",
+          "clue": "The with statement relies on this protocol to enter and exit a resource-handling block safely.",
+          "response": "What is the context manager protocol?",
           "hint": "",
           "dailyDouble": false
         }
@@ -147,7 +147,7 @@
         {
           "id": "ef86040a-23ae-4786-b5cd-5e09496d284a",
           "value": 100,
-          "clue": "This pandas object holds tabular rows and columns.",
+          "clue": "This pandas data structure organizes labeled columns and rows into a table.",
           "response": "What is a DataFrame?",
           "hint": "",
           "dailyDouble": false
@@ -155,7 +155,7 @@
         {
           "id": "caead2b2-e53e-4f80-a42f-1a972d65e7a1",
           "value": 200,
-          "clue": "This pandas object is a one-dimensional labeled array.",
+          "clue": "This one-dimensional labeled pandas data structure often represents a column.",
           "response": "What is a Series?",
           "hint": "",
           "dailyDouble": false
@@ -163,7 +163,7 @@
         {
           "id": "2a1409a5-0013-45c5-8ce1-b2a9db121ca8",
           "value": 300,
-          "clue": "This pandas function reads CSV data.",
+          "clue": "This pandas function loads comma-separated records from a file.",
           "response": "What is pd.read_csv()?",
           "hint": "",
           "dailyDouble": false
@@ -171,7 +171,7 @@
         {
           "id": "fa68d0b0-ac25-43eb-a766-0c84d064c467",
           "value": 400,
-          "clue": "This pandas indexer selects rows by integer position.",
+          "clue": "This pandas indexer uses integer positions rather than row labels.",
           "response": "What is iloc?",
           "hint": "",
           "dailyDouble": false
@@ -179,7 +179,7 @@
         {
           "id": "b3fe2440-f382-4525-9ddd-d4783c41345f",
           "value": 500,
-          "clue": "This expression selects BUY rows from a DataFrame with a side column.",
+          "clue": "This pandas selector filters a DataFrame df to rows where the side column equals BUY.",
           "response": "What is df.loc[df['side'] == 'BUY']?",
           "hint": "",
           "dailyDouble": false
@@ -193,7 +193,7 @@
         {
           "id": "52ef5e70-8370-4d2c-80c6-9f573d8d7e39",
           "value": 100,
-          "clue": "This pandas expression counts missing values by column.",
+          "clue": "Applying this pandas expression returns the count of missing values in each column.",
           "response": "What is df.isna().sum()?",
           "hint": "",
           "dailyDouble": false
@@ -201,7 +201,7 @@
         {
           "id": "7cc985a7-6b05-4884-ba39-7703418b761c",
           "value": 200,
-          "clue": "This pandas expression counts duplicate rows.",
+          "clue": "Applying this pandas expression counts rows that duplicate an earlier row.",
           "response": "What is df.duplicated().sum()?",
           "hint": "",
           "dailyDouble": false
@@ -209,7 +209,7 @@
         {
           "id": "1dde2f53-3208-43cc-a9d8-86123f28e516",
           "value": 300,
-          "clue": "This arithmetic operation calculates trade value from quantity and unit price.",
+          "clue": "Computing a trade's value as quantity times unit price uses this arithmetic operation.",
           "response": "What is multiplication?",
           "hint": "",
           "dailyDouble": false
@@ -217,7 +217,7 @@
         {
           "id": "f8d0d54f-a7f3-4afc-be65-d121e91347ce",
           "value": 400,
-          "clue": "Before parsing an ambiguous date, an analyst must confirm this source setting.",
+          "clue": "Before interpreting 05/01/2026 as May 1 or January 5, an analyst should confirm this source-data convention.",
           "response": "What is the date format?",
           "hint": "",
           "dailyDouble": false
@@ -225,7 +225,7 @@
         {
           "id": "e24dd5a8-ebcb-4cdd-beac-b3b400dd283e",
           "value": 500,
-          "clue": "Before deleting an extreme data value, an analyst should perform this check.",
+          "clue": "Checking whether an extreme trade value is genuine before deleting it is an example of this data-quality activity.",
           "response": "What is validation?",
           "hint": "",
           "dailyDouble": false
@@ -239,7 +239,7 @@
         {
           "id": "6cc20cb0-c5a6-488f-a94e-328aa4a5c710",
           "value": 100,
-          "clue": "This pandas method groups rows before aggregation.",
+          "clue": "This pandas method partitions records by one or more keys before aggregation.",
           "response": "What is groupby()?",
           "hint": "",
           "dailyDouble": false
@@ -247,7 +247,7 @@
         {
           "id": "21d390f2-5ab3-4010-9dc6-d9fe36b32cd8",
           "value": 200,
-          "clue": "This pandas method applies aggregation functions such as sum and mean.",
+          "clue": "This pandas method applies named aggregation operations such as sum and mean.",
           "response": "What is agg()?",
           "hint": "",
           "dailyDouble": false
@@ -255,7 +255,7 @@
         {
           "id": "8fddcb96-a014-44dc-9540-df0d1eca66c0",
           "value": 300,
-          "clue": "This pandas method creates a cross-tabulated summary.",
+          "clue": "This pandas method summarizes values across row and column groupings.",
           "response": "What is pivot_table()?",
           "hint": "",
           "dailyDouble": false
@@ -263,7 +263,7 @@
         {
           "id": "827fdc5c-cca7-4eae-8519-ff517ac09c53",
           "value": 400,
-          "clue": "This pivot_table argument substitutes a value for missing cells.",
+          "clue": "This pivot_table keyword argument supplies a replacement for missing output cells.",
           "response": "What is fill_value?",
           "hint": "",
           "dailyDouble": false
@@ -271,7 +271,7 @@
         {
           "id": "09276d02-a2b1-4890-afd5-28faa2777a49",
           "value": 500,
-          "clue": "This pandas method joins DataFrames on matching keys.",
+          "clue": "This pandas method combines two DataFrames by matching join keys.",
           "response": "What is merge()?",
           "hint": "",
           "dailyDouble": false
@@ -280,9 +280,9 @@
     }
   ],
   "finalJeopardy": {
-    "category": "Python Data Analysis",
-    "clue": "This pandas aggregation calculates a total within each group.",
+    "category": "Pandas Analysis",
+    "clue": "After grouping trades by ticker, this pandas aggregation produces the total traded value for each ticker.",
     "response": "What is sum()?",
-    "hint": "Addition."
+    "hint": "Aggregation."
   }
 }

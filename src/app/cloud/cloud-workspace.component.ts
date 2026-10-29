@@ -96,6 +96,7 @@ import { cloudEnabled } from './cloud-config';
                 (click)="selectClassroom(room.id)">{{room.name}}</button>
             </div>
             <ng-container *ngIf="selectedClassroom() as roomId">
+              <p>Assigned instructors: {{instructorCount(roomId)}}</p>
               <h3>Instructor assignment</h3>
               <section *ngIf="cloud.isLocationAdmin" class="cloud-create">
                 <label>Instructor email <input type="email" [(ngModel)]="instructorEmail" placeholder="instructor@example.com"></label>
@@ -202,6 +203,9 @@ export class CloudWorkspaceComponent implements OnDestroy {
       await this.cloud.createLocation(this.locationName, this.locationCity, this.locationState);
       this.locationName = ''; this.locationCity = ''; this.locationState = '';
     }, 'Location created.');
+  }
+  instructorCount(classroomId: string): number {
+    return this.cloud.classrooms().find(room => room.id === classroomId)?.instructorIds?.length ?? 0;
   }
   async assignInstructor(classroomId: string) {
     if (!this.instructorEmail.trim()) { this.message.set('Enter an instructor email.'); return; }

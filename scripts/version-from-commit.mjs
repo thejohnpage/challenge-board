@@ -19,7 +19,11 @@ const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'));
 const match = /^(\d+)\.(\d+)\.(\d+)$/.exec(pkg.version);
 if (!match) { console.error('Expected numeric semver in package.json'); process.exit(1); }
 let [major, minor, patch] = match.slice(1).map(Number);
-if (/^[a-z]+(?:\([^)]*\))?!:/.test(header) || /BREAKING CHANGE:/m.test(message)) { major++; minor=0; patch=0; }
+// Explicit release tags take priority over Conventional Commit prefixes.
+if (/^\[MAJOR\](?=\s|$)/i.test(header)) { major++; minor=0; patch=0; }
+else if (/^\[MINOR\](?=\s|$)/i.test(header)) { minor++; patch=0; }
+else if (/^\[PATCH\](?=\s|$)/i.test(header)) { patch++; }
+else if (/^[a-z]+(?:\([^)]*\))?!:/.test(header) || /BREAKING CHANGE:/m.test(message)) { major++; minor=0; patch=0; }
 else if (/^feat(?:\([^)]*\))?:/.test(header)) { minor++; patch=0; }
 else patch++;
 pkg.version = [major, minor, patch].join('.');

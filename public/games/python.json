@@ -9,41 +9,41 @@
         {
           "id": "ca85acb2-78ad-4060-bb8d-6efefdf9f57b",
           "value": 100,
-          "clue": "This Python built-in reports a value's type.",
+          "clue": "This Python built-in returns a value's type.",
           "response": "What is type()?",
-          "hint": "A built-in function.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "04f81772-e356-4a81-a462-9d860d512b10",
           "value": 200,
-          "clue": "This type stores True or False.",
+          "clue": "This Python type represents True or False.",
           "response": "What is bool?",
-          "hint": "Boolean.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "c4e8037a-d11d-4e00-98ea-a2a355215927",
           "value": 300,
-          "clue": "This keyword handles a second conditional branch.",
+          "clue": "This keyword introduces an additional conditional branch.",
           "response": "What is elif?",
-          "hint": "Between if and else.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "72be706d-ea56-41c2-a801-b7ba8259f1ec",
           "value": 400,
-          "clue": "This loop is ideal for visiting every trade in a collection.",
+          "clue": "This loop iterates over an iterable.",
           "response": "What is a for loop?",
-          "hint": "Iterate through a sequence.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "9f34047f-60e4-4184-b246-ed81e648af2a",
           "value": 500,
-          "clue": "In this typing model, Python names can be rebound to values of different types without a fixed declared variable type.",
+          "clue": "This typing characteristic allows a name to reference values of different types.",
           "response": "What is dynamic typing?",
-          "hint": "Compare with Java.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -55,41 +55,41 @@
         {
           "id": "6a3d960e-877c-48d7-98fb-cbb5a4a7f20b",
           "value": 100,
-          "clue": "This keyword defines a Python function.",
+          "clue": "This keyword begins a Python function definition.",
           "response": "What is def?",
-          "hint": "Three letters.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "02bd39e3-354a-4bab-900b-e0e01d4232a8",
           "value": 200,
-          "clue": "A function parameter with a value such as threshold=20000 is this.",
+          "clue": "In def f(limit=10), 10 is this kind of argument value.",
           "response": "What is a default argument?",
-          "hint": "Optional to callers.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "162e9bea-38ea-4cfd-b4e6-5c56399dcfc0",
           "value": 300,
-          "clue": "Arguments passed by parameter name are called these.",
-          "response": "What are keyword arguments?",
-          "hint": "name=value.",
+          "clue": "Calling f(limit=10) uses this argument-passing style.",
+          "response": "What is a keyword argument?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "8ab6e661-1d47-47eb-8a7a-2ef3dce909a9",
           "value": 400,
-          "clue": "This Python idiom runs a guarded block when executed as the main program but not on ordinary import.",
-          "response": "What is if __name__ == '__main__':?",
-          "hint": "Direct execution only.",
+          "clue": "This condition is true when a Python module runs as the main program.",
+          "response": "What is __name__ == '__main__'?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "13ad9cf5-bac3-4587-b171-1687e51342fa",
           "value": 500,
-          "clue": "These Python annotations document intended types without enforcing them automatically at runtime.",
+          "clue": "These Python annotations are not automatically enforced at runtime.",
           "response": "What are type hints?",
-          "hint": "Hints, not runtime validation.",
+          "hint": "",
           "dailyDouble": false
         }
       ]

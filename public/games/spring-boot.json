@@ -101,41 +101,41 @@
         {
           "id": "d95d6caf-6256-41be-9026-f7e83dadafee",
           "value": 100,
-          "clue": "This acronym means Data Transfer Object.",
+          "clue": "This acronym stands for Data Transfer Object.",
           "response": "What is DTO?",
-          "hint": "API boundary.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "898197f8-998e-49bf-a1a6-387e2da8adf5",
           "value": 200,
-          "clue": "This validation annotation rejects blank text.",
+          "clue": "This Jakarta Validation annotation rejects blank text.",
           "response": "What is @NotBlank?",
-          "hint": "Nonempty string.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "a2fa55fe-2553-4f29-be60-1f0401e38341",
           "value": 300,
-          "clue": "This validation annotation requires a positive number.",
+          "clue": "This Jakarta Validation annotation requires a number above zero.",
           "response": "What is @Positive?",
-          "hint": "Quantity.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "6c4a9cc3-01b1-422e-a338-0534a555d79c",
           "value": 400,
-          "clue": "This annotation triggers Bean Validation on a request body.",
+          "clue": "This annotation triggers request-body Bean Validation.",
           "response": "What is @Valid?",
-          "hint": "Before controller method logic.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "bc77ea1f-4d1d-48ad-9120-d70afdc30105",
           "value": 500,
-          "clue": "These API boundary objects separate request and response contracts from internal domain models.",
-          "response": "What are request and response DTOs?",
-          "hint": "Different reasons to change.",
+          "clue": "These objects define API request and response contracts separately from domain models.",
+          "response": "What are DTOs?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

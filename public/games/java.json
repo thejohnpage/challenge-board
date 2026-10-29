@@ -195,7 +195,7 @@
           "value": 100,
           "clue": "This JUnit annotation marks a test method.",
           "response": "What is @Test?",
-          "hint": "An annotation.",
+          "hint": "",
           "dailyDouble": false
         },
         {
@@ -203,31 +203,31 @@
           "value": 200,
           "clue": "This JUnit annotation runs setup before each test.",
           "response": "What is @BeforeEach?",
-          "hint": "Fresh state.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "15035bcd-5e19-427f-919a-8f23373540ac",
           "value": 300,
-          "clue": "This assertion checks that code throws a specified exception.",
+          "clue": "This JUnit assertion verifies an expected exception.",
           "response": "What is assertThrows()?",
-          "hint": "It fails if nothing is thrown.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b0c71b60-46b3-4a16-b53d-27ced53cae66",
           "value": 400,
-          "clue": "This JUnit feature runs the same test with multiple input values.",
+          "clue": "This JUnit annotation runs tests with multiple argument sets.",
           "response": "What is @ParameterizedTest?",
-          "hint": "Avoid copied tests.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "6786cfb2-ec50-4168-8211-81da109c20b9",
           "value": 500,
-          "clue": "This mocking library can isolate a class from its collaborators.",
+          "clue": "This Java library creates mock collaborators for tests.",
           "response": "What is Mockito?",
-          "hint": "Mock dependencies.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -239,50 +239,50 @@
         {
           "id": "9cb3a3bd-0f7f-4435-964e-a2e4a54674cc",
           "value": 100,
-          "clue": "Replace cryptic names such as x and n1 with these.",
-          "response": "What are meaningful names?",
-          "hint": "Readability.",
+          "clue": "Identifiers such as totalAmount instead of x demonstrate this practice.",
+          "response": "What is meaningful naming?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "eb5f2b99-8f9a-4526-a5d0-50bd00512283",
           "value": 200,
-          "clue": "Replace an unexplained threshold of 10000 with this.",
+          "clue": "Replacing a magic number with MAX_VALUE introduces this construct.",
           "response": "What is a named constant?",
-          "hint": "No magic numbers.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "98d36851-a8eb-4a70-b1fc-af11844f33cc",
           "value": 300,
-          "clue": "A method that counts, categorizes and formats violates this design preference.",
-          "response": "What is one clear responsibility per method?",
-          "hint": "One job.",
+          "clue": "A method performing unrelated tasks violates this design guideline.",
+          "response": "What is single responsibility?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "bbc60674-13bf-414e-ac66-645dee4b1a73",
           "value": 400,
-          "clue": "Refactoring should improve structure while preserving this.",
-          "response": "What is observable behavior?",
-          "hint": "Same output.",
+          "clue": "Improving structure without changing behavior is this activity.",
+          "response": "What is refactoring?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "3c984820-d134-44e9-a06a-bd6f22571afc",
           "value": 500,
-          "clue": "Before accepting an AI-generated refactor, developers should perform this step to check correctness and unchanged behavior.",
-          "response": "What is reviewing and testing the changes?",
-          "hint": "AI suggestions require review.",
+          "clue": "This practice verifies an AI-generated refactor still works correctly.",
+          "response": "What is testing?",
+          "hint": "",
           "dailyDouble": false
         }
       ]
     }
   ],
   "finalJeopardy": {
-    "category": "Java Design Review",
-    "clue": "An object's quantity must never become negative regardless of which caller changes it. This principle keeps that rule close to the state.",
+    "category": "Java Design",
+    "clue": "This OO principle keeps a Holding object's quantity rules inside the object.",
     "response": "What is encapsulation?",
-    "hint": "Protect the invariant where state changes."
+    "hint": "Protect state."
   }
 }

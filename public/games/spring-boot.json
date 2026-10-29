@@ -87,7 +87,7 @@
         {
           "id": "e14aa2fc-12d2-4ab9-a5ff-7f503cf146bb",
           "value": 500,
-          "clue": "REST URLs such as GET /orders follow this convention instead of using /getOrders.",
+          "clue": "REST resource URLs normally use these parts of speech.",
           "response": "What is naming resources with nouns and expressing actions through HTTP methods?",
           "hint": "Resources, not verbs.",
           "dailyDouble": false

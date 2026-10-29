@@ -2,7 +2,7 @@
 <main *ngIf="!edit();else editor">
  <section class="board" [style.gridTemplateColumns]="'repeat('+game().categories.length+', minmax(0,1fr))'">
   <div class="category" *ngFor="let category of game().categories">{{category.name}}</div>
-  <ng-container *ngFor="let row of [0,1,2,3,4,5,6,7,8,9]">
+  <ng-container *ngFor="let row of boardRows()">
    <ng-container *ngFor="let category of game().categories"><button class="tile" *ngIf="category.clues[row] as q;else blank" [disabled]="used().includes(q.id)" (click)="open(q)">{{used().includes(q.id)?'':('$'+q.value)}}</button><ng-template #blank><div class="tile empty"></div></ng-template></ng-container>
   </ng-container>
  </section>

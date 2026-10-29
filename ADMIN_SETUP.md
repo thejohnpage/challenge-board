@@ -33,7 +33,8 @@ callable functions: `createOrganization`, `createLocation`, and `assignInstructo
 
 - Invitation emails and creating Authentication accounts from the dashboard are not yet implemented.
 - The existing Firestore rules are the authority for classroom and team operations.
-- Non-SuperAdmin organization/location discovery and scoped navigation require the next iteration.
+- Instructor assignments create scoped organization/location discovery records. Users can select only assigned organizations and locations.
+- User invitations, account creation, and role revocation are not yet implemented.
 - The existing local game is not yet connected to a Firestore game session.
 - Callables must be deployed before the new administration buttons will work.
 - App Check enforcement should be enabled once the application and domains are registered.

@@ -8,3 +8,22 @@
 .team-delete-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}
 .team-delete-actions .danger{background:#b42332;border-color:#fda4af;color:#fff;font-weight:700}
 .team-delete-actions button:focus-visible{outline:3px solid #ffda5d;outline-offset:3px}
+
+/* Team CRUD management dialog */
+.team-manager-backdrop{position:fixed;inset:0;z-index:40;background:rgba(2,8,27,.82);display:flex;align-items:center;justify-content:center;padding:20px}
+.team-manager-dialog{width:min(900px,100%);max-height:92vh;overflow:auto;background:#102a62;color:#f8fafc;border:2px solid #6c8de5;border-radius:14px;padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.55)}
+.team-manager-heading,.team-manager-footer{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.team-manager-heading h2{margin:0;font-size:26px}
+.team-manager-dialog p{line-height:1.5}
+.team-create{margin:18px 0}
+.team-create label,.team-manager-row label{display:grid;gap:5px;font-size:14px;color:#d9e5ff}
+.team-create-row{display:flex;gap:10px;margin-top:6px}
+.team-create-row input{flex:1;min-width:0}
+.team-manager-list{display:grid;gap:10px;margin:16px 0}
+.team-manager-row{display:grid;grid-template-columns:minmax(160px,2fr) minmax(100px,1fr) auto;gap:10px;align-items:end;background:#071a42;padding:12px;border-radius:8px}
+.team-manager-row input{width:100%;min-width:0}
+.team-manager-dialog .danger{background:#b42332;border-color:#fda4af;color:#fff}
+.team-manager-error{color:#ffb7b7;font-weight:700}
+.team-manager-footer{justify-content:flex-end}
+.team-manager-dialog button:focus-visible,.team-manager-dialog input:focus-visible{outline:3px solid #ffda5d;outline-offset:2px}
+@media(max-width:580px){.team-manager-row{grid-template-columns:1fr 1fr}.team-manager-row .danger{grid-column:1/-1}.team-create-row{flex-direction:column}}

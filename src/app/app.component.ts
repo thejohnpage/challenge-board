@@ -16,6 +16,7 @@ export class AppComponent {
   teams=signal<Team[]>(Array.from({length:4},(_,i)=>({id:uid(),name:`Team ${i+1}`,score:0,wager:0})));
   categoryIndex=signal(0); clueIndex=signal(0); notice=signal(''); projector=signal(false); private timer:any=null; private channel?:BroadcastChannel;
   game=computed(()=>this.games()[this.selected()] ?? starter);
+  boardRows=computed(()=>Array.from({length:Math.max(0,...this.game().categories.map(c=>c.clues.length))},(_,i)=>i));
   currentValue=computed(()=>this.modal()?.value ?? 0);
   displayValue=computed(()=>Math.round(this.currentValue()*(this.hinted()?0.75:1)));
   constructor(){

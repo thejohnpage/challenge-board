@@ -9,41 +9,41 @@
         {
           "id": "40007ce1-5092-4a3b-8ac5-9d693e079651",
           "value": 100,
-          "clue": "This annotation identifies a Spring Boot application's main configuration class.",
+          "clue": "This annotation identifies a Spring Boot application.",
           "response": "What is @SpringBootApplication?",
-          "hint": "Three annotations in one.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "d3166490-3915-4a6c-9efe-5863640c1f1b",
           "value": 200,
-          "clue": "This Maven file defines project dependencies and build configuration.",
+          "clue": "This Maven file declares dependencies and build configuration.",
           "response": "What is pom.xml?",
-          "hint": "Maven.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "889b049d-68d1-47f7-b275-a330d1662948",
           "value": 300,
-          "clue": "This starter adds Spring MVC, an embedded server and JSON support.",
+          "clue": "This starter adds Spring MVC and an embedded server.",
           "response": "What is spring-boot-starter-web?",
-          "hint": "Web starter.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "2c03b902-026b-48f7-9c90-26931affe0c0",
           "value": 400,
-          "clue": "This annotation maps a class to REST request handling.",
+          "clue": "This annotation marks a REST controller class.",
           "response": "What is @RestController?",
-          "hint": "HTTP endpoint.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "95243be7-59e1-486e-b44e-e90c15bea25c",
           "value": 500,
-          "clue": "@SpringBootApplication combines these three Spring annotations.",
-          "response": "What are @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan?",
-          "hint": "Configuration, automatic setup, scanning.",
+          "clue": "This annotation activates Spring Boot's automatic configuration.",
+          "response": "What is @EnableAutoConfiguration?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

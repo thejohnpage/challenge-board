@@ -64,8 +64,6 @@ export const createLocation = onCall(settings, async request => {
   const name = text(request.data?.name, 'Location name');
   const city = typeof request.data?.city === 'string' ? request.data.city.trim().slice(0,100) : '';
   const state = typeof request.data?.state === 'string' ? request.data.state.trim().slice(0,50) : '';
-  const ref = db.collection(locationPath(organizationId, '_placeholder')).parent.collection('locations').doc();
-  // Use the parent organization reference, not a location document.
   const actualRef = db.doc(orgPath(organizationId)).collection('locations').doc();
   await actualRef.create({ name, city, state, createdAt: FieldValue.serverTimestamp(), createdBy: uid });
   return { id: actualRef.id };

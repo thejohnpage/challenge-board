@@ -239,50 +239,50 @@
         {
           "id": "44f1d2f7-29b4-4ee6-a175-c2332a24b9b7",
           "value": 100,
-          "clue": "This Angular utility creates a testing environment for components/services.",
+          "clue": "This Angular testing utility configures component test environments.",
           "response": "What is TestBed?",
-          "hint": "Unit test setup.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "5c32f1c7-e804-4d5b-a6e3-e35ae59d25a8",
           "value": 200,
-          "clue": "This is the standard Angular testing utility for mocking HTTP requests.",
+          "clue": "This Angular testing controller inspects mocked HTTP requests.",
           "response": "What is HttpTestingController?",
-          "hint": "Test HTTP calls.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "9e45d8c0-f1d7-48ab-afdb-6c5f0ad2b047",
           "value": 300,
-          "clue": "Typed client generators can consume this machine-readable API contract.",
-          "response": "What is an OpenAPI specification?",
-          "hint": "Contract-driven calls.",
+          "clue": "Client generators use this API specification format to create typed clients.",
+          "response": "What is OpenAPI?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "d071a6de-30b2-48ad-86b6-51bff8990dff",
           "value": 400,
-          "clue": "Replacing a real API service with this test double makes component tests predictable and isolated.",
+          "clue": "This test double replaces a real API service in isolated component tests.",
           "response": "What is a mock service?",
-          "hint": "Controlled dependencies.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "e0c87d17-b5cb-4526-af5d-f83cf301df72",
           "value": 500,
-          "clue": "HTTP 401 indicates this authentication condition, often requiring sign-in or token refresh.",
-          "response": "What is an unauthenticated request?",
-          "hint": "Authentication state.",
+          "clue": "This HTTP status indicates missing or invalid authentication credentials.",
+          "response": "What is 401 Unauthorized?",
+          "hint": "",
           "dailyDouble": false
         }
       ]
     }
   ],
   "finalJeopardy": {
-    "category": "Angular Full Stack",
-    "clue": "An Angular component can submit a form to a Spring Boot REST endpoint through this injectable HTTP service.",
+    "category": "Angular Integration",
+    "clue": "This Angular service sends HTTP requests and returns RxJS Observables.",
     "response": "What is HttpClient?",
-    "hint": "Trace data across layers."
+    "hint": "HTTP service."
   }
 }

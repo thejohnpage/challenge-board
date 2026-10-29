@@ -55,41 +55,41 @@
         {
           "id": "614efef3-232d-46c2-921b-2e9b05214652",
           "value": 100,
-          "clue": "This HTTP verb retrieves resources without modifying them.",
+          "clue": "This HTTP method retrieves resources.",
           "response": "What is GET?",
-          "hint": "Read.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "a4f6634a-1e11-4bc9-a02d-628f84b76cf8",
           "value": 200,
-          "clue": "This HTTP status means a new resource was created.",
+          "clue": "This HTTP status reports a created resource.",
           "response": "What is 201 Created?",
-          "hint": "POST success.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "de6f3cfd-41e3-4f39-b529-3b1062a3befa",
           "value": 300,
-          "clue": "This HTTP method commonly applies a partial update.",
+          "clue": "This HTTP method applies partial updates.",
           "response": "What is PATCH?",
-          "hint": "Not full replacement.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b23ef181-c467-4e2a-84ff-a3414a3e8f73",
           "value": 400,
-          "clue": "This response status commonly indicates successful deletion with no response body.",
+          "clue": "This HTTP status reports success with no response body.",
           "response": "What is 204 No Content?",
-          "hint": "Empty success.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "e14aa2fc-12d2-4ab9-a5ff-7f503cf146bb",
           "value": 500,
           "clue": "REST resource URLs normally use these parts of speech.",
-          "response": "What is naming resources with nouns and expressing actions through HTTP methods?",
-          "hint": "Resources, not verbs.",
+          "response": "What are nouns?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

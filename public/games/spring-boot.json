@@ -193,41 +193,41 @@
         {
           "id": "b1d678cb-e745-48e6-8801-a4dc8e008c27",
           "value": 100,
-          "clue": "This annotation applies exception handlers across REST controllers.",
+          "clue": "This Spring annotation centralizes REST exception handlers.",
           "response": "What is @RestControllerAdvice?",
-          "hint": "Global handler.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "bd862eb6-3459-45aa-8905-9a933fa2b4ba",
           "value": 200,
-          "clue": "This annotation associates a method with a handled exception type.",
+          "clue": "This annotation maps an exception type to a handler method.",
           "response": "What is @ExceptionHandler?",
-          "hint": "Exception mapping.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "504931a9-2154-43de-9aae-1f3dde724d8e",
           "value": 300,
-          "clue": "This HTTP status represents a malformed or invalid request.",
+          "clue": "This HTTP status indicates an invalid client request.",
           "response": "What is 400 Bad Request?",
-          "hint": "Input invalid.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "b02b4e03-e945-48b5-91d9-26144a5bf953",
           "value": 400,
-          "clue": "This HTTP status can represent semantically invalid request content; state conflicts may instead use 409.",
+          "clue": "This HTTP status indicates semantically unprocessable request content.",
           "response": "What is 422 Unprocessable Content?",
-          "hint": "Business rejection.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "372ab245-78a5-459c-8119-a29ee41af870",
           "value": 500,
-          "clue": "A consistent ErrorResponse DTO provides API clients with this benefit.",
-          "response": "What is a predictable error contract?",
-          "hint": "Uniform API errors.",
+          "clue": "This response object provides a predictable error format to API clients.",
+          "response": "What is an ErrorResponse DTO?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

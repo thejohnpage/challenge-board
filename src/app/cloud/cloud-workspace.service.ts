@@ -22,6 +22,7 @@ export class CloudWorkspaceService {
   private readonly readyPromise: Promise<void>;
   private resolveReady!: () => void;
   private listeners: Unsubscribe[] = [];
+  private organizationsListening = false;
   private authGeneration = 0;
 
   constructor() {
@@ -105,6 +106,8 @@ export class CloudWorkspaceService {
   }
 
   watchOrganizations() {
+    if (this.organizationsListening) return;
+    this.organizationsListening = true;
     this.listen<Organization>('organizations', this.organizations);
   }
 
@@ -183,6 +186,7 @@ export class CloudWorkspaceService {
   }
   disconnect() {
     this.listeners.splice(0).forEach(stop => stop());
+    this.organizationsListening = false;
     this.selectedOrganizationId.set(null);
     this.selectedLocationId.set(null);
     this.organizationMembership.set(null);

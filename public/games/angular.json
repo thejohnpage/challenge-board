@@ -147,41 +147,41 @@
         {
           "id": "153dec5e-98e3-4ade-bd8f-390b4451b824",
           "value": 100,
-          "clue": "This Angular service makes HTTP requests.",
+          "clue": "This Angular service sends HTTP requests.",
           "response": "What is HttpClient?",
-          "hint": "From @angular/common/http.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "073104b2-5818-43ce-aba6-115b9a557e1a",
           "value": 200,
-          "clue": "This HTTP method typically retrieves a resource.",
+          "clue": "This HTTP method normally retrieves a resource.",
           "response": "What is GET?",
-          "hint": "Read only.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "0824c1f4-95aa-4b32-9921-5c34bc0f0fc3",
           "value": 300,
-          "clue": "This HTTP method typically creates a resource.",
+          "clue": "This HTTP method commonly creates a resource.",
           "response": "What is POST?",
-          "hint": "Create.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "3450fd8c-19a4-4cf8-ae92-7b8c81e40de2",
           "value": 400,
-          "clue": "Angular HttpClient request methods typically return this reactive type.",
+          "clue": "Angular HttpClient methods return this RxJS type.",
           "response": "What is an Observable?",
-          "hint": "RxJS.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "2f9ffefc-6035-49f7-adc4-a2cdb49b1752",
           "value": 500,
-          "clue": "Browsers enforce this cross-origin mechanism when Angular calls Spring Boot on a different origin.",
-          "response": "What is Cross-Origin Resource Sharing (CORS)?",
-          "hint": "Different ports count as different origins.",
+          "clue": "This browser security mechanism governs requests between different origins.",
+          "response": "What is CORS?",
+          "hint": "",
           "dailyDouble": false
         }
       ]

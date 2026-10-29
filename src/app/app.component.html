@@ -29,12 +29,16 @@
     <div class="team-manager-heading"><h2 id="team-manager-title">Manage Teams</h2><button type="button" (click)="closeTeamManager()" aria-label="Close team manager">✕</button></div>
     <p>Create, rename, adjust scores, or delete teams. Changes are saved automatically in this browser.</p>
     <div class="classroom-assignment">
-      <label for="classroom-name">Classroom name</label>
+      <label for="classroom-name">Classroom name to assign</label>
       <div class="classroom-assignment-row">
-        <input id="classroom-name" [ngModel]="classroomName()" (ngModelChange)="setClassroomName($event)" placeholder="e.g. Classroom 1" aria-label="Classroom name for this competition">
-        <button type="button" (click)="applyClassroomToAll()">Assign to All Teams</button>
+        <input id="classroom-name" [ngModel]="classroomName()" (ngModelChange)="setClassroomName($event)" placeholder="e.g. Classroom 1" aria-label="Classroom name to assign">
+        <button type="button" (click)="assignClassroomToSelected()" [disabled]="selectedTeamIds().length===0">Assign to Selected ({{selectedTeamIds().length}})</button>
       </div>
-      <small>Enter the classroom once and assign it to every team. Individual classroom assignments can still be edited below.</small>
+      <div class="team-selection-actions">
+        <button type="button" (click)="selectAllTeams()">Select All</button>
+        <button type="button" (click)="clearTeamSelection()">Clear Selection</button>
+      </div>
+      <small>Select the teams below, enter a classroom name, then assign it. Teams not selected keep their existing classroom.</small>
     </div>
     <form class="team-create" (submit)="$event.preventDefault();createTeam()">
       <label for="new-team-name">New team name</label>
@@ -43,6 +47,7 @@
     <p class="team-manager-error" *ngIf="teamError()" role="alert">{{teamError()}}</p>
     <div class="team-manager-list">
       <div class="team-manager-row" *ngFor="let team of teams()">
+        <label class="team-select"><input type="checkbox" [checked]="selectedTeamIds().includes(team.id)" (change)="toggleTeamSelection(team.id,$any($event.target).checked)" [attr.aria-label]="'Select '+team.name+' for classroom assignment'"> Select</label>
         <label>Team name
           <input [value]="team.name" (change)="updateTeamName(team.id,$any($event.target).value)" [attr.aria-label]="'Name for '+team.name">
         </label>

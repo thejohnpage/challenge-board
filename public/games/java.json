@@ -41,8 +41,8 @@
         {
           "id": "62216f39-56ee-4720-b9c2-98c5acc8400d",
           "value": 500,
-          "clue": "Explain the difference between checked and unchecked exceptions.",
-          "response": "What is: checked exceptions must be handled or declared; unchecked exceptions need not be?",
+          "clue": "These exceptions must be handled or declared, unlike unchecked exceptions.",
+          "response": "What are checked exceptions?",
           "hint": "Think compiler enforcement.",
           "dailyDouble": false
         }
@@ -63,7 +63,7 @@
         {
           "id": "68708068-5821-4964-b9eb-c08ff7692241",
           "value": 200,
-          "clue": "This keyword constructs a Java object.",
+          "clue": "This Java keyword creates a class instance by invoking a constructor.",
           "response": "What is new?",
           "hint": "Three letters.",
           "dailyDouble": false
@@ -87,8 +87,8 @@
         {
           "id": "1a234332-74c5-441d-8fb3-a1b31cb15917",
           "value": 500,
-          "clue": "When should composition generally be preferred over inheritance?",
-          "response": "What is when the relationship is has-a rather than a genuine is-a relationship?",
+          "clue": "This design approach assembles objects from collaborators instead of extending a class hierarchy.",
+          "response": "What is composition over inheritance?",
           "hint": "Avoid forcing an is-a hierarchy.",
           "dailyDouble": false
         }
@@ -133,8 +133,8 @@
         {
           "id": "679e97a3-6eba-434a-b6f5-f113075b65b1",
           "value": 500,
-          "clue": "Why is putting every business responsibility in one manager class a design smell?",
-          "response": "What is poor separation of responsibilities and excessive coupling?",
+          "clue": "A manager class containing unrelated business rules often suffers from these design problems.",
+          "response": "What are excessive coupling and poor separation of responsibilities?",
           "hint": "One class doing everything.",
           "dailyDouble": false
         }
@@ -179,8 +179,8 @@
         {
           "id": "5c9bd741-e125-4775-b5fe-25669d8c4415",
           "value": 500,
-          "clue": "Why is an interface useful when multiple unrelated classes provide the same behavior?",
-          "response": "What is defining a common contract without requiring shared implementation or inheritance?",
+          "clue": "This Java construct defines a common behavior contract for unrelated classes without requiring a shared implementation.",
+          "response": "What is an interface?",
           "hint": "A contract, not a base implementation.",
           "dailyDouble": false
         }
@@ -271,8 +271,8 @@
         {
           "id": "3c984820-d134-44e9-a06a-bd6f22571afc",
           "value": 500,
-          "clue": "Why should a developer review a Copilot-generated refactor before accepting it?",
-          "response": "What is to verify behavior, correctness and readability rather than trusting generated changes?",
+          "clue": "Before accepting an AI-generated refactor, developers should perform this step to check correctness and unchanged behavior.",
+          "response": "What is reviewing and testing the changes?",
           "hint": "AI suggestions require review.",
           "dailyDouble": false
         }
@@ -281,8 +281,8 @@
   ],
   "finalJeopardy": {
     "category": "Java Design Review",
-    "clue": "A Holding must never have negative quantity, and multiple callers may adjust it. Where should the invariant be enforced, and why?",
-    "response": "What is inside Holding's encapsulated adjustment method, so every mutation is validated in one place?",
+    "clue": "An object's quantity must never become negative regardless of which caller changes it. This principle keeps that rule close to the state.",
+    "response": "What is encapsulation?",
     "hint": "Protect the invariant where state changes."
   }
 }

@@ -87,8 +87,8 @@
         {
           "id": "f171bf06-a283-464d-82da-db418166965e",
           "value": 500,
-          "clue": "What does TypeScript's type system generally do at compilation rather than runtime?",
-          "response": "What is check static types and erase type annotations from emitted JavaScript?",
+          "clue": "This TypeScript compilation process checks static types and removes type-only annotations from emitted JavaScript.",
+          "response": "What are type checking and type erasure?",
           "hint": "TypeScript compiles to JS.",
           "dailyDouble": false
         }
@@ -101,8 +101,8 @@
         {
           "id": "c2bd9c2a-82c4-426a-b569-17651f319778",
           "value": 100,
-          "clue": "This syntax annotates a function's return type: function f(): ___.",
-          "response": "What is a type annotation?",
+          "clue": "In function f(): number, the ': number' portion is this kind of annotation.",
+          "response": "What is a return-type annotation?",
           "hint": "After the parentheses.",
           "dailyDouble": false
         },
@@ -133,8 +133,8 @@
         {
           "id": "c2cd53c7-b9d1-4cd9-8750-b337b404c849",
           "value": 500,
-          "clue": "What is the purpose of a type guard such as typeof x === 'string'?",
-          "response": "What is narrowing a union type so string operations can be used safely?",
+          "clue": "This TypeScript technique uses checks such as typeof x === 'string' to refine a union type.",
+          "response": "What is type narrowing using a type guard?",
           "hint": "Refine a broad type.",
           "dailyDouble": false
         }
@@ -163,7 +163,7 @@
         {
           "id": "57cb3d5e-d182-4fe4-b8f9-96ef441d2c17",
           "value": 300,
-          "clue": "This keyword pauses execution within an async function until a Promise settles.",
+          "clue": "This keyword suspends its enclosing async function while the awaited value is resolved.",
           "response": "What is await?",
           "hint": "Pauses the function, not the thread.",
           "dailyDouble": false
@@ -179,8 +179,8 @@
         {
           "id": "1e409283-00a8-4049-beee-0351faec60da",
           "value": 500,
-          "clue": "Why does setTimeout(fn, 0) not execute fn before subsequent synchronous code?",
-          "response": "What is the callback waits for the call stack and event-loop scheduling?",
+          "clue": "This scheduling mechanism explains why a zero-delay timer callback cannot interrupt synchronous code.",
+          "response": "What is the event loop?",
           "hint": "Synchronous work runs first.",
           "dailyDouble": false
         }
@@ -217,16 +217,16 @@
         {
           "id": "b5f895e4-7af6-461e-9e8f-a2b9e39652ae",
           "value": 400,
-          "clue": "These callbacks generally run before timer macrotasks after synchronous code completes.",
-          "response": "What are microtasks (such as Promise callbacks)?",
+          "clue": "In ordinary JavaScript scheduling, these callbacks are microtasks and generally execute before timer callbacks.",
+          "response": "What are Promise reaction callbacks?",
           "hint": "Queue priority.",
           "dailyDouble": false
         },
         {
           "id": "ea30bc1f-3110-4658-b0e6-fc797d78f40c",
           "value": 500,
-          "clue": "Contrast CommonJS import syntax with ES module import syntax.",
-          "response": "What are require() for CommonJS and import for ES modules?",
+          "clue": "CommonJS uses require(), while ECMAScript modules use this declaration for loading exports.",
+          "response": "What is import?",
           "hint": "Two module systems.",
           "dailyDouble": false
         }
@@ -271,8 +271,8 @@
         {
           "id": "f6f9e14a-b9fd-4a9e-848f-031afe7faa62",
           "value": 500,
-          "clue": "Why can incorrect TypeScript decorator metadata configuration break NestJS constructor injection?",
-          "response": "What is Nest relies on runtime decorator metadata to resolve dependencies?",
+          "clue": "NestJS constructor injection may fail when this runtime type-discovery feature is missing or misconfigured.",
+          "response": "What is decorator metadata?",
           "hint": "Compiler/runtime configuration matters.",
           "dailyDouble": false
         }
@@ -281,8 +281,8 @@
   ],
   "finalJeopardy": {
     "category": "TypeScript & Node",
-    "clue": "Explain the order of synchronous statements, Promise callbacks and setTimeout callbacks in the event loop.",
-    "response": "What is synchronous code first, then Promise microtasks, then eligible timer macrotasks?",
+    "clue": "In a typical JavaScript event-loop turn, these execute in order: current statements, Promise reactions, and eligible timer callbacks.",
+    "response": "What are synchronous code, Promise microtasks, and timer callbacks?",
     "hint": "Think call stack and queues."
   }
 }

@@ -9,7 +9,7 @@
         {
           "id": "01a45a3d-441e-447e-b291-125f7f33d09a",
           "value": 100,
-          "clue": "This decorator identifies an Angular component.",
+          "clue": "This decorator supplies metadata such as selector and template for an Angular component.",
           "response": "What is @Component?",
           "hint": "",
           "dailyDouble": false
@@ -17,7 +17,7 @@
         {
           "id": "3dfd2e0f-d909-45ed-b1c6-a6a12bc5ed13",
           "value": 200,
-          "clue": "This npm manifest lists project dependencies and scripts.",
+          "clue": "This npm file lists application dependencies and scripts.",
           "response": "What is package.json?",
           "hint": "",
           "dailyDouble": false
@@ -25,7 +25,7 @@
         {
           "id": "ca5ac7e9-16e9-4244-9c76-7c3777c12f7e",
           "value": 300,
-          "clue": "This Angular view definition combines HTML with component expressions.",
+          "clue": "This Angular view definition combines markup with expressions and bindings.",
           "response": "What is a template?",
           "hint": "",
           "dailyDouble": false
@@ -33,7 +33,7 @@
         {
           "id": "b9024aa1-1507-4d9b-ad1e-e490b635b3d0",
           "value": 400,
-          "clue": "This Angular CLI command creates a project.",
+          "clue": "This Angular CLI command scaffolds a new workspace and application.",
           "response": "What is ng new?",
           "hint": "",
           "dailyDouble": false
@@ -41,7 +41,7 @@
         {
           "id": "d092e360-8381-4d23-9691-6d356d41e4af",
           "value": 500,
-          "clue": "This TypeScript-based framework builds client-side web interfaces.",
+          "clue": "This TypeScript-based framework builds browser-side applications using components and dependency injection.",
           "response": "What is Angular?",
           "hint": "",
           "dailyDouble": false
@@ -55,7 +55,7 @@
         {
           "id": "d96f4b00-0ad1-49ea-9282-5da33166e444",
           "value": 100,
-          "clue": "Double curly braces in a template use this binding syntax.",
+          "clue": "Double curly braces display a component expression using this Angular template feature.",
           "response": "What is interpolation?",
           "hint": "",
           "dailyDouble": false
@@ -63,7 +63,7 @@
         {
           "id": "94937df1-b977-4515-a3ab-047d6f55d4ca",
           "value": 200,
-          "clue": "Square brackets in an Angular template denote this binding type.",
+          "clue": "Square brackets around an element property indicate this Angular binding technique.",
           "response": "What is property binding?",
           "hint": "",
           "dailyDouble": false
@@ -71,7 +71,7 @@
         {
           "id": "7b5f43c8-7bbe-42d9-bdb4-82d5ba8aaa07",
           "value": 300,
-          "clue": "Parentheses around click in an Angular template denote this binding type.",
+          "clue": "Parentheses around click in a template indicate this Angular binding technique.",
           "response": "What is event binding?",
           "hint": "",
           "dailyDouble": false
@@ -79,7 +79,7 @@
         {
           "id": "59afc208-3057-4da5-a469-205330e41994",
           "value": 400,
-          "clue": "This traditional decorator declares a component input supplied by a parent.",
+          "clue": "This traditional Angular decorator marks a property that receives data from a parent.",
           "response": "What is @Input()?",
           "hint": "",
           "dailyDouble": false
@@ -87,7 +87,7 @@
         {
           "id": "2d6d40d4-17d0-4549-851a-0acd1eba6be8",
           "value": 500,
-          "clue": "This traditional decorator declares a component event sent to a parent.",
+          "clue": "This traditional Angular decorator marks an event emitter exposed to a parent.",
           "response": "What is @Output()?",
           "hint": "",
           "dailyDouble": false
@@ -101,7 +101,7 @@
         {
           "id": "73cd2d19-f877-436d-a729-22e3843fa406",
           "value": 100,
-          "clue": "This decorator marks an Angular injectable class.",
+          "clue": "This Angular decorator marks a class that can participate in dependency injection.",
           "response": "What is @Injectable()?",
           "hint": "",
           "dailyDouble": false
@@ -109,7 +109,7 @@
         {
           "id": "a8e9640e-5712-46fa-a03c-4bd3979273f7",
           "value": 200,
-          "clue": "This mechanism supplies services to components.",
+          "clue": "An Angular component receiving a service without constructing it manually uses this mechanism.",
           "response": "What is dependency injection?",
           "hint": "",
           "dailyDouble": false
@@ -117,7 +117,7 @@
         {
           "id": "b4c69336-23db-465b-99a1-b7dfd375ed47",
           "value": 300,
-          "clue": "This configuration registers a service with Angular's root injector.",
+          "clue": "This Angular provider configuration makes a service available through the root injector.",
           "response": "What is providedIn: 'root'?",
           "hint": "",
           "dailyDouble": false
@@ -125,7 +125,7 @@
         {
           "id": "7124169f-edd3-4775-b8fe-78f6c3ee915f",
           "value": 400,
-          "clue": "Reusable HTTP logic usually belongs in this Angular building block.",
+          "clue": "Reusable HTTP access and shared application logic are commonly placed in this Angular class type.",
           "response": "What is a service?",
           "hint": "",
           "dailyDouble": false
@@ -133,7 +133,7 @@
         {
           "id": "8822898a-f5f9-4a7c-b89d-d7410ba7396a",
           "value": 500,
-          "clue": "This pattern separates components from dependency construction.",
+          "clue": "The inject() function and constructor injection are two ways to use this Angular mechanism.",
           "response": "What is dependency injection?",
           "hint": "",
           "dailyDouble": false
@@ -147,7 +147,7 @@
         {
           "id": "153dec5e-98e3-4ade-bd8f-390b4451b824",
           "value": 100,
-          "clue": "This Angular service sends HTTP requests.",
+          "clue": "This Angular class provides methods such as get() and post() for HTTP requests.",
           "response": "What is HttpClient?",
           "hint": "",
           "dailyDouble": false
@@ -155,7 +155,7 @@
         {
           "id": "073104b2-5818-43ce-aba6-115b9a557e1a",
           "value": 200,
-          "clue": "This HTTP method normally retrieves a resource.",
+          "clue": "This HTTP method normally retrieves a resource without modifying it.",
           "response": "What is GET?",
           "hint": "",
           "dailyDouble": false
@@ -163,7 +163,7 @@
         {
           "id": "0824c1f4-95aa-4b32-9921-5c34bc0f0fc3",
           "value": 300,
-          "clue": "This HTTP method commonly creates a resource.",
+          "clue": "This HTTP method commonly submits a new resource for creation.",
           "response": "What is POST?",
           "hint": "",
           "dailyDouble": false
@@ -171,7 +171,7 @@
         {
           "id": "3450fd8c-19a4-4cf8-ae92-7b8c81e40de2",
           "value": 400,
-          "clue": "Angular HttpClient methods return this RxJS type.",
+          "clue": "Angular HttpClient methods typically return this RxJS abstraction.",
           "response": "What is an Observable?",
           "hint": "",
           "dailyDouble": false
@@ -179,7 +179,7 @@
         {
           "id": "2f9ffefc-6035-49f7-adc4-a2cdb49b1752",
           "value": 500,
-          "clue": "This browser security mechanism governs requests between different origins.",
+          "clue": "A browser checks this cross-origin policy when the Angular UI calls a backend on another origin.",
           "response": "What is CORS?",
           "hint": "",
           "dailyDouble": false
@@ -193,7 +193,7 @@
         {
           "id": "e886eb9a-c68b-4ee6-a4dd-b9f57a7fbb6a",
           "value": 100,
-          "clue": "This Angular forms approach defines controls in TypeScript.",
+          "clue": "This Angular forms style declares FormControl and FormGroup in TypeScript.",
           "response": "What are reactive forms?",
           "hint": "",
           "dailyDouble": false
@@ -201,7 +201,7 @@
         {
           "id": "c52f4aee-495e-4dcd-9451-907a081320c4",
           "value": 200,
-          "clue": "This Angular class groups related reactive form controls.",
+          "clue": "This Angular class combines several controls into a single form model.",
           "response": "What is FormGroup?",
           "hint": "",
           "dailyDouble": false
@@ -209,7 +209,7 @@
         {
           "id": "3cfc0afd-eea6-4644-8ffb-965ef4d0e9db",
           "value": 300,
-          "clue": "This Angular directive displays the currently activated route.",
+          "clue": "This Angular directive is the placeholder for the component selected by the router.",
           "response": "What is RouterOutlet?",
           "hint": "",
           "dailyDouble": false
@@ -217,7 +217,7 @@
         {
           "id": "a5954ebc-4ff3-407a-90ee-29fe7ff94d00",
           "value": 400,
-          "clue": "This Angular service navigates between application routes.",
+          "clue": "This Angular service provides methods such as navigate() for changing routes.",
           "response": "What is Router?",
           "hint": "",
           "dailyDouble": false
@@ -225,7 +225,7 @@
         {
           "id": "fa5cde61-d6e7-4d11-b548-d79a8fecee0e",
           "value": 500,
-          "clue": "This Angular routing feature can permit or block navigation.",
+          "clue": "This Angular feature can allow or reject navigation to a route, without replacing server authorization.",
           "response": "What is a route guard?",
           "hint": "",
           "dailyDouble": false
@@ -239,7 +239,7 @@
         {
           "id": "44f1d2f7-29b4-4ee6-a175-c2332a24b9b7",
           "value": 100,
-          "clue": "This Angular testing utility configures component test environments.",
+          "clue": "This Angular testing utility configures the test environment for components and services.",
           "response": "What is TestBed?",
           "hint": "",
           "dailyDouble": false
@@ -247,7 +247,7 @@
         {
           "id": "5c32f1c7-e804-4d5b-a6e3-e35ae59d25a8",
           "value": 200,
-          "clue": "This Angular testing controller inspects mocked HTTP requests.",
+          "clue": "This Angular testing helper verifies expected HTTP requests when using the HTTP testing backend.",
           "response": "What is HttpTestingController?",
           "hint": "",
           "dailyDouble": false
@@ -255,7 +255,7 @@
         {
           "id": "9e45d8c0-f1d7-48ab-afdb-6c5f0ad2b047",
           "value": 300,
-          "clue": "Client generators use this API specification format to create typed clients.",
+          "clue": "This machine-readable API contract can be used to generate typed TypeScript clients.",
           "response": "What is OpenAPI?",
           "hint": "",
           "dailyDouble": false
@@ -263,7 +263,7 @@
         {
           "id": "d071a6de-30b2-48ad-86b6-51bff8990dff",
           "value": 400,
-          "clue": "This test double replaces a real API service in isolated component tests.",
+          "clue": "A component test may substitute this test double for a live HTTP service.",
           "response": "What is a mock service?",
           "hint": "",
           "dailyDouble": false
@@ -271,7 +271,7 @@
         {
           "id": "e0c87d17-b5cb-4526-af5d-f83cf301df72",
           "value": 500,
-          "clue": "This HTTP status indicates missing or invalid authentication credentials.",
+          "clue": "A missing or invalid authentication credential commonly produces this HTTP response status.",
           "response": "What is 401 Unauthorized?",
           "hint": "",
           "dailyDouble": false
@@ -280,9 +280,9 @@
     }
   ],
   "finalJeopardy": {
-    "category": "Angular Integration",
-    "clue": "This Angular service sends HTTP requests and returns RxJS Observables.",
-    "response": "What is HttpClient?",
-    "hint": "HTTP service."
+    "category": "Angular Architecture",
+    "clue": "This Angular mechanism supplies reusable services to components without requiring components to instantiate them.",
+    "response": "What is dependency injection?",
+    "hint": "Service provisioning."
   }
 }

@@ -101,41 +101,41 @@
         {
           "id": "c2bd9c2a-82c4-426a-b569-17651f319778",
           "value": 100,
-          "clue": "In function f(): number, the ': number' portion is this kind of annotation.",
+          "clue": "In function f(): number, the : number portion is this annotation.",
           "response": "What is a return-type annotation?",
-          "hint": "After the parentheses.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "c653e383-eeba-45ff-8d82-ce15654145b6",
           "value": 200,
-          "clue": "This marker makes an object property optional in a type declaration.",
+          "clue": "This symbol marks an optional property in a TypeScript interface.",
           "response": "What is ?",
-          "hint": "After the property name.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "fbdfadc8-7b9d-4008-8074-f421ddec252b",
           "value": 300,
-          "clue": "This generic syntax represents an array of strings.",
+          "clue": "This generic syntax denotes an array of strings.",
           "response": "What is Array<string>?",
-          "hint": "Angle brackets.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "ecbdaaca-7f77-45d4-a35d-27123c93e009",
           "value": 400,
-          "clue": "This construct allows reusable functions to preserve relationships between input and output types.",
+          "clue": "This TypeScript feature preserves relationships between parameter and return types.",
           "response": "What are generics?",
-          "hint": "Think <T>.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "c2cd53c7-b9d1-4cd9-8750-b337b404c849",
           "value": 500,
-          "clue": "This TypeScript technique uses checks such as typeof x === 'string' to refine a union type.",
-          "response": "What is type narrowing using a type guard?",
-          "hint": "Refine a broad type.",
+          "clue": "A typeof check can perform this operation on a union type.",
+          "response": "What is type narrowing?",
+          "hint": "",
           "dailyDouble": false
         }
       ]
@@ -147,41 +147,41 @@
         {
           "id": "f536d14b-5cb4-45f4-a0bb-763ae861c21d",
           "value": 100,
-          "clue": "This object represents an eventual success or failure.",
+          "clue": "This JavaScript object represents a future result or failure.",
           "response": "What is a Promise?",
-          "hint": "Pending, fulfilled or rejected.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "c5cc6f61-3325-4578-bc32-7a22f9fb2c7c",
           "value": 200,
-          "clue": "This method handles a rejected Promise.",
-          "response": "What is .catch()?",
-          "hint": "Error path.",
+          "clue": "This Promise method handles a rejection.",
+          "response": "What is catch()?",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "57cb3d5e-d182-4fe4-b8f9-96ef441d2c17",
           "value": 300,
-          "clue": "This keyword suspends its enclosing async function while the awaited value is resolved.",
+          "clue": "This keyword suspends an async function until an awaited value is resolved.",
           "response": "What is await?",
-          "hint": "Pauses the function, not the thread.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "0b47c19b-dea3-4406-b24d-0afac6ffca28",
           "value": 400,
-          "clue": "This method waits for multiple Promises and rejects if one rejects.",
+          "clue": "This method rejects if any of its input Promises rejects.",
           "response": "What is Promise.all()?",
-          "hint": "Concurrent operations.",
+          "hint": "",
           "dailyDouble": false
         },
         {
           "id": "1e409283-00a8-4049-beee-0351faec60da",
           "value": 500,
-          "clue": "This scheduling mechanism explains why a zero-delay timer callback cannot interrupt synchronous code.",
+          "clue": "This scheduling mechanism runs timer callbacks after synchronous code completes.",
           "response": "What is the event loop?",
-          "hint": "Synchronous work runs first.",
+          "hint": "",
           "dailyDouble": false
         }
       ]
